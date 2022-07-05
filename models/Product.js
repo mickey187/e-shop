@@ -25,7 +25,7 @@ var ProductSchema = new Schema({
 
     description: {
         type: String,
-        requires: true
+        required: true
     }, 
 
     category: {
@@ -40,7 +40,13 @@ var ProductSchema = new Schema({
     tags: {
         type: Array,
         required: false
+    },
+
+    images: {
+        type: Array,
+        required: false
     }
+
 });
 
 ProductSchema.plugin(passportLocalMongoose);

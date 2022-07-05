@@ -19,7 +19,14 @@ var ProductAttributeSchema = new Schema({
 
     Product: [{
         type: Schema.Types.ObjectId,
+        sparse: true,
         ref: 'Product'
+        
+        
     }]
 
 });
+
+// ProductAttributeSchema.index({attributeName: 1, value: -1}, {unique: true});
+ProductAttributeSchema.plugin(passportLocalMongoose);
+module.exports = mongoose.model('ProductAttribute', ProductAttributeSchema);

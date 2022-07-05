@@ -24,7 +24,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-bold" data-toggle="tab" href="#view_product_tab" id="view_product_tab_link" role="tab" id="view_product_link">View Product</a>
+                <a class="nav-link text-bold" data-toggle="tab" href="#view_product_tab" id="view_product_tab_link" role="tab">View Product</a>
               </li>
 
           </ul>
@@ -53,25 +53,62 @@
                 </div>
 
                 <div class="tab-pane" id="view_product_category_tab" role="tabpanel">
-                    <p>View Product Category</p>
+                    
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12">
+                          <table id="view_product_category_table" class="table table-bordered table-striped">
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>Category</th> 
+                                <th>Sub Category</th>   
+                                {{!-- <th>Action</th> --}}
+                              </tr>
+                            </thead>
+                            
+                          </table>
                         </div>
                     </div>
                 </div>
 
                 <div class="tab-pane" id="add_product_attribute_tab" role="tabpanel">
-                    <p>Add Product Attribute</p>
-                    <div class="row">
+                   
+                    <div class="row justify-content-center">
                         <div class="col-6">
+
+                          <div class="form-group">
+                            <label for="">Product Attribute Name</label>
+                            <input type="text" class="form-control" name="product_attribute_name" id="product_attribute_name" aria-describedby="helpId" placeholder="Product Attribute Name">
+                            {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+                          </div>
+
+                          <div class="form-group">
+                            <label for="">Value</label>
+                            <input type="text"
+                              class="form-control" name="product_attribute_value" id="product_attribute_value" aria-describedby="helpId" placeholder="Value">
+                            {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+                          </div>
+
+                          <button type="button" name="add_product_attribute_btn" id="add_product_attribute_btn" class="btn btn-primary btn-lg btn-block">Submit</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="tab-pane" id="view_product_attribute_tab" role="tabpanel">
-                    <p>view Product Attribute</p>
-                    <div class="row">
-                        <div class="col-6">
+                    
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                          <table id="view_product_attribute_table" class="table table-bordered table-striped">
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>Attribute Name</th> 
+                                <th>Attribute Value</th>   
+                                {{!-- <th>Action</th> --}}
+                              </tr>
+                            </thead>
+                            
+                          </table>
                         </div>
                     </div>
                 </div>
@@ -99,10 +136,8 @@
 
                             <div class="form-group">
                               <label for="product_category">Product Category</label>
-                              <select class="form-control" name="product_category" id="product_category">
-                                <option>Electronics</option>
-                                <option>Clothing</option>
-                                <option>Tools</option>
+                              <select class="form-control" name="product_category_list" id="product_category_list">
+                                
                               </select>
                             </div>
                             {{!-- <div class="form-group">
@@ -116,6 +151,20 @@
                         </div>
 
                         <div class="col-6">
+
+                          <div class="form-group">
+                              <label for="product_attribute_list">Product Attribute</label>
+                              <select class="select2" name="product_attribute_list" id="product_attribute_list" multiple="multiple" style="width: 100%"data-placeholder="Select Class" name="select_classes[]">
+                                
+                              </select>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label for="">Product Tags</label>
+                              <input type="text" class="form-control" name="tags" id="tags_input" aria-describedby="helpId" placeholder="Enter product tags">
+                              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+                            </div>
+           
                             <div class="form-group">
                               <label for="exampleFormControlTextarea1">Product Description</label>
                               <textarea class="form-control" id="product_description" rows="3"></textarea>
@@ -126,21 +175,48 @@
                           <div class="upload__btn-box">
                             <label class="upload__btn">
                               <p>Upload images</p>
-                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile">
+                              <input type="file" multiple="" name="product_image_upload" id="product_image_upload" data-max_length="20" class="upload__inputfile">
                             </label>
                           </div>
                           <div class="upload__img-wrap"></div>
                          </div>
                        </div>
 
+                       <div class="row justify-content-center">
+                        <div class="col-6">
+                          <button type="button" name="add_product_btn" id="add_product_btn" class="btn btn-primary btn-lg btn-block">Add Product</button>
+                        </div>
+                       </div>
+
                 </div>
 
                 <div class="tab-pane " id="view_product_tab" role="tabpanel">
-                    <p>View Product</p>
-                    <div class="row">
-                        <div class="col-6">
+                    
+                    {{!-- <div class="row">
+                        <div class="col-4 " style="display: grid; grid-template-columns:1fr 1fr 1fr" id="product_div">
 
                         </div>
+                    </div> --}}
+                    <div class="row">
+                      <div class="col-12">
+                        <table id="view_product_table" class="table table-bordered table-striped">
+                            <thead>
+                              <tr>
+                                {{!-- <th>ID</th> --}}
+                                <th>Name</th> 
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                {{!-- <th>Description</th> --}}
+                                <th>Category</th>
+                                <th>Sub Category</th> 
+                                {{!-- <th>Attributes</th> --}}
+                                {{!-- <th>Tags</th> --}}
+                                <th>Images</th>                                   
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                          </table>
+                      </div>
                     </div>
 
                 </div>
