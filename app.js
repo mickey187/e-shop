@@ -8,10 +8,16 @@ const session = require('express-session');  // session middleware
 const passport = require('passport');  // authentication
 const connectEnsureLogin = require('connect-ensure-login'); //authorization
 const User = require('./models/User.js');
+// const BearerStrategy = require('passport-http-bearer');
+
+
+ 
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productRouter = require('./routes/productRouter');
+var apiRouter = require('./routes/api');
 // var router = express.Router({ mergeParams: true });
 
 var app = express();
@@ -21,6 +27,7 @@ const SeedController = require('./controller/SeedController');
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'hbs');
 
+
 const {engine} = require('express-handlebars');
 app.engine('hbs', engine({extname: ".hbs"}));
 app.set('view engine', 'hbs');
@@ -29,6 +36,7 @@ app.set('views', './views');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'storage')));
@@ -37,6 +45,7 @@ app.use('/storage', express.static('storage'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 
@@ -89,6 +98,8 @@ app.post('/login', passport.authenticate('local', { failureRedirect: '/login' })
 // app.get('/products/add-product', function(req, res){
 //   res.render('sales_manager/add_products', {layout:'main'});
 // });
+
+
 
 
 

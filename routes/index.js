@@ -21,7 +21,7 @@ router.get('/', function(req, res, next){
 
 
 
-// router.get('/seed', SeedController.addUser);
+router.get('/seed', SeedController.addUser);
 
 
 module.exports = router;

@@ -309,7 +309,7 @@ $('#view_product_tab_link').click(function (e) {
         for (let index = 0; index < element.attributes.length; index++) {
          
           Object.assign(element, {image: '<img src="/'+element.images[0]+'" alt="..." class="img-thumbnail" style="width:100px;height: 100px">' });
-          Object.assign(element, {action: '<button type="button" class="btn btn-primary btn-sm btn-success"><i class="fas fa-info-circle"></i></button>'+' '+
+          Object.assign(element, {action: '<button type="button" class="btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#view_product_detail" data-whatever="@mdo"><i class="fas fa-info-circle"></i></button>'+' '+
                                    '<button type="button" class="btn btn-primary btn-sm btn-info"><i class="fas fa-edit"></i></button>'+' '+
                                    '<button type="button" class="btn btn-primary btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>'
                                   })
@@ -337,13 +337,7 @@ $('#view_product_tab_link').click(function (e) {
             // { "data": "tags"},
             { "data": "image"},
             { "data": "action"}
-
-            
-
-
-           
-            
-           
+ 
         ],
         "responsive": true,
         "lengthChange": false,
@@ -377,6 +371,16 @@ $('#view_product_tab_link').click(function (e) {
   });
   
 });
+
+$('#view_product_detail').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
 
 
 

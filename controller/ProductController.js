@@ -4,7 +4,14 @@ var UserData = require('../models/User.js');
 var Product = require('../models/Product');
 var ProductAttribute = require('../models/ProductAttribute');
 var ProductCategory = require('../models/ProductCategory');
-mongoose.connect('mongodb://localhost:27017/Ecommerce');
+
+// mongoose.connect('mongodb://localhost:27017/Ecommerce');
+
+// cloud database
+mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 
 var path = require('path');

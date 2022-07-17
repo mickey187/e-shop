@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const ProductController = require('../controller/ProductController');
+const connectEnsureLogin = require('connect-ensure-login');
 // var path = require('path');
 
 var multer = require('multer');
@@ -25,7 +26,7 @@ var storage = multer.memoryStorage(
 // router.get('/products', function(req, res, next){
 
 // });
-router.get('/add-product',  async function (req, res, next){
+router.get('/add-product', async function (req, res, next){
 //     var ProductAttribute = require('../models/ProductAttribute');
 //     var ProductCategory = require('../models/ProductCategory');
 //    await ProductAttribute.deleteMany({});
