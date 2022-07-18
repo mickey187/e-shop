@@ -1,9 +1,16 @@
 var mongoose = require('mongoose');
+// const passportLocalMongoose = require('passport-local-mongoose');
+// mongoose.connect('mongodb://localhost:27017/Ecommerce',{
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
+
 const passportLocalMongoose = require('passport-local-mongoose');
-mongoose.connect('mongodb://localhost:27017/Ecommerce',{
+mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
+}).then(() => console.log("MongoDB Connected..."))
+.catch(err => console.log(err));;
 var Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
@@ -37,6 +44,7 @@ var ProductSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'ProductAttribute'
     }],
+
     tags: {
         type: Array,
         required: false
@@ -45,9 +53,19 @@ var ProductSchema = new Schema({
     images: {
         type: Array,
         required: false
-    }
+    },
 
-});
+    relatedProducts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Product'
+        }
+    ]
+},
+
+{timestamps: true}
+
+);
 
 ProductSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('Product', ProductSchema);

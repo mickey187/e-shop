@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
+// const passportLocalMongoose = require('passport-local-mongoose');
+// mongoose.connect('mongodb://localhost:27017/Ecommerce',{
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
 const passportLocalMongoose = require('passport-local-mongoose');
-mongoose.connect('mongodb://localhost:27017/Ecommerce',{
+mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -23,9 +28,12 @@ var ProductAttributeSchema = new Schema({
         ref: 'Product'
         
         
-    }]
+    }],
 
-});
+
+},
+{timestamps: true}
+);
 
 // ProductAttributeSchema.index({attributeName: 1, value: -1}, {unique: true});
 ProductAttributeSchema.plugin(passportLocalMongoose);

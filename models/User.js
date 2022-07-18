@@ -41,8 +41,11 @@ var UserSchema = new Schema({
     role: {
         type: String,
         enum: ['customer', 'system_admin', 'sales_manager', 'sales_staff']
-    }
-});
+    },
+
+},
+{timestamps: true}
+);
 
 UserSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('User', UserSchema);
