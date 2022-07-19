@@ -6,6 +6,7 @@ var User = require('../models/User');
 const passportLocalMongoose  = require('passport-local-mongoose');
 const ApiAuthController = require('../controller/ApiAuthController');
 const {check, validationResult} = require('express-validator');
+const ProductApiController = require('../controller/ProductApiController');
 
 // customer signup api endpoint
 router.post('/customer/signup', [
@@ -46,7 +47,9 @@ router.get('/customer/profile', verifyToken, function(req, res) {
         }
     });
     
-})
+});
+
+router.get('/products/fetch-product-category', ProductApiController.fetchProductCategory);
 
 // FORMAT OF TOKEN
 // Authorization: Bearer <access_token>

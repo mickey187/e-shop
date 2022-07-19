@@ -76,6 +76,8 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+
 app.get('/login', function(req, res){
 res.render('auth/login', {layout:'layout'});
 });
@@ -86,11 +88,21 @@ res.render('layouts/layout');
 
 app.get('/seed', SeedController.addUser);
 
-app.post('/login', passport.authenticate('local', { failureRedirect: '/login' }),  function(req, res) {
-	console.log(req.user)
+app.post('/login', passport.authenticate('local', { successReturnToOrRedirect: '/',
+   failureRedirect: '/login' }),  function(req, res) {
+	console.log(req.user, req.sessionID)
   // res.send('hello');
-	 res.redirect('/dashboard');
+	 res.redirect('/products/sales-manager-dashboard');
 });
+
+app.post('/logout', (req, res)=>{
+  console.log(req.sessionID);
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+})
+
 
 // app.get('/products/add-product', function(req, res){
 //   res.render('sales_manager/add_products', {layout:'main'});

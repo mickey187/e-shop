@@ -29,6 +29,18 @@ var fs = require('fs');
 // });
 // const upload = multer({storage: storage}).any('product_image_upload');
 
+exports.salesManagerDashboard = (req, res)=>{
+
+  res.render('sales_manager/sales_manager_dashboard', {layout: 'main'});
+}
+
+exports.salesManagerLogout = (req, res)=>{
+  console.log("testtttttttttttt"+'  ');
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/login');
+  });
+}
 
 exports.addProductCategory = (req, res) =>{
     
