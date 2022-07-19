@@ -12,10 +12,11 @@ const { response } = require('express');
 var jwt = require('jsonwebtoken');
 
 
-exports.customerSignUp = (req, res)=>{
+exports.customerSignUp = async(req, res)=>{
     
     var errors = validationResult(req);
-  
+    
+
         if (!errors.isEmpty()) {
 
              res.status(422).json({
@@ -24,8 +25,9 @@ exports.customerSignUp = (req, res)=>{
         } else {
 
             User.exists({email: req.body.email}, function(err, doc){
+                console.log(err);
                 console.log(doc);
-                if (err == null) {
+                if (doc == null) {
 
                     User.register({
                         firstName: req.body.firstName,
@@ -45,7 +47,7 @@ exports.customerSignUp = (req, res)=>{
 
                 } else {
                     res.status(409).json({
-                        messge: "User with this email already exists"
+                        message: "User with this email already exists"
                     });
                 }
             });
@@ -72,7 +74,7 @@ exports.customerLogin = async(req, res)=>{
     user.authenticate(req.body.password, function (err, isPasswordValid, passwordErr) { 
         console.log(isPasswordValid);
         if (isPasswordValid) {
-               jwt.sign({user: user}, 'secretkey', {expiresIn: '60s'} ,(err, token)=>{
+               jwt.sign({user: user}, 'secretkey', {expiresIn: '3600s'} ,(err, token)=>{
             res.json({
                 user: user,
                 token: token});

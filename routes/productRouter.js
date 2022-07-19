@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const ProductController = require('../controller/ProductController');
 const connectEnsureLogin = require('connect-ensure-login');
+
 // var path = require('path');
 
 var multer = require('multer');
@@ -34,6 +35,10 @@ router.get('/add-product', async function (req, res, next){
     res.render('sales_manager/add_products',{layout: 'main'});
 });
 
+router.get('/sales-manager-dashboard', checkIfAuthenticated , ProductController.salesManagerDashboard);
+
+router.post('/sales-manager/logout', ProductController.salesManagerLogout);
+
 router.post('/add-product',upload.any('product_image_upload'),ProductController.addProduct);
 
 router.get('/view-product', ProductController.viewProduct);
@@ -57,5 +62,13 @@ router.get('/fetch-product-attribute', ProductController.fetchProductAttribute);
 // router.post('/add-product', ProductController.addProduct);
 
 router.get('/seed-product', ProductController.seedProduct);
+
+function checkIfAuthenticated(req, res, next){
+  if (req.isAuthentticated()) {
+    return next();
+  } else {
+     res.redirect('/login')
+  }
+}
 
 module.exports = router;
