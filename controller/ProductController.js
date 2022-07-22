@@ -13,21 +13,10 @@ mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.ne
   useUnifiedTopology: true
 });
 
-
 var path = require('path');
-// var multer = require('multer');
 var fs = require('fs');
-// var storage = multer.diskStorage({
-//   destination: (err, files, cb)=>{
-//       console.log("----------------------");
-//       console.log(files);
-//     cb(null, 'storage/');
-//   },
-//   filename: (req, files, cb)=>{
-//     cb(null, req.body.product_description +'--'+ files.originalname)
-//   }
-// });
-// const upload = multer({storage: storage}).any('product_image_upload');
+const {validationResult} = require('express-validator');
+
 
 exports.salesManagerDashboard = (req, res)=>{
 
@@ -35,6 +24,7 @@ exports.salesManagerDashboard = (req, res)=>{
 }
 
 exports.salesManagerLogout = (req, res)=>{
+  
   console.log("testtttttttttttt"+'  ');
   req.logout(function(err) {
     if (err) { return next(err); }
@@ -43,25 +33,47 @@ exports.salesManagerLogout = (req, res)=>{
 }
 
 exports.addProductCategory = (req, res) =>{
-    
-    console.log(req.body);
-    // const {productCategory, productSubCategory} = req.body;
 
-  var pc = new ProductCategory({
-    category: req.body.productCategory.toString(),
-    subCategory: req.body.productSubCategory.toString()
-  });
+  var errors = validationResult(req);
+  console.log(errors);
 
-  pc.save((err, doc)=>{
-    if(!err){
-        
-        res.send("success");
-    }
-    else{
-        res.send(err);
-        console.log(err);
-    }
-  });
+    if (!errors.isEmpty()) {
+
+      res.status(422).json({
+         message: "Validation error in your request",
+         errors: errors.array()});
+ } else {
+  ProductCategory.exists({category: req.body.productCategory, subCategory: req.body.productSubCategory},
+    (err, doc)=>{
+      if (doc == null) {
+        var pc = new ProductCategory({
+          category: req.body.productCategory.toString(),
+          subCategory: req.body.productSubCategory.toString()
+        });
+      
+        pc.save((err, doc)=>{
+          if(!err){
+              
+              res.json({
+                message:"success"
+              });
+          }
+          else{
+              res.status(500).json({
+                message: "failed"
+              });
+              console.log(err);
+          }
+        });
+      } else {
+        res.json({
+          message: "The specified product category and sub category already exists"
+        });
+      }
+    });
+ 
+ }
+ 
 
 
 }
@@ -81,24 +93,47 @@ exports.viewProductCategory = async(req, res) =>{
 }
 
 exports.addProductAttribute = (req, res) =>{
+
+var errors = validationResult(req);
 console.log(req.body);
-  var pa = new ProductAttribute({
-    attributeName: req.body.productAttibuteName,
-    value: req.body.productAttributeValue
-  });
-console.log(pa);
-  pa.save((err, doc)=>{
+  if (!errors.isEmpty()) {
 
-    if(!err){
+  res.status(422).json({
+     message: "Validation error in your request",
+     errors: errors.array()});
+  } else {
+    ProductAttribute.exists({attributeName: req.body.productAttibuteName, value: req.body.productAttributeValue},
+      (err, doc)=>{
+        if (doc == null) {
+           var pa = new ProductAttribute({
+            attributeName: req.body.productAttibuteName,
+            value: req.body.productAttributeValue
+          });
         
-      res.send("success");
+          pa.save((err, doc)=>{
+        
+            if(!err){
+                
+              res.json({
+                message:"success"
+              });
+          }
+          else{
+              res.status(500).json({
+                message: "erorr"
+              });
+              
+          }
+        
+          });
+        } else {
+         res.json({
+          message: "The specified product category and sub category already exists"
+         });
+        }
+      })
   }
-  else{
-      res.send(err);
-      console.log(err);
-  }
-
-  });
+  
 }
 
 exports.viewProductAttribute = async(req, res)=>{

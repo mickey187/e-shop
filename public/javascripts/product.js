@@ -2,27 +2,50 @@
 var imgArray = [];
 
 $('#addProductCategoryBtn').click(function (e) { 
-    var productCategory = $('#productCategory').val();
-    var productSubCategory = $('#productSubCategory').val();
+    
 
-    $.ajax({
+    if ($('#categoryForm').valid()) {
+    var productCategory = $('#productCategory').val().trim();
+    var productSubCategory = $('#productSubCategory').val().trim();
+      console.log("it validated");
+      $.ajax({
         type: "POST",
         url: "/products/add-product-category",
         cache: false,
         data: {productCategory: productCategory, productSubCategory: productSubCategory},
         success: function (response) {
-            Swal.fire({
+          console.log(response);
+         if (response.message == 'success') {
+          Swal.fire({
                 icon: 'success',
                 title: 'Success',
                 text: 'Added Successfully!',
               
               });
-            console.log(response);
+         }
+         else{
+          Swal.fire({
+            icon: 'error',
+            title: "Error",
+            text: response.message
+          })
+         }
+            
+            
         },
         error: function(){
             console.error();
+            Swal.fire({
+              icon: 'error',
+              title: "Error",
+              text: "Could not complete task please try again"
+            })
         }
     });
+
+    }
+    
+    
     
 });
 
@@ -60,32 +83,48 @@ $('#view_product_category_tab_link').click(function () {
 });
 
 $('#add_product_attribute_btn').click(function () { 
-   
-    var product_attribute_name = $('#product_attribute_name').val();
-    var product_attribute_value = $('#product_attribute_value').val();
-    alert(product_attribute_name);
-    $.ajax({
+
+  
+  // if ($('#productAttributeForm').valid()) {
+    var product_attribute_name = $('#productAttributeName').val().trim();
+    var product_attribute_value = $('#productAttributeValue').val().trim();
+      $.ajax({
         type: "POST",
         url: "/products/add-product-attribute",
         cache: false,
         data: {productAttibuteName: product_attribute_name, productAttributeValue: product_attribute_value},
         // dataType: "json",
         success: function (response) {
-
-            if(response == 'success'){
+          console.log(response);
+            if(response.message == 'success'){
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
                     text: 'Added Successfully!',
                   
                   });
-            }
-            console.log(response);
+            } else{
+              Swal.fire({
+                icon: 'error',
+                title: "Error",
+                text: response.message
+              })
+             }
+            
         },
         error: function(){
             console.error();
+            Swal.fire({
+              icon: 'error',
+              title: "Error",
+              text: "Could not complete task please try again"
+            })
         }
     });
+  // } 
+   
+    
+    
 
 });
 
@@ -309,7 +348,8 @@ $('#view_product_tab_link').click(function (e) {
         for (let index = 0; index < element.attributes.length; index++) {
          
           Object.assign(element, {image: '<img src="/'+element.images[0]+'" alt="..." class="img-thumbnail" style="width:100px;height: 100px">' });
-          Object.assign(element, {action: '<button type="button" class="btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#view_product_detail" data-whatever="@mdo"><i class="fas fa-info-circle"></i></button>'+' '+
+          Object.assign(element,
+            {action: '<button type="button" class="btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#view_product_detail" data-whatever="@mdo"><i class="fas fa-info-circle"></i></button>'+' '+
                                    '<button type="button" class="btn btn-primary btn-sm btn-info"><i class="fas fa-edit"></i></button>'+' '+
                                    '<button type="button" class="btn btn-primary btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>'
                                   })

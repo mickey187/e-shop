@@ -8,25 +8,17 @@ const session = require('express-session');  // session middleware
 const passport = require('passport');  // authentication
 const connectEnsureLogin = require('connect-ensure-login'); //authorization
 const User = require('./models/User.js');
-// const BearerStrategy = require('passport-http-bearer');
-
-
- 
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productRouter = require('./routes/productRouter');
 var apiRouter = require('./routes/api');
+var systemAdminRouter = require('./routes/systemAdminRouter');
 // var router = express.Router({ mergeParams: true });
 
 var app = express();
 const SeedController = require('./controller/SeedController');
-
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'hbs');
-
 
 const {engine} = require('express-handlebars');
 app.engine('hbs', engine({extname: ".hbs"}));
@@ -42,10 +34,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'storage')));
 app.use('/storage', express.static('storage'));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/products', productRouter);
-app.use('/api', apiRouter);
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
+// app.use('/products', productRouter);
+// app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 
@@ -79,6 +71,11 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/products', productRouter);
+app.use('/api', apiRouter);
+app.use('/system-admin', systemAdminRouter);
 
 
 app.get('/login', function(req, res){
@@ -91,26 +88,47 @@ res.render('layouts/layout');
 
 app.get('/seed', SeedController.addUser);
 
-app.post('/login', passport.authenticate('local', { successReturnToOrRedirect: '/',
-   failureRedirect: '/login' }),  function(req, res) {
-	console.log(req.user, req.sessionID)
-  // res.send('hello');
+app.post('/login', passport.authenticate('local', { /*successReturnToOrRedirect: '/products/sales-manager-dashboard',*/
+   failureRedirect: '/login', 'session': true }),  function(req, res, next) {
+    const role = req.user.role;
+    switch (role) {
+      case 'system_admin':
+        next()
+        res.redirect('/system-admin/dashboard')
+        break;
+
+      case 'sales_manager':
+        res.redirect('/products/sales-manager-dashboard');
+        break;
+      
+      case 'sales_staff':
+        res.redirect('/products/sales-manager-dashboard');
+        break;
+
+      default:
+        break;
+    }
 	 res.redirect('/products/sales-manager-dashboard');
 });
 
 app.post('/logout', (req, res)=>{
-  console.log(req.sessionID);
+  
   req.logout(function(err) {
     if (err) { return next(err); }
     res.redirect('/');
   });
-})
+
+});
 
 
-// app.get('/products/add-product', function(req, res){
-//   res.render('sales_manager/add_products', {layout:'main'});
-// });
 
+exports.checkIfAuthenticated = (req, res, next)=>{
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.redirect('/login');
+  }
+}
 
 
 

@@ -2,31 +2,14 @@ var express = require('express');
 var router = express.Router();
 const ProductController = require('../controller/ProductController');
 const connectEnsureLogin = require('connect-ensure-login');
-
-// var path = require('path');
-
+const app = require('../app.js');
+const validator = require('../middleware/validator.js');
 var multer = require('multer');
 var storage = multer({dest: 'storage/'});
-
-var storage = multer.memoryStorage(
-  // {
-    // destination: (err, files, cb)=>{
-    //     // console.log("----------------------");
-    //     // console.log(files);
-    //   cb(null, 'storage/');
-    // },
-    // filename: (req, files, cb)=>{
-    //   cb(null, req.body.product_name +'--'+ files.originalname)
-    // }
-  // }
-  );
-  const upload = multer({storage: storage});
-//   upload.any('product_image_upload');
+var storage = multer.memoryStorage();
+const upload = multer({storage: storage});
 
 
-// router.get('/products', function(req, res, next){
-
-// });
 router.get('/add-product', async function (req, res, next){
 //     var ProductAttribute = require('../models/ProductAttribute');
 //     var ProductCategory = require('../models/ProductCategory');
@@ -35,24 +18,34 @@ router.get('/add-product', async function (req, res, next){
     res.render('sales_manager/add_products',{layout: 'main'});
 });
 
-router.get('/sales-manager-dashboard', checkIfAuthenticated , ProductController.salesManagerDashboard);
+// sales manager dashboard
+router.get('/sales-manager-dashboard', ProductController.salesManagerDashboard);
 
+//sales manager logout
 router.post('/sales-manager/logout', ProductController.salesManagerLogout);
 
+// add product (post)
 router.post('/add-product',upload.any('product_image_upload'),ProductController.addProduct);
 
+// view product
 router.get('/view-product', ProductController.viewProduct);
 
-router.post('/add-product-category', ProductController.addProductCategory);
+// add product category (post)
+router.post('/add-product-category', validator.validateProductCatagory, ProductController.addProductCategory);
 
+// view product category
 router.get('/view-product-category', ProductController.viewProductCategory);
 
+// fetch product category
 router.get('/fetch-product-category', ProductController.fetchProductCategory);
 
-router.post('/add-product-attribute', ProductController.addProductAttribute);
+// add product attribute(post)
+router.post('/add-product-attribute', validator.validateProductAtribute, ProductController.addProductAttribute);
 
+// view product attribute
 router.get('/view-product-attribute', ProductController.viewProductAttribute);
 
+// fetch product attribute
 router.get('/fetch-product-attribute', ProductController.fetchProductAttribute);
 
 
@@ -64,10 +57,11 @@ router.get('/fetch-product-attribute', ProductController.fetchProductAttribute);
 router.get('/seed-product', ProductController.seedProduct);
 
 function checkIfAuthenticated(req, res, next){
-  if (req.isAuthentticated()) {
-    return next();
+  if (req.isAuthenticated()) {
+    console.log("hellllllllllllllllooooooooooo",req.isAuthenticated);
+     return next();
   } else {
-     res.redirect('/login')
+    res.redirect('/login');
   }
 }
 
