@@ -78,13 +78,13 @@ exports.customerLogin = async(req, res)=>{
                 token: token});
         });
         } else{
-            res.json({
+            res.status(401).json({
                 message: "Incorrect email or password"
             });
         }
      });
   } else {
-    res.json({
+    res.status(401).json({
         message: "User with this email does not exist"
     });
   }

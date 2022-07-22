@@ -1,232 +1,254 @@
-
 <div class="card card-success">
-<div class="card-header">
-          <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
-            
-            <li class="nav-item">
-              <a class="nav-link active text-bold" data-toggle="tab" href="#add_product_category_tab" id="add_product_category_tab_link" role="tab">Add Product Category</a>
-            </li>
+  <div class="card-header">
+    <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
 
-            <li class="nav-item">
-              <a class="nav-link  text-bold" data-toggle="tab" href="#view_product_category_tab" id="view_product_category_tab_link" role="tab">View Product Category</a>
-            </li>
+      <li class="nav-item">
+        <a class="nav-link active text-bold" data-toggle="tab" href="#add_product_category_tab"
+          id="add_product_category_tab_link" role="tab">Add Product Category</a>
+      </li>
 
-            <li class="nav-item">
-              <a class="nav-link  text-bold" data-toggle="tab" href="#add_product_attribute_tab" id="add_product_attribute_tab_link" role="tab">Add Product Attributes</a>
-            </li>
+      <li class="nav-item">
+        <a class="nav-link  text-bold" data-toggle="tab" href="#view_product_category_tab"
+          id="view_product_category_tab_link" role="tab">View Product Category</a>
+      </li>
 
-            <li class="nav-item">
-              <a class="nav-link  text-bold" data-toggle="tab" href="#view_product_attribute_tab" id="view_product_attribute_tab_link" role="tab">View Product Attributes</a>
-            </li>
+      <li class="nav-item">
+        <a class="nav-link  text-bold" data-toggle="tab" href="#add_product_attribute_tab"
+          id="add_product_attribute_tab_link" role="tab">Add Product Attributes</a>
+      </li>
 
-            <li class="nav-item">
-              <a class="nav-link  text-bold" data-toggle="tab" href="#add_product_tab" id="add_product_tab_link" role="tab">Add Product</a>
-            </li>
+      <li class="nav-item">
+        <a class="nav-link  text-bold" data-toggle="tab" href="#view_product_attribute_tab"
+          id="view_product_attribute_tab_link" role="tab">View Product Attributes</a>
+      </li>
 
-            <li class="nav-item">
-                <a class="nav-link text-bold" data-toggle="tab" href="#view_product_tab" id="view_product_tab_link" role="tab">View Product</a>
-              </li>
+      <li class="nav-item">
+        <a class="nav-link  text-bold" data-toggle="tab" href="#add_product_tab" id="add_product_tab_link"
+          role="tab">Add Product</a>
+      </li>
 
-          </ul>
+      <li class="nav-item">
+        <a class="nav-link text-bold" data-toggle="tab" href="#view_product_tab" id="view_product_tab_link"
+          role="tab">View Product</a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="card-body">
+    <div class="tab-content text-center">
+
+      <div class="tab-pane active" id="add_product_category_tab" role="tabpanel">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <form action="" id="categoryForm">
+              <div class="form-group">
+                <label for="productCategory">Product Category</label>
+                <input type="text" class="form-control" name="productCategory" id="productCategory"
+                  aria-describedby="helpId" placeholder="Product Category" required>
+                {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+              </div>
+
+              <div class="form-group">
+                <label for="productSubCategory">Product Sub Category</label>
+                <input type="text" class="form-control" name="productSubCategory" id="productSubCategory"
+                  aria-describedby="helpId" placeholder="Product Sub Category" required>
+                {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+              </div>
+              <button type="button" name="addProductCategoryBtn" id="addProductCategoryBtn"
+                class="btn btn-primary btn-lg btn-block"> Submit</button>
+            </form>
+          </div>
         </div>
+      </div>
 
-        <div class="card-body">
-            <div class="tab-content text-center">
+      <div class="tab-pane" id="view_product_category_tab" role="tabpanel">
 
-              <div class="tab-pane active" id="add_product_category_tab" role="tabpanel">
-                    <div class="row justify-content-center">
-                        <div class="col-6">
-                            <div class="form-group">
-                              <label for="productCategory">Product Category</label>
-                              <input type="text" class="form-control" name="productCategory" id="productCategory" aria-describedby="helpId" placeholder="Product Category">
-                              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
-                            </div>
+        <div class="row">
+          <div class="col-12">
+            <table id="view_product_category_table" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Category</th>
+                  <th>Sub Category</th>
+                  {{!-- <th>Action</th> --}}
+                </tr>
+              </thead>
 
-                            <div class="form-group">
-                              <label for="productSubCategory">Product Sub Category</label>
-                              <input type="text" class="form-control" name="productSubCategory" id="productSubCategory" aria-describedby="helpId" placeholder="Product Sub Category">
-                              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
-                            </div>
-                            <button type="button" name="addProductCategoryBtn" id="addProductCategoryBtn" class="btn btn-primary btn-lg btn-block"> Submit</button>                      
-                        </div>
-                    </div>
-                </div>
+            </table>
+          </div>
+        </div>
+      </div>
 
-                <div class="tab-pane" id="view_product_category_tab" role="tabpanel">
-                    
-                    <div class="row">
-                        <div class="col-12">
-                          <table id="view_product_category_table" class="table table-bordered table-striped">
-                            <thead>
-                              <tr>
-                                <th>ID</th>
-                                <th>Category</th> 
-                                <th>Sub Category</th>   
-                                {{!-- <th>Action</th> --}}
-                              </tr>
-                            </thead>
-                            
-                          </table>
-                        </div>
-                    </div>
-                </div>
+      <div class="tab-pane" id="add_product_attribute_tab" role="tabpanel">
 
-                <div class="tab-pane" id="add_product_attribute_tab" role="tabpanel">
-                   
-                    <div class="row justify-content-center">
-                        <div class="col-6">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <form action="" id="productAttributeForm">
+              <div class="form-group">
+                <label for="product_attribute_name">Product Attribute Name</label>
+                <input type="text" class="form-control" name="productAttributeName" id="productAttributeName"
+                  aria-describedby="helpId" placeholder="Product Attribute Name" required>
+                {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+              </div>
 
-                          <div class="form-group">
-                            <label for="">Product Attribute Name</label>
-                            <input type="text" class="form-control" name="product_attribute_name" id="product_attribute_name" aria-describedby="helpId" placeholder="Product Attribute Name">
-                            {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
-                          </div>
+              <div class="form-group">
+                <label for="product_attribute_name">Value</label>
+                <input type="text" class="form-control" name="productAttributeValue" id="productAttributeValue"
+                  aria-describedby="helpId" placeholder="Value" required>
+                {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+              </div>
 
-                          <div class="form-group">
-                            <label for="">Value</label>
-                            <input type="text"
-                              class="form-control" name="product_attribute_value" id="product_attribute_value" aria-describedby="helpId" placeholder="Value">
-                            {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
-                          </div>
+              <button type="button" name="add_product_attribute_btn" id="add_product_attribute_btn"
+                class="btn btn-primary btn-lg btn-block">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
 
-                          <button type="button" name="add_product_attribute_btn" id="add_product_attribute_btn" class="btn btn-primary btn-lg btn-block">Submit</button>
-                        </div>
-                    </div>
-                </div>
+      <div class="tab-pane" id="view_product_attribute_tab" role="tabpanel">
 
-                <div class="tab-pane" id="view_product_attribute_tab" role="tabpanel">
-                    
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                          <table id="view_product_attribute_table" class="table table-bordered table-striped">
-                            <thead>
-                              <tr>
-                                <th>ID</th>
-                                <th>Attribute Name</th> 
-                                <th>Attribute Value</th>   
-                                {{!-- <th>Action</th> --}}
-                              </tr>
-                            </thead>
-                            
-                          </table>
-                        </div>
-                    </div>
-                </div>
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <table id="view_product_attribute_table" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Attribute Name</th>
+                  <th>Attribute Value</th>
+                  {{!-- <th>Action</th> --}}
+                </tr>
+              </thead>
 
-                <div class="tab-pane" id="add_product_tab" role="tabpanel">
-                    <div class="row">
-                        <div class="col-6">                           
-                            <div class="form-group">
-                              <label for="product_name">Product Name</label>
-                              <input type="text" class="form-control" name="product_name" id="product_name" aria-describedby="helpId" placeholder="Product Name">
-                              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
-                            </div>
+            </table>
+          </div>
+        </div>
+      </div>
 
-                            <div class="form-group">
-                              <label for="">Price</label>
-                              <input type="number" class="form-control" name="product_price" id="product_price" aria-describedby="helpId" placeholder="Price">
-                              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
-                            </div>
-                            
-                            <div class="form-group">
-                              <label for="">Quantity</label>
-                              <input type="number" class="form-control" name="product_quantity" id="product_quantity" aria-describedby="helpId" placeholder="Quantity">
-                              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
-                            </div>
-
-                            <div class="form-group">
-                              <label for="product_category">Product Category</label>
-                              <select class="form-control" name="product_category_list" id="product_category_list">
-                                
-                              </select>
-                            </div>
-                            {{!-- <div class="form-group">
-                              <label for="product_category">Product Category</label>
-                              <select class="select2" name="product_category" id="product_category" multiple="multiple" style="width: 100%"data-placeholder="Select Class" name="select_classes[]">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                              </select>
-                            </div> --}}
-                        </div>
-
-                        <div class="col-6">
-
-                          <div class="form-group">
-                              <label for="product_attribute_list">Product Attribute</label>
-                              <select class="select2" name="product_attribute_list" id="product_attribute_list" multiple="multiple" style="width: 100%"data-placeholder="Select Class" name="select_classes[]">
-                                
-                              </select>
-                            </div>
-                            
-                            <div class="form-group">
-                              <label for="">Product Tags</label>
-                              <input type="text" class="form-control" name="tags" id="tags_input" aria-describedby="helpId" placeholder="Enter product tags">
-                              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
-                            </div>
-           
-                            <div class="form-group">
-                              <label for="exampleFormControlTextarea1">Product Description</label>
-                              <textarea class="form-control" id="product_description" rows="3"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="upload__box">
-                          <div class="upload__btn-box">
-                            <label class="upload__btn">
-                              <p>Upload images</p>
-                              <input type="file" multiple="" name="product_image_upload" id="product_image_upload" data-max_length="20" class="upload__inputfile">
-                            </label>
-                          </div>
-                          <div class="upload__img-wrap"></div>
-                         </div>
-                       </div>
-
-                       <div class="row justify-content-center">
-                        <div class="col-6">
-                          <button type="button" name="add_product_btn" id="add_product_btn" class="btn btn-primary btn-lg btn-block">Add Product</button>
-                        </div>
-                       </div>
-
-                </div>
-
-                <div class="tab-pane " id="view_product_tab" role="tabpanel">
-                    
-                    {{!-- <div class="row">
-                        <div class="col-4 " style="display: grid; grid-template-columns:1fr 1fr 1fr" id="product_div">
-
-                        </div>
-                    </div> --}}
-                    <div class="row">
-                      <div class="col-12">
-                        <table id="view_product_table" class="table table-bordered table-striped">
-                            <thead>
-                              <tr>
-                                {{!-- <th>ID</th> --}}
-                                <th>Name</th> 
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                {{!-- <th>Description</th> --}}
-                                <th>Category</th>
-                                <th>Sub Category</th> 
-                                {{!-- <th>Attributes</th> --}}
-                                {{!-- <th>Tags</th> --}}
-                                <th>Images</th>                                   
-                                <th>Action</th>
-                              </tr>
-                            </thead>
-                          </table>
-                      </div>
-                    </div>
-
-                </div>
+      <div class="tab-pane" id="add_product_tab" role="tabpanel">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="product_name">Product Name</label>
+              <input type="text" class="form-control" name="product_name" id="product_name" aria-describedby="helpId"
+                placeholder="Product Name">
+              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
             </div>
+
+            <div class="form-group">
+              <label for="">Price</label>
+              <input type="number" class="form-control" name="product_price" id="product_price"
+                aria-describedby="helpId" placeholder="Price">
+              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+            </div>
+
+            <div class="form-group">
+              <label for="">Quantity</label>
+              <input type="number" class="form-control" name="product_quantity" id="product_quantity"
+                aria-describedby="helpId" placeholder="Quantity">
+              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+            </div>
+
+            <div class="form-group">
+              <label for="product_category">Product Category</label>
+              <select class="form-control" name="product_category_list" id="product_category_list">
+
+              </select>
+            </div>
+            {{!-- <div class="form-group">
+              <label for="product_category">Product Category</label>
+              <select class="select2" name="product_category" id="product_category" multiple="multiple"
+                style="width: 100%" data-placeholder="Select Class" name="select_classes[]">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div> --}}
+          </div>
+
+          <div class="col-6">
+
+            <div class="form-group">
+              <label for="product_attribute_list">Product Attribute</label>
+              <select class="select2" name="product_attribute_list" id="product_attribute_list" multiple="multiple"
+                style="width: 100%" data-placeholder="Select Class" name="select_classes[]">
+
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="">Product Tags</label>
+              <input type="text" class="form-control" name="tags" id="tags_input" aria-describedby="helpId"
+                placeholder="Enter product tags">
+              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Product Description</label>
+              <textarea class="form-control" id="product_description" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="upload__box">
+            <div class="upload__btn-box">
+              <label class="upload__btn">
+                <p>Upload images</p>
+                <input type="file" multiple="" name="product_image_upload" id="product_image_upload"
+                  data-max_length="20" class="upload__inputfile">
+              </label>
+            </div>
+            <div class="upload__img-wrap"></div>
+          </div>
         </div>
+
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <button type="button" name="add_product_btn" id="add_product_btn"
+              class="btn btn-primary btn-lg btn-block">Add Product</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane " id="view_product_tab" role="tabpanel">
+
+        {{!-- <div class="row">
+          <div class="col-4 " style="display: grid; grid-template-columns:1fr 1fr 1fr" id="product_div">
+
+          </div>
+        </div> --}}
+        <div class="row">
+          <div class="col-12">
+            <table id="view_product_table" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  {{!-- <th>ID</th> --}}
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  {{!-- <th>Description</th> --}}
+                  <th>Category</th>
+                  <th>Sub Category</th>
+                  {{!-- <th>Attributes</th> --}}
+                  {{!-- <th>Tags</th> --}}
+                  <th>Images</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 
 
-<div class="modal fade" id="view_product_detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="view_product_detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -236,9 +258,13 @@
         </button>
       </div>
       <div class="modal-body">
-        
-          <label for="proudct_name">Product Name: </label> <p id="proudct_name"> Yeezy </p>
-        
+
+        <div class="row">
+          <div class="col-12" id="view_more_product_info">
+
+          </div>
+        </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

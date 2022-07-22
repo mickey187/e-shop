@@ -1,0 +1,105 @@
+<div class="card card-success">
+    <div class="card-header">
+        <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="green">
+
+            <li class="nav-item">
+                <a class="nav-link active text-bold" data-toggle="tab" href="#add_employee_tab"
+                    id="add_employee_tab_link" role="tab">Add Employee</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-bold" data-toggle="tab" href="#view_employee_tab" id="view_employee_tab_link"
+                    role="tab">View Employee</a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card-body">
+        <div class="tab-content text-center">
+            <div class="tab-pane active" id="add_employee_tab" role="tabpanel">
+                <div class="row justify-content-left">
+                    <div class="col-6">
+                        <form action="">
+                            <div class="form-group">
+                                <label for="employeeFirstName">First Name</label>
+                                <input type="text" class="form-control" name="employeeFirstName" id="employeeFirstName"
+                                    placeholder="First Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="employeeLastName">Last Name</label>
+                                <input type="text" class="form-control" name="employeeLastName" id="employeeLastName"
+                                    placeholder="Last Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="employeeUsername">Username</label>
+                                <input type="text" class="form-control" name="employeeUsername" id="employeeUsername"
+                                    placeholder="Username">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" name="employeeEmail" id="employeeEmail"
+                                    placeholder="Email">
+                            </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="employeeRole">Role</label>
+                            <select class="form-control" name="employeeRole" id="employeeRole">
+                                <option id="sales_manager" value="sales_manager">Sales Manager</option>
+                                <option id="sales_staff" value="sales_staff">Sales Staff</option>
+                                <option id="system_admin" value="system_admin">System Admin</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="epmloyeePassword">Password</label>
+                            <input type="password" class="form-control" name="epmloyeePassword" id="epmloyeePassword"
+                                placeholder="Password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Confirm Password</label>
+                            <input type="password" class="form-control" name="epmloyeeConfirmPassword"
+                                id="epmloyeeConfirmPassword" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-2">
+                        <div class="col-6">
+                            <button type="button" class="btn btn-primary btn-block" id="addEmployeeBtn">Add Employee</button>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="tab-pane" id="view_employee_tab" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <table class="table table-bordered table-striped" id="viewEmployeeDatailTable">
+                            <thead>
+                                <tr>
+                                    {{!-- <th>ID</th> --}}
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Action</th>
+                                    {{!-- <th>createdAt</th> --}}
+                                    {{!-- <th>upDatedAt</th> --}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,24 +18,32 @@ exports.addUser = (req, res) =>{
     // };
     // var data = new userData(item);
     // data.save();
-
     userData.register({ 
-    username: 'mike',
-    email: 'micekyhailu2@gmail.com',
-    firstName: 'mickey',
-    lastName: 'hailu',
-    role: 'sales_manager',
-    // password: 'pass',
-    active: false }, 'cane');
-
-    userData.register({ 
-        username: 'john',
-        email: 'johndoe@gmail.com',
-        firstName: 'john',
-        lastName: 'doe',
+        username: 'admin',
+        email: 'admin@gmail.com',
+        firstName: 'admin',
+        lastName: 'admin',
         // password: 'pass',
-        role: 'customer',
-        active: false }, 'pass');
+        role: 'system_admin',
+        active: false }, 'admin');
+
+    // userData.register({ 
+    // username: 'mike',
+    // email: 'micekyhailu2@gmail.com',
+    // firstName: 'mickey',
+    // lastName: 'hailu',
+    // role: 'sales_manager',
+    // // password: 'pass',
+    // active: false }, 'cane');
+
+    // userData.register({ 
+    //     username: 'john',
+    //     email: 'johndoe@gmail.com',
+    //     firstName: 'john',
+    //     lastName: 'doe',
+    //     // password: 'pass',
+    //     role: 'customer',
+    //     active: false }, 'pass');
     // userData.register({ username: 'starbuck', active: false }, 'redeye');
 
     res.send("from controller");
