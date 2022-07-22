@@ -43,8 +43,6 @@ exports.customerSignUp = async(req, res)=>{
                             message: "User created successfully"
                         });
 
-                    
-
                 } else {
                     res.status(409).json({
                         message: "User with this email already exists"
