@@ -39,11 +39,9 @@ exports.customerSignUp = async(req, res)=>{
                         req.body.password
                         );
     
-                        res.json({
+                        res.status(200).json({
                             message: "User created successfully"
                         });
-
-                    
 
                 } else {
                     res.status(409).json({
