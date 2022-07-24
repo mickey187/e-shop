@@ -13,7 +13,7 @@ const { response } = require('express');
 var jwt = require('jsonwebtoken');
 
 exports.fetchProductCategory = async(req, res)=>{
-var productCategory = await ProductCategory.find();
+var productCategory = await ProductCategory.find().select('category').distinct('category');
 res.json({
     categories: productCategory
 });
