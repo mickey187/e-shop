@@ -51,6 +51,8 @@ router.get('/customer/profile', verifyToken, function(req, res) {
 
 router.get('/products/fetch-product-category', ProductApiController.fetchProductCategory);
 
+router.get('/products/fetch-product-subcategory/:category', ProductApiController.fetchProductSubCategory);
+
 // FORMAT OF TOKEN
 // Authorization: Bearer <access_token>
 

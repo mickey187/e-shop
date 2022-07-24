@@ -18,3 +18,10 @@ res.json({
     categories: productCategory
 });
 }
+
+exports.fetchProductSubCategory = async(req, res)=>{
+  var productCategory = await ProductCategory.find({category: req.params.category});
+  res.json({
+    subCategory: productCategory
+  });
+}
