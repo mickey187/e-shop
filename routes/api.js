@@ -4,9 +4,13 @@ var jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt")
 var User = require('../models/User');
 const passportLocalMongoose  = require('passport-local-mongoose');
+
+// Contollers import
 const ApiAuthController = require('../controller/ApiAuthController');
 const {check, validationResult} = require('express-validator');
 const ProductApiController = require('../controller/ProductApiController');
+const OrderApiController = require('../controller/OrderApiController');
+
 
 // customer signup api endpoint
 router.post('/customer/signup', [
@@ -54,6 +58,15 @@ router.get('/products/fetch-product-category', ProductApiController.fetchProduct
 router.get('/products/fetch-product-subcategory/:category', ProductApiController.fetchProductSubCategory);
 
 router.get('/products/fetch-products/:page/:limit', ProductApiController.fetchProducts);
+
+router.get('/products/fetch-products-by-category/:category/:subCategory/:page/:limit', ProductApiController.fetchProductsByCategory);
+
+
+// Orders Api endpoints
+
+router.post('/orders/place-order', OrderApiController.placeOrder);
+
+
 
 // FORMAT OF TOKEN
 // Authorization: Bearer <access_token>

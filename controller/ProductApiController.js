@@ -32,15 +32,45 @@ exports.fetchProducts = async(req, res)=>{
   const options = {
     page: req.params.page,
     limit: req.params.limit,
+    populate: ['category', 'attributes'],
+    select: 'subCategory',
     collation: {
       locale: 'en',
     },
   };
+
+  var products = await Product.find({}).populate('category').populate('attributes');
 
   Product.paginate({}, options, (err, result)=>{
 
     res.send(result);
     
   });
+
+  
+
+}
+
+exports.fetchProductsByCategory = async(req, res)=>{
+
+  var category = req.params.category;
+  var subCategory = req.params.subCategory;
+
+  const options = {
+    page: req.params.page,
+    limit: req.params.limit,
+    populate: ['category', 'attributes'],
+    collation: {
+      locale: 'en',
+    },
+  };
+
+  var productCategoryId = await ProductCategory.find({category: category, subCategory: subCategory}).select('_id');
+  
+  Product.paginate({category: productCategoryId}, options, (err, result)=>{
+
+    res.send(result);
+    
+  })
 
 }

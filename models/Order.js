@@ -10,12 +10,15 @@ var OrderSchema = new Schema({
 
     customerId:{
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     },
     products: [{
         productId: {
         type: Schema.Types.ObjectId,
-        ref: 'Product'},
+        ref: 'Product',
+        required: true
+        },
         quantity: {
             type: Number,
             required: true
@@ -23,11 +26,13 @@ var OrderSchema = new Schema({
     }],
     trackingNumber:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     orderStatus: {
         type: String,
-        enum: ['active', 'delivered', 'canceled','delayed']
+        enum: ['active', 'delivered', 'canceled','delayed'],
+        required: true
     }
 },
 {timestamps: true}
