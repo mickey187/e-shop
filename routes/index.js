@@ -19,6 +19,14 @@ router.get('/', function(req, res, next){
     
 } );
 
+router.get('/seedProductCategory', SeedController.seedProductCategory);
+
+router.get('/seedProductAttribute', SeedController.seedProductAttribute);
+
+router.get('/seedProduct', SeedController.seedProducts);
+
+router.get('/wipeProductCollection', SeedController.wipeProductCollection);
+
 
 
 router.get('/seed', SeedController.addUser);

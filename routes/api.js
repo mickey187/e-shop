@@ -53,6 +53,8 @@ router.get('/products/fetch-product-category', ProductApiController.fetchProduct
 
 router.get('/products/fetch-product-subcategory/:category', ProductApiController.fetchProductSubCategory);
 
+router.get('/products/fetch-products/:page/:limit', ProductApiController.fetchProducts);
+
 // FORMAT OF TOKEN
 // Authorization: Bearer <access_token>
 

@@ -10,7 +10,8 @@ var ShoppingCartSchema = new Schema({
 
     customerId: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        unique: true
     },
     products: [
         {

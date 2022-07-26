@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
 // const passportLocalMongoose = require('passport-local-mongoose');
 // mongoose.connect('mongodb://localhost:27017/Ecommerce',{
 //   useNewUrlParser: true,
@@ -68,4 +69,7 @@ var ProductSchema = new Schema({
 );
 
 ProductSchema.plugin(passportLocalMongoose);
+ProductSchema.plugin(mongoosePaginate);
+
 module.exports = mongoose.model('Product', ProductSchema);
+

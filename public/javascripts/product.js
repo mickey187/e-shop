@@ -347,7 +347,7 @@ $('#view_product_tab_link').click(function (e) {
        
         for (let index = 0; index < element.attributes.length; index++) {
          
-          Object.assign(element, {image: '<img src="/'+element.images[0]+'" alt="..." class="img-thumbnail" style="width:100px;height: 100px">' });
+          Object.assign(element, {image: '<img src="'+element.images[0]+'" alt="..." class="img-thumbnail" style="width:100px;height: 100px">' });
           Object.assign(element,
             {action: '<button type="button" class="btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#view_product_detail" data-whatever="@mdo"><i class="fas fa-info-circle"></i></button>'+' '+
                                    '<button type="button" class="btn btn-primary btn-sm btn-info"><i class="fas fa-edit"></i></button>'+' '+

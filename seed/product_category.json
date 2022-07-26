@@ -1,0 +1,69 @@
+[
+    {
+        "category": "Women's Fashion",
+        "subCategory": "Clothing"
+    },
+
+    {
+        "category": "Women's Fashion",
+        "subCategory": "Shoes"
+    },
+
+    {
+        "category": "Women's Fashion",
+        "subCategory": "Jewelery"
+    },
+
+    {
+        "category": "Women's Fashion",
+        "subCategory": "Watches"
+    },
+
+    {
+        "category": "Women's Fashion",
+        "subCategory": "Handbags"
+    },
+
+    {
+        "category": "Women's Fashion",
+        "subCategory": "Accessories"
+    },
+
+    {
+        "category": "Men's Fashion",
+        "subCategory": "Clothing"
+    },
+
+    {
+        "category": "Men's Fashion",
+        "subCategory": "Shoes"
+    },
+
+    {
+        "category": "Men's Fashion",
+        "subCategory": "Watches"
+    },
+
+    {
+        "category": "Men's Fashion",
+        "subCategory": "Accessories"
+    },
+
+    {
+        "category": "Home and Kitchen",
+        "subCategory": "Kitchen & Dining"
+    },
+
+    {
+        "category": "Home and Kitchen",
+        "subCategory": "Furniture"
+    },
+
+    {
+        "category": "Home and Kitchen",
+        "subCategory": "Bedding"
+    }
+
+    
+    
+]
