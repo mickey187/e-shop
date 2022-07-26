@@ -3,7 +3,7 @@ const Order = require('../models/Order');
 exports.placeOrder = async(req, res)=>{
 
     console.log(req.body);
-    res.json(req)
+    res.json(req.body);
     var order = new Order({
         customerId: req.body.customerId,
         products: req.body.products,

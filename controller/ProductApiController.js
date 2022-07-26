@@ -33,7 +33,6 @@ exports.fetchProducts = async(req, res)=>{
     page: req.params.page,
     limit: req.params.limit,
     populate: ['category', 'attributes'],
-    select: 'subCategory',
     collation: {
       locale: 'en',
     },
