@@ -15,6 +15,7 @@ var usersRouter = require('./routes/users');
 var productRouter = require('./routes/productRouter');
 var apiRouter = require('./routes/api');
 var systemAdminRouter = require('./routes/systemAdminRouter');
+var salesStaffRouter = require('./routes/salesStaffRouter');
 // var router = express.Router({ mergeParams: true });
 
 var app = express();
@@ -28,7 +29,7 @@ app.set('views', './views');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'storage')));
@@ -76,6 +77,7 @@ app.use('/users', usersRouter);
 app.use('/products', productRouter);
 app.use('/api', apiRouter);
 app.use('/system-admin', systemAdminRouter);
+app.use('/sales-staff', salesStaffRouter);
 
 
 app.get('/login', function(req, res){
@@ -102,7 +104,7 @@ app.post('/login', passport.authenticate('local', { /*successReturnToOrRedirect:
         break;
       
       case 'sales_staff':
-        res.redirect('/products/sales-manager-dashboard');
+        res.redirect('/sales-staff/sales-staff-dashboard');
         break;
 
       default:

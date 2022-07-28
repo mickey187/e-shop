@@ -14,10 +14,13 @@ var ShoppingCartSchema = new Schema({
         unique: true
     },
     products: [
-        {
+        {   _id: false,
             productId: {
                 type: Schema.Types.ObjectId,
-                ref: 'Product'
+                ref: 'Product',
+                unique: true,
+                required: true
+               
             },
             quantity: {
                 type: Number,
@@ -25,7 +28,8 @@ var ShoppingCartSchema = new Schema({
             }
 
             
-        }
+        },
+        
     ]
 },
 {timestamps: true}

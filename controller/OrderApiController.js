@@ -2,12 +2,11 @@ const Order = require('../models/Order');
 
 exports.placeOrder = async(req, res)=>{
 
-    console.log(req.body);
-    res.json(req.body);
+
     var order = new Order({
         customerId: req.body.customerId,
         products: req.body.products,
-        trackingNumber: 231,
+        trackingNumber: req.body.trackingNumber,
         orderStatus: "active",
     });
 

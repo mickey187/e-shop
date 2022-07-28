@@ -82,7 +82,7 @@ exports.seedProducts = async(req, res)=>{
           });
           var result = await product.save();
 
-          if (done === product_attribute_json.length) {
+          if (done == product_attribute_json.length) {
             mongoose.disconnect();
             res.send("success");
         }

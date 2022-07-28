@@ -10,6 +10,7 @@ const ApiAuthController = require('../controller/ApiAuthController');
 const {check, validationResult} = require('express-validator');
 const ProductApiController = require('../controller/ProductApiController');
 const OrderApiController = require('../controller/OrderApiController');
+const ShoppingCartController = require('../controller/ShoppingCartApiController');
 
 
 // customer signup api endpoint
@@ -67,6 +68,13 @@ router.get('/products/fetch-products-by-category/:category/:subCategory/:page/:l
 router.post('/orders/place-order', OrderApiController.placeOrder);
 
 
+// Shopping cart controllers
+
+router.post('/shopping-cart/add-to-cart', ShoppingCartController.addToCart);
+
+router.post('/shopping-cart/edit-item-quantity-in-cart', ShoppingCartController.editItemQuantityInCart);
+
+router.post('/shopping-cart/remove-item-from-cart', ShoppingCartController.removeItemFromCart);
 
 // FORMAT OF TOKEN
 // Authorization: Bearer <access_token>

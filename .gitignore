@@ -6215,3 +6215,4 @@ node_modules/jquery-validation/dist/localization/methods_nl.js
 node_modules/jquery-validation/dist/localization/methods_nl.min.js
 node_modules/jquery-validation/dist/localization/methods_pt.js
 node_modules/jquery-validation/dist/localization/methods_pt.min.js
+.vscode/launch.json

@@ -40,7 +40,8 @@ var UserSchema = new Schema({
 
     role: {
         type: String,
-        enum: ['customer', 'system_admin', 'sales_manager', 'sales_staff']
+        enum: ['customer', 'system_admin', 'sales_manager', 'sales_staff'], 
+        required: true
     },
 
 },
