@@ -1,18 +1,96 @@
 
 var imgArray = [];
+var imgArrayProductCategory = [];
+
+
+jQuery(document).ready(function () {
+  ImgUpload();
+  ImgUploadProductCategory();
+});
+
+function ImgUploadProductCategory() {
+  var imgWrap = "";
+  // var imgArray = [];
+
+  $('.upload__inputfile_product_category_image').each(function () {
+    $(this).on('change', function (e) {
+      imgWrap = $(this).closest('.upload__box_product_category_image').find('.upload__img-wrap_product_category_image');
+      var maxLength = $(this).attr('data-max_length');
+
+      var files = e.target.files;
+      var filesArr = Array.prototype.slice.call(files);
+      var iterator = 0;
+      filesArr.forEach(function (f, index) {
+
+        if (!f.type.match('image.*')) {
+          return;
+        }
+
+        if (imgArrayProductCategory.length > maxLength) {
+          return false
+        } else {
+          var len = 0;
+          for (var i = 0; i < imgArrayProductCategory.length; i++) {
+            if (imgArrayProductCategory[i] !== undefined) {
+              len++;
+            }
+          }
+          if (len > maxLength) {
+            return false;
+          } else {
+            imgArrayProductCategory.push(f);
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              var html = "<div class='upload__img-box_product_category_image'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+              imgWrap.append(html);
+              iterator++;
+            }
+            reader.readAsDataURL(f);
+          //   console.log(imgArray);
+          }
+        }
+      });
+    });
+  });
+
+  $('body').on('click', ".upload__img-close", function (e) {
+    var file = $(this).parent().data("file");
+    for (var i = 0; i < imgArrayProductCategory.length; i++) {
+      if (imgArrayProductCategory[i].name === file) {
+        imgArrayProductCategory.splice(i, 1);
+        break;
+      }
+    }
+    $(this).parent().parent().remove();
+  });
+}
 
 $('#addProductCategoryBtn').click(function (e) { 
-    
+    console.log(imgArrayProductCategory);
 
     if ($('#categoryForm').valid()) {
+
+    
     var productCategory = $('#productCategory').val().trim();
     var productSubCategory = $('#productSubCategory').val().trim();
+
+    var productCategoryFormData = new FormData();
+    productCategoryFormData.append('productCategory', productCategory);
+    productCategoryFormData.append('productSubCategory', productSubCategory);
+
+    for (var i = 0; i < imgArrayProductCategory.length; i++) {
+      productCategoryFormData.append('productCategoryImageUpload[]', imgArrayProductCategory[i]);
+    }
+
+
       console.log("it validated");
       $.ajax({
         type: "POST",
         url: "/products/add-product-category",
-        cache: false,
-        data: {productCategory: productCategory, productSubCategory: productSubCategory},
+        processData: false,
+        contentType: false,
+        data: productCategoryFormData,
         success: function (response) {
           console.log(response);
          if (response.message == 'success') {
@@ -32,7 +110,7 @@ $('#addProductCategoryBtn').click(function (e) {
          }
             
             
-        },
+        },crossDomain: true,
         error: function(){
             console.error();
             Swal.fire({
@@ -48,6 +126,10 @@ $('#addProductCategoryBtn').click(function (e) {
     
     
 });
+
+
+
+
 
 $('#view_product_category_tab_link').click(function () { 
 
@@ -199,9 +281,7 @@ $('#add_product_tab_link').click(function () {
 
 
 
-jQuery(document).ready(function () {
-    ImgUpload();
-  });
+
   
   function ImgUpload() {
     var imgWrap = "";
@@ -314,7 +394,7 @@ jQuery(document).ready(function () {
       crossDomain: true
     });
     
-    // var images = imgArray;
+    // var images = imgArrayProductCategory;
 
     // $.ajax({
     //     type: "POST",
@@ -323,7 +403,7 @@ jQuery(document).ready(function () {
     //     contentType: false,
     //     data: {productName: product_name, productPrice: product_price, productQuantity: product_quantity,
     //     productCategoryList: product_category_list, productAttributeList: product_attribute_list,
-    //     tagsInput: tags_input, productDescription: product_description, images: imgArray},
+    //     tagsInput: tags_input, productDescription: product_description, images: imgArrayProductCategory},
     //     dataType: "json",
     //     success: function (response) {
             
@@ -421,6 +501,84 @@ $('#view_product_detail').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text('New message to ' + recipient)
   modal.find('.modal-body input').val(recipient)
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function ImgUploadProductCategory() {
+  var imgWrap = "";
+  // var imgArray = [];
+
+  $('.upload__inputfile_product_category_image').each(function () {
+    $(this).on('change', function (e) {
+      imgWrap = $(this).closest('.upload__box_product_category_image').find('.upload__img-wrap_product_category_image');
+      var maxLength = $(this).attr('data-max_length');
+
+      var files = e.target.files;
+      var filesArr = Array.prototype.slice.call(files);
+      var iterator = 0;
+      filesArr.forEach(function (f, index) {
+
+        if (!f.type.match('image.*')) {
+          return;
+        }
+
+        if (imgArrayProductCategory.length > maxLength) {
+          return false
+        } else {
+          var len = 0;
+          for (var i = 0; i < imgArrayProductCategory.length; i++) {
+            if (imgArrayProductCategory[i] !== undefined) {
+              len++;
+            }
+          }
+          if (len > maxLength) {
+            return false;
+          } else {
+            imgArrayProductCategory.push(f);
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              var html = "<div class='upload__img-box_product_category_image'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+              imgWrap.append(html);
+              iterator++;
+            }
+            reader.readAsDataURL(f);
+          //   console.log(imgArray);
+          }
+        }
+      });
+    });
+  });
+
+  $('body').on('click', ".upload__img-close", function (e) {
+    var file = $(this).parent().data("file");
+    for (var i = 0; i < imgArrayProductCategory.length; i++) {
+      if (imgArrayProductCategory[i].name === file) {
+        imgArrayProductCategory.splice(i, 1);
+        break;
+      }
+    }
+    $(this).parent().parent().remove();
+  });
+}
 
 
 

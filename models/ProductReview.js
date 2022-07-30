@@ -31,5 +31,5 @@ var ProductReviewSchema = new Schema({
 }
 );
 
-ProductReviewSchema.plugin(passportLocalMongoose);
+// ProductReviewSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('ProductReview', ProductReviewSchema);

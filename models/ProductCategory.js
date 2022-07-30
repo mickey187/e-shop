@@ -24,6 +24,11 @@ var ProductCategorySchema = new Schema({
         required: true
     },
 
+    image: {
+        type: String,
+        default: ""
+    },
+
     products: [{
         type: Schema.Types.ObjectId,
         sparse: true,
@@ -37,5 +42,5 @@ var ProductCategorySchema = new Schema({
 
 ProductCategorySchema.index({category: 1, subCategory: -1}, {unique: true});
 
-ProductCategorySchema.plugin(passportLocalMongoose);
+// ProductCategorySchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('ProductCategory', ProductCategorySchema);

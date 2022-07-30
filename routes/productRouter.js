@@ -31,7 +31,7 @@ router.post('/add-product',upload.any('product_image_upload'),ProductController.
 router.get('/view-product', ProductController.viewProduct);
 
 // add product category (post)
-router.post('/add-product-category', validator.validateProductCatagory, ProductController.addProductCategory);
+router.post('/add-product-category',  upload.any('productCategoryImageUpload'), validator.validateProductCatagory, ProductController.addProductCategory);
 
 // view product category
 router.get('/view-product-category', ProductController.viewProductCategory);

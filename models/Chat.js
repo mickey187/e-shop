@@ -47,5 +47,5 @@ var ChatSchema = new Schema({
 {timestamps: true}
 );
 
-ChatSchema.plugin(passportLocalMongoose);
+// ChatSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('Chat', ChatSchema);

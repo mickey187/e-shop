@@ -13,7 +13,7 @@
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "express": "~4.17.0",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "express-validator": "^6.14.2",
@@ -21,7 +21,7 @@
     "http-errors": "~1.6.3",
     "jquery-validation": "^1.19.5",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.3.8",
+    "mongoose": "^6.5.0",
     "mongoose-paginate-v2": "^1.7.0",
     "morgan": "~1.9.1",
     "multer": "^1.4.5-lts.1",
@@ -29,10 +29,11 @@
     "passport-http-bearer": "^1.0.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^7.1.2"
+    "passport-local-mongoose": "^7.1.2",
+    "stripe": "^9.16.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.19"
   },
   "nodemonConfig": {
     "ignore": [

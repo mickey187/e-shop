@@ -18,7 +18,6 @@ var ShoppingCartSchema = new Schema({
             productId: {
                 type: Schema.Types.ObjectId,
                 ref: 'Product',
-                unique: true,
                 required: true
                
             },
@@ -35,5 +34,5 @@ var ShoppingCartSchema = new Schema({
 {timestamps: true}
 );
 
-ShoppingCartSchema.plugin(passportLocalMongoose);
+// ShoppingCartSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('ShoppingCart', ShoppingCartSchema);

@@ -55,6 +55,18 @@
                   aria-describedby="helpId" placeholder="Product Sub Category" required>
                 {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
               </div>
+
+              <div class="upload__box_product_category_image">
+                <div class="upload__btn-box_product_category_image">
+                  <label class="upload__btn_product_category_image">
+                    <p>Upload Product Category Image</p>
+                    <input type="file" multiple="" name="product_category_image_upload" id="product_category_image_upload"
+                      data-max_length="10" class="upload__inputfile_product_category_image">
+                  </label>
+                </div>
+                <div class="upload__img-wrap_product_category_image"></div>
+              </div>
+
               <button type="button" name="addProductCategoryBtn" id="addProductCategoryBtn"
                 class="btn btn-primary btn-lg btn-block"> Submit</button>
             </form>
@@ -195,7 +207,7 @@
               <label class="upload__btn">
                 <p>Upload images</p>
                 <input type="file" multiple="" name="product_image_upload" id="product_image_upload"
-                  data-max_length="20" class="upload__inputfile">
+                  data-max_length="10" class="upload__inputfile">
               </label>
             </div>
             <div class="upload__img-wrap"></div>

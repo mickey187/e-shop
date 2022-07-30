@@ -33,7 +33,7 @@ exports.salesManagerLogout = (req, res)=>{
 }
 
 exports.addProductCategory = (req, res) =>{
-
+console.log('req.filessssssss: ',req.files);
   var errors = validationResult(req);
   console.log(errors);
 
@@ -45,6 +45,7 @@ exports.addProductCategory = (req, res) =>{
  } else {
   ProductCategory.exists({category: req.body.productCategory, subCategory: req.body.productSubCategory},
     (err, doc)=>{
+      var storageLocation = null;
       if (doc == null) {
         var pc = new ProductCategory({
           category: req.body.productCategory.toString(),
@@ -53,7 +54,28 @@ exports.addProductCategory = (req, res) =>{
       
         pc.save((err, doc)=>{
           if(!err){
-              
+              req.files.forEach(element => {
+                fs.writeFile("storage/" + doc._id + '-' + element.originalname, element.buffer, (err) => {
+                  if (err){
+                    console.log(err);
+                  }
+                  else {
+                    console.log("File written successfully\n");
+                    
+                  
+                    storageLocation = "storage/" + doc._id + '-' + element.originalname;
+                    ProductCategory.findByIdAndUpdate(doc._id,{image: storageLocation},function (err, docs) {
+                      if (err){
+                          console.log(err)
+                      }
+                      else{
+                          console.log("Updated ProductCategory : ", docs);
+                      }
+                  });
+            
+                  }
+                });
+              });
               res.json({
                 message:"success"
               });
@@ -184,9 +206,7 @@ arr.forEach(element => {
   product.save( (err, doc)=>{
     let productImagePathArray = [];
     if (!err) {
-
-      // console.log(req.files[0]);
-      
+     
       req.files.forEach(element => {
         
         fs.writeFile("storage/" + doc._id + '-' + element.originalname, element.buffer, (err) => {

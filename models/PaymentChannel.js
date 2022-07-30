@@ -19,5 +19,5 @@ var PaymentChannelSchema = new Schema({
     }
 });
 
-PaymentChannelSchema.plugin(passportLocalMongoose);
+// PaymentChannelSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('PaymentChannel', PaymentChannelSchema);

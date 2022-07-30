@@ -31,5 +31,5 @@ var ShipmentSchema = new Schema({
 {timestamps: true}
 );
 
-ShipmentSchema.plugin(passportLocalMongoose);
+// ShipmentSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('Shipment', ShipmentSchema);

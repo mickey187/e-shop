@@ -11,6 +11,7 @@ const {check, validationResult} = require('express-validator');
 const ProductApiController = require('../controller/ProductApiController');
 const OrderApiController = require('../controller/OrderApiController');
 const ShoppingCartController = require('../controller/ShoppingCartApiController');
+const PaymentApiController = require('../controller/PaymentApiController');
 
 
 // customer signup api endpoint
@@ -72,9 +73,32 @@ router.post('/orders/place-order', OrderApiController.placeOrder);
 
 router.post('/shopping-cart/add-to-cart', ShoppingCartController.addToCart);
 
+router.get('/shopping-cart/view-cart/:customerId', ShoppingCartController.viewCart);
+
 router.post('/shopping-cart/edit-item-quantity-in-cart', ShoppingCartController.editItemQuantityInCart);
 
 router.post('/shopping-cart/remove-item-from-cart', ShoppingCartController.removeItemFromCart);
+
+
+
+
+
+// Payment API endpoints
+// Stripe integration
+
+router.post('/payment/create-payment-intent', PaymentApiController.createPaymentIntent);
+
+// stripe webhook
+
+router.post('/payment/webhook', PaymentApiController.listenStripeEvents);
+
+
+
+
+
+
+
+
 
 // FORMAT OF TOKEN
 // Authorization: Bearer <access_token>

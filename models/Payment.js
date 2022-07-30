@@ -36,5 +36,5 @@ var PaymentSchema = new Schema({
 {timestamps: true}
 );
 
-PaymentSchema.plugin(passportLocalMongoose);
+// PaymentSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('Payment', PaymentSchema);

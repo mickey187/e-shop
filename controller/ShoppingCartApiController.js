@@ -72,30 +72,90 @@ exports.addToCart = async(req, res)=>{
     
 }
 
+exports.viewCart = async(req, res)=>{
+
+    ShoppingCart.exists({customerId: req.params.customerId}, async(err, cartId)=>{
+
+        if (cartId != null ) {
+            try {
+                var cart = await ShoppingCart.findById(cartId).populate(
+                    {
+                        path: 'products',
+                        populate: {
+                            path: 'productId'
+                        }
+                    }
+                );
+                if (cart.products.length > 0) {
+                    res.json({
+                    message: "cart found",
+                    cart: cart, 
+                    subTotal: calculateSubTotal(cart.products)
+                });
+                } else {
+                    res.json({
+                        message: "your cart is empty",
+                        cart: cart
+                    });
+                }
+                
+            } catch (error) {
+                res.json({
+                    message: "ran into error",
+                    error: error
+                });
+            }
+
+        } else {
+            
+            res.json({
+                message: "could not find customer with provided customer id",
+                cart: []
+            })
+        }
+    });
+
+}
+
 exports.editItemQuantityInCart = async(req, res)=>{
 
-    var result = await ShoppingCart.updateOne({customerId: req.body.customerId,
+    try {
+        var updateCart = await ShoppingCart.updateOne({customerId: req.body.customerId,
         "products.productId": req.body.productId }, {$set: {
         "products.$.quantity": req.body.newQuantity
     }});
 
-    var cart = await ShoppingCart.find({customerId: req.body.customerId}).populate(
-        {
-            path: 'products',
-            populate: {
-                path: 'productId'
-            }
-        }
-    );
-    console.log(cart[0].products);
-    if (result != null) {
+    
+
+    if (updateCart.acknowledged && updateCart.modifiedCount >0 ) {
         
+        var cart = await ShoppingCart.find({customerId: req.body.customerId}).populate(
+            {
+                path: 'products',
+                populate: {
+                    path: 'productId'
+                }
+            }
+        );
         res.json({
             message: "updated cart",
             cart: cart,
-            subTotal: calculateSubTotal(cart)
+            subTotal: calculateSubTotal(cart[0].products)
         });
     }
+
+    } catch (error) {
+        res.json({
+            message: "could not update cart",
+            error: error
+        });
+    }
+    
+    console.log("result: ", updateCart);
+
+    
+    console.log(cart[0]);
+    
 
 }
 
@@ -117,8 +177,9 @@ exports.removeItemFromCart = async(req, res)=>{
 
 function calculateSubTotal(cart){
 
+    console.log(cart);
     var subTotal = 0.00;
-    cart[0].products.forEach(element => {
+    cart.forEach(element => {
         console.log(element.productId.price);
         subTotal = subTotal + (parseFloat(element.productId.price) * element.quantity);
     });

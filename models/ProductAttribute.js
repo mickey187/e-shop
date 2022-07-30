@@ -36,5 +36,5 @@ var ProductAttributeSchema = new Schema({
 );
 
 // ProductAttributeSchema.index({attributeName: 1, value: -1}, {unique: true});
-ProductAttributeSchema.plugin(passportLocalMongoose);
+// ProductAttributeSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('ProductAttribute', ProductAttributeSchema);

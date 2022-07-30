@@ -68,7 +68,7 @@ var ProductSchema = new Schema({
 
 );
 
-ProductSchema.plugin(passportLocalMongoose);
+// ProductSchema.plugin(passportLocalMongoose);
 ProductSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Product', ProductSchema);

@@ -38,5 +38,5 @@ var OrderSchema = new Schema({
 {timestamps: true}
 );
 
-OrderSchema.plugin(passportLocalMongoose);
+// OrderSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('Order', OrderSchema);
