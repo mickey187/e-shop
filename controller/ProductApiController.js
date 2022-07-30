@@ -65,9 +65,9 @@ exports.fetchProductsByCategory = async(req, res)=>{
   };
 
   var productCategoryId = await ProductCategory.find({category: category, subCategory: subCategory}).select('_id');
-  
-  Product.paginate({category: productCategoryId}, options, (err, result)=>{
-
+  console.log(productCategoryId);
+  Product.paginate({category: productCategoryId[0]._id}, options, (err, result)=>{
+    console.log(err);
     res.send(result);
     
   })

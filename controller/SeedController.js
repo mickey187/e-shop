@@ -8,6 +8,11 @@ const Product = require('../models/Product');
 const ProductCategory = require('../models/ProductCategory');
 const ProductAttribute = require('../models/ProductAttribute');
 
+mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
+
 exports.addUser = (req, res) =>{
     // mongoose.connect('mongodb://localhost:27017/Ecommerce');
     mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
@@ -62,7 +67,7 @@ exports.seedProductAttribute = async(req, res)=>{
 
 exports.seedProducts = async(req, res)=>{
     var quantity = [25, 50, 75, 100, 125, 150, 175]
-    var category = ["62def737980c3690307a2f84", "62def735980c3690307a2f78"]
+    var category = ["62e53beb4aed676198fca8cb", "62e53bec4aed676198fca8d7"]
     var attribute = await ProductAttribute.find().select('_id');
 
     var done = 0;

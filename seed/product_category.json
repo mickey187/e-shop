@@ -1,67 +1,80 @@
 [
     {
         "category": "Women's Fashion",
-        "subCategory": "Clothing"
+        "subCategory": "Clothing",
+        "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=446&q=80"
     },
 
     {
         "category": "Women's Fashion",
-        "subCategory": "Shoes"
+        "subCategory": "Shoes",
+        "image": "https://images.unsplash.com/photo-1531310197839-ccf54634509e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80"
     },
 
     {
         "category": "Women's Fashion",
-        "subCategory": "Jewelery"
+        "subCategory": "Jewelery",
+        "image": "https://images.unsplash.com/photo-1522001947148-8b4dfe064edc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=446&q=80"
     },
 
     {
         "category": "Women's Fashion",
-        "subCategory": "Watches"
+        "subCategory": "Watches",
+        "image": "https://images.unsplash.com/photo-1590736969955-71cc94801759?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80"
     },
 
     {
         "category": "Women's Fashion",
-        "subCategory": "Handbags"
+        "subCategory": "Handbags",
+        "image": "https://images.unsplash.com/photo-1571273260782-bab4699dde20?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
     },
 
     {
         "category": "Women's Fashion",
-        "subCategory": "Accessories"
+        "subCategory": "Accessories",
+        "image": "https://images.unsplash.com/photo-1589782051446-a24efcec7ffc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80"
     },
 
     {
         "category": "Men's Fashion",
-        "subCategory": "Clothing"
+        "subCategory": "Clothing",
+        "image": "https://img.freepik.com/free-photo/portrait-handsome-smiling-stylish-young-man-model-dressed-red-checkered-shirt-fashion-man-posing_158538-4909.jpg?w=826&t=st=1659183707~exp=1659184307~hmac=1418b82a39d0d3f937c7972cb0a383c0d0cb709bab2ab177071900c72972120c"
     },
 
     {
         "category": "Men's Fashion",
-        "subCategory": "Shoes"
+        "subCategory": "Shoes",
+        "image": "https://img.freepik.com/free-photo/shoes_1203-8153.jpg?w=900&t=st=1659183757~exp=1659184357~hmac=f559154de4b2f4b54a82ac25c0c662997c15f05f3a8d8585e8beefd61255b447"
     },
 
     {
         "category": "Men's Fashion",
-        "subCategory": "Watches"
+        "subCategory": "Watches",
+        "image": "https://img.freepik.com/premium-vector/realistic-gold-watch-clock-dark-brown-face-design-men-fashion-white-background_33869-2267.jpg?w=740"
     },
 
     {
         "category": "Men's Fashion",
-        "subCategory": "Accessories"
+        "subCategory": "Accessories",
+        "image": "https://images.unsplash.com/photo-1587304883270-ccb401631f96?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
     },
 
     {
         "category": "Home and Kitchen",
-        "subCategory": "Kitchen & Dining"
+        "subCategory": "Kitchen & Dining",
+        "image": "https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
     },
 
     {
         "category": "Home and Kitchen",
-        "subCategory": "Furniture"
+        "subCategory": "Furniture",
+        "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=658&q=80"
     },
 
     {
         "category": "Home and Kitchen",
-        "subCategory": "Bedding"
+        "subCategory": "Bedding",
+        "image": "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80"
     }
 
     
