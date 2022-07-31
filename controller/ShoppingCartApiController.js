@@ -89,13 +89,13 @@ exports.viewCart = async(req, res)=>{
                 if (cart.products.length > 0) {
                     res.json({
                     message: "cart found",
-                    cart: cart, 
+                    cart: [cart], 
                     subTotal: calculateSubTotal(cart.products)
                 });
                 } else {
                     res.json({
                         message: "your cart is empty",
-                        cart: cart
+                        cart: []
                     });
                 }
                 
