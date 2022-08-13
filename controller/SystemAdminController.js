@@ -73,3 +73,14 @@ exports.viewEmployee = async(req, res)=>{
     console.log(employeeDetail);    
 }
 
+exports.viewCustomerInfo = async(req, res)=>{
+
+    try {
+        var customerData = await User.find({role: 'customer'});
+        res.render('admin/manage_customers', {layout: 'system_admin_layout', customerData: JSON.parse(JSON.stringify(customerData))})
+    } catch (error) {
+        console.log(error);
+        res.json(error);
+    }
+}
+

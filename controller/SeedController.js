@@ -7,6 +7,7 @@ const product_attribute_json = require('../seed/product_attribute.json');
 const Product = require('../models/Product');
 const ProductCategory = require('../models/ProductCategory');
 const ProductAttribute = require('../models/ProductAttribute');
+const {faker} = require('@faker-js/faker');
 
 mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
     useNewUrlParser: true,
@@ -30,6 +31,27 @@ exports.addUser = (req, res) =>{
 
 
     res.send("from controller");
+}
+
+exports.seedCustomer = async(req, res)=>{
+    // generateUserName("jon", "snow");
+    var sex = ['male', 'female'];
+    for (let index = 0; index < 5000; index++) {
+        var selected_sex = sex[Math.floor(Math.random()*sex.length)];
+        var firstName = faker.name.firstName(selected_sex);
+        var lastName = faker.name.lastName(selected_sex);
+        userData.register({ 
+        username: await generateUserName(firstName, lastName),
+        email: await generateEmail(firstName, lastName),
+        firstName: firstName,
+        lastName: lastName,
+        // password: 'pass',
+        role: 'customer',
+        active: false }, '12345678');
+        console.log(index + "user created");
+    }
+    res.send("success");
+    
 }
 exports.seedProductCategory = async(req, res)=>{
     var done = 0;
@@ -103,5 +125,46 @@ exports.wipeProductCollection = async(res, req)=>{
         }
     });
     res.send("collection wiped");
+}
+exports.wipeUserCollection = async(req, res)=>{
+    await userData.deleteMany({createdAt: {$gt:new Date(Date.now() - 24*60*60 * 1000)}});
+}
+
+async function generateUserName(firstName, lastName) {
+
+    var status = null;
+    var userName = null;
+    var index = 0;
+    while (true) {
+        index++;
+        userName = faker.internet.userName(firstName, lastName);
+        status = await userData.exists({username: userName});
+        if (status == null) {
+            break;
+            console.log(userName);         
+        }
+        console.log("tried to find new unused username" + index + "times");
+        
+    }  
+    
+    return userName;
+
+}
+
+async function generateEmail(firstName, lastName){
+    var status = null;
+    var email = null;
+    var index = 0;
+    while (true) {
+        index++;
+        email = faker.internet.email(firstName, lastName);
+        status = await userData.exists({email: email});
+        if (status == null) {
+            break;
+            console.log(email);         
+        }
+        console.log("tried to find new unused email" + index + "times");
+    }
+    return email;
 }
 

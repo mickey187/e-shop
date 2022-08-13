@@ -17,6 +17,7 @@
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "express-validator": "^6.14.2",
+    "generate-unique-id": "^2.0.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "jquery-validation": "^1.19.5",
@@ -33,6 +34,7 @@
     "stripe": "^9.16.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
     "nodemon": "^2.0.19"
   },
   "nodemonConfig": {

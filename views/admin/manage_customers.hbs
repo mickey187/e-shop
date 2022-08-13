@@ -1,0 +1,45 @@
+<div class="card card-success">
+    <div class="card-header">
+        <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="green">
+            <li class="nav-item">
+                <a class="nav-link text-bold" data-toggle="tab" href="#customer_data_tab" id="customer_data_tab_link"
+                    role="tab">Customer Data</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="tab-content text-center">
+            <div class="tab-pane active" id="customer_data_tab" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <table class="table table-bordered table-striped" id="customer_detail_table">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>User Name</th>
+                                    <th>Email</th>
+                                    <th>Acc created at</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each customerData }}
+                                        <tr>
+                                        <td scope="row">{{firstName}} {{lastName}}</td>
+                                        <td>{{username}}</td>
+                                        <td>{{email}}</td>
+                                        <td>{{createdAt}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-sm m-1"><i class="fas fa-info fa-sm fa-fw"></i></button> 
+                                            <button type="button" class="btn btn-info btn-sm m-1"><i class="fas fa-edit fa-sm fa-fw"></i></button>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

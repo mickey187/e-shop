@@ -86,11 +86,17 @@ router.post('/shopping-cart/remove-item-from-cart', ShoppingCartController.remov
 // Payment API endpoints
 // Stripe integration
 
-router.post('/payment/create-payment-intent', PaymentApiController.createPaymentIntent);
+router.post('/payment/create-payment-intent', express.raw({type: "appplication/json"}), PaymentApiController.createPaymentIntent);
 
 // stripe webhook
 
-router.post('/payment/webhook', PaymentApiController.listenStripeEvents);
+router.post('/payment/webhook',PaymentApiController.listenStripeEvents);
+
+// ab routes
+
+router.post('/payment/test', PaymentApiController.StripePayEndpointIntentId);
+
+router.post('/payment/create-payment-intent-flutter', PaymentApiController.StripePayEndpointMethod);
 
 
 

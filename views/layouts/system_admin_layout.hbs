@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="/stylesheets/image_uploader.css">
   <link rel="stylesheet" href="/stylesheets/tagify.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"
 
   {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" integrity="sha512-xmGTNt20S0t62wHLmQec2DauG9T+owP9e6VU8GigI0anN7OXLip9i7IwEhelasml2osdxX71XcYm6BQunTQeQg==" crossorigin="anonymous" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
@@ -220,7 +221,7 @@
           
           
             <li class="nav-item">
-                <a href="/products/sales-manager-dashboard" class="nav-link">
+                <a href="/system-admin/system-admin-dashboard" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i> 
                   <p>Dashboard</p>
                 </a>
@@ -272,17 +273,16 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
-              <p>
-                UI Elements
-                <i class="fas fa-angle-left right"></i>
+              <span class="material-icons-outlined nav-icon">groups</span>
+                <p>Customers
+                <i class="fas fa-angle-left right"></i> 
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="/system-admin/customer/customer-info" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>General</p>
+                  <p>Customer Info</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -638,6 +638,21 @@ $(function() {
     <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     
+    <script>
+              $(function() {
+            $("#customer_detail_table").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "search":{
+                    "smart":true,
+                    "caseInsensitve":true
+                },
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#customer_detail_table_wrapper .col-md-6:eq(0)');
+
+        });
+    </script>
 
 
 

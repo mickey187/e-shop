@@ -4,7 +4,7 @@ var validate = require('../middleware/validator');
 const SystemAdminController = require('../controller/SystemAdminController');
 
 // system admin dashboard
-router.get('/dashboard', SystemAdminController.dashboard);
+router.get('/system-admin-dashboard', SystemAdminController.dashboard);
 
 // employee
 router.get('/employee', SystemAdminController.manageEmployee);
@@ -14,5 +14,8 @@ router.post('/employee/addEmployee', validate.validateAddEmployee, SystemAdminCo
 
 // view employee list
 router.get('/employee/viewEmployee', SystemAdminController.viewEmployee);
+
+// view customer info
+router.get('/customer/customer-info', SystemAdminController.viewCustomerInfo);
 
 module.exports = router;

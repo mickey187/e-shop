@@ -19,6 +19,10 @@ router.get('/', function(req, res, next){
     
 } );
 
+router.get('/seedCustomer', SeedController.seedCustomer);
+
+router.get('/wipeUser', SeedController.wipeUserCollection);
+
 router.get('/seedProductCategory', SeedController.seedProductCategory);
 
 router.get('/seedProductAttribute', SeedController.seedProductAttribute);

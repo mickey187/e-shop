@@ -29,6 +29,12 @@ var OrderSchema = new Schema({
         required: true,
         unique: true
     },
+
+    paymentReference:{
+        type: String,
+        required: true,
+        unique: true
+    },
     orderStatus: {
         type: String,
         enum: ['active', 'delivered', 'canceled','delayed'],

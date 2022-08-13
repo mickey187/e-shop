@@ -10,17 +10,25 @@ var PaymentSchema = new Schema({
 
     customerId: {
         type: Schema.Types.ObjectId,
-        ref: 'User'        
+        ref: 'User',
+        required: true        
     },
     
     orderId: {
         type: Schema.Types.ObjectId,
-        ref: 'Order'
+        ref: 'Order',
+        required: true
     },
 
     paymentChannel: {
-        type: Schema.Types.ObjectId,
-        ref: 'PaymentChannel'
+        type: String,
+        required: true
+    },
+
+    paymentReference:{
+        type: String,
+        required: true,
+        unique: true
     },
 
     totalAmountPaid: {

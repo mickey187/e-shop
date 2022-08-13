@@ -27,10 +27,11 @@ app.set('view engine', 'hbs');
 app.set('views', './views');
 
 app.use(logger('dev'));
+// app.use('/api/payment/webhook',express.raw({type: "appplication/json"}));
+app.use('/api/payment/webhook',express.raw({type: "application/json"}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.raw());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'storage')));
@@ -97,7 +98,7 @@ app.post('/login', passport.authenticate('local', { /*successReturnToOrRedirect:
     switch (role) {
       case 'system_admin':
         next()
-        res.redirect('/system-admin/dashboard')
+        res.redirect('/system-admin/system-admin-dashboard')
         break;
 
       case 'sales_manager':
