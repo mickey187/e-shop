@@ -31,10 +31,10 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^7.1.2",
-    "stripe": "^9.16.0"
+    "stripe": "^9.16.0",
+    "@faker-js/faker": "^7.3.0"
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.3.0",
     "nodemon": "^2.0.19"
   },
   "nodemonConfig": {
