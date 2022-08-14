@@ -8,7 +8,7 @@ const ShoppingCart = require('../models/ShoppingCart');
 exports.createPaymentIntent = async(req, res)=>{
     
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: 250000,
+        amount: 174785,
         currency: "usd",
         automatic_payment_methods: {
           enabled: true,
@@ -123,10 +123,11 @@ exports.StripePayEndpointIntentId = async (req, res)=>{
 exports.StripePayEndpointMethod = async (req, res)=>{
   const {paymentMethodId, items, currency, useStripeSdk, } = req.body;
   const orderAmount = calculateOrderAmount(items);
+  var totalPrice = await calculateTotalProductPrice("62f03a54eabbee7f2a89efe7");
   try {
       if (paymentMethodId) {
           const params = {
-              amount: orderAmount,
+              amount: totalPrice,
               confirm: true,
               confirmation_method: 'manual',
               currency: currency,
@@ -182,14 +183,21 @@ const generateResponse = function (intent){
 
 async function calculateTotalProductPrice(customerId){
 
-  var cart = await ShoppingCart.findOne({customerId: customerId});
+  var cart = await ShoppingCart.findOne({customerId: customerId}).populate(
+    {
+        path: 'products',
+        populate: {
+            path: 'productId'
+        }
+    }
+);
 
   console.log(cart);
   var totalPrice = 0.00;
   cart.products.forEach(element => {
-      console.log(element.productId.price);
+      console.log("Price of each product",element);
       totalPrice = totalPrice + (parseFloat(element.productId.price) * element.quantity);
   });
-  
-  return totalPrice;
+  console.log("Total price",totalPrice);
+  return totalPrice * 100;
 }

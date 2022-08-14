@@ -101,7 +101,7 @@ async function fetchCartDetail(email){
     var shoppingCart = await ShoppingCart.find({customerId: customerId}).select('products');
     var cartDetail = [];
     cartDetail.push(customerId);
-    cartDetail.push(shoppingCart.products);
+    cartDetail.push(shoppingCart);
     console.log(cartDetail.products);
     return cartDetail;
 }
