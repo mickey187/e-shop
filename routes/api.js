@@ -55,6 +55,8 @@ router.get('/customer/profile', verifyToken, function(req, res) {
     
 });
 
+// products
+
 router.get('/products/fetch-product-category', ProductApiController.fetchProductCategory);
 
 router.get('/products/fetch-product-subcategory/:category', ProductApiController.fetchProductSubCategory);
@@ -63,6 +65,9 @@ router.get('/products/fetch-products/:page/:limit', ProductApiController.fetchPr
 
 router.get('/products/fetch-products-by-category/:category/:subCategory/:page/:limit', ProductApiController.fetchProductsByCategory);
 
+router.get('/products/fetch-product-tags', ProductApiController.fetchProductTags);
+
+router.get('/products/fetch-products-by-tags/:tagName', ProductApiController.fetchProductByTags);
 
 // Orders Api endpoints
 
@@ -99,6 +104,9 @@ router.post('/payment/webhook',PaymentApiController.listenStripeEvents);
 router.post('/payment/test', PaymentApiController.StripePayEndpointIntentId);
 
 router.post('/payment/create-payment-intent-flutter', PaymentApiController.StripePayEndpointMethod);
+
+
+
 
 
 

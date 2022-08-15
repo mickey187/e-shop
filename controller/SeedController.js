@@ -4,6 +4,7 @@ var userData = require('../models/User.js');
 const product_json = require('../seed/product_seed.json');
 const product_category_json = require('../seed/product_category.json');
 const product_attribute_json = require('../seed/product_attribute.json');
+const mens_product_json = require('../seed/mens_product_seed.json');
 const Product = require('../models/Product');
 const ProductCategory = require('../models/ProductCategory');
 const ProductAttribute = require('../models/ProductAttribute');
@@ -116,8 +117,37 @@ exports.seedProducts = async(req, res)=>{
         console.log(result);
     }
 }
-exports.wipeProductCollection = async(res, req)=>{
-    Product.deleteMany({}, (err, result)=>{
+exports.seedMenFashion = async(req, res)=>{
+    var quantity = [25, 50, 75, 100, 125, 150, 175]
+    var category = ["62e53beb4aed676198fca8cb", "62e53bec4aed676198fca8d7"]
+    var attribute = await ProductAttribute.find().select('_id');
+
+    var done = 0;
+    var status = null;
+
+    for (let index = 0; index < mens_product_json.length; index++) {
+        var product = new Product({
+            name: mens_product_json[index].name,
+            price: mens_product_json[index].price,
+            quantity: quantity[Math.floor(Math.random() * quantity.length)],
+            category: "62e53bec4aed676198fca8d7",
+            attributes: attribute[Math.floor(Math.random() * attribute.length)],
+            tags: ["Men's", "Men's Fashion", "Fashion", "Men's Clothing"],
+            description: "Men's trending fashion",
+            images: mens_product_json[index].image_url
+        
+          });
+          var result = await product.save();
+
+          if (done == mens_product_json.length) {
+            mongoose.disconnect();
+            res.send("success");
+        }
+        console.log(result);
+    }
+}
+exports.wipeProductCollection = async(req, res)=>{
+    Product.deleteMany({createdAt: {$gt:new Date(Date.now() - 24*60*60 * 1000)}}, (err, result)=>{
        
         if (!err) {
             console.log("wiped");

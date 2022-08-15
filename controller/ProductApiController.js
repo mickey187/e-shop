@@ -73,3 +73,35 @@ exports.fetchProductsByCategory = async(req, res)=>{
   })
 
 }
+
+exports.fetchProductTags = async(req, res)=>{
+
+  var productTags = await Product.find({}).select('tags').distinct('tags');
+  if (productTags != null) {
+    res.json({
+      message: "found tags",
+      tags: productTags
+    });
+  } else {
+    res.json({
+      message: "could not find tags",
+      tags: null
+    });
+  }
+}
+
+exports.fetchProductByTags = async(req, res)=>{
+
+  var product = await Product.find({tags: req.params.tagName});
+  if (product != null) {
+    res.json({
+      message: "found product with the provided tag",
+      product: product
+    });
+  } else {
+    res.json({
+      message: "could not find products with the provided tag name",
+      product: null
+    });
+  }
+}
