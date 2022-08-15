@@ -68,6 +68,8 @@ router.get('/products/fetch-products-by-category/:category/:subCategory/:page/:l
 
 router.post('/orders/place-order', OrderApiController.placeOrder);
 
+router.post('/orders/fetch-order', OrderApiController.fetchOrder);
+
 
 // Shopping cart controllers
 

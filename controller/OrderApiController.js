@@ -60,7 +60,7 @@ exports.placeOrderStripe = async(orderDetail)=>{
             orderId: order._id,
             paymentChannel: orderDetail.payment_method_details.card.brand,
             paymentReference: orderDetail.id,
-            totalAmountPaid: orderDetail.amount,
+            totalAmountPaid: orderDetail.amount / 100,
             transactionNumber: await generateTransactionNumber(orderDetail.id)
         } 
         await recordPayment(paymentRecord);
@@ -81,6 +81,30 @@ exports.placeOrderStripe = async(orderDetail)=>{
     
 
     
+}
+
+exports.fetchOrder = async(req, res)=>{
+
+    var customerOrder = await Order.find({customerId: req.body.customerId}).populate(
+        {
+            path: 'products',
+            populate: {
+                path: 'productId'
+            }
+        }
+    );
+
+    if (customerOrder != null) {
+        res.json({
+            message: "found orders with this customer id",
+            order: customerOrder
+        });
+    } else {
+        res.json({
+            message: "there are no orders for this customer",
+            order: null
+        });
+    }
 }
 
 async function checkDuplicateOrder(paymentReference){

@@ -192,10 +192,10 @@ async function calculateTotalProductPrice(customerId){
     }
 );
 
-  console.log(cart);
+  // console.log(cart);
   var totalPrice = 0.00;
   cart.products.forEach(element => {
-      console.log("Price of each product",element);
+      // console.log("Price of each product",element);
       totalPrice = totalPrice + (parseFloat(element.productId.price) * element.quantity);
   });
   console.log("Total price",totalPrice);
