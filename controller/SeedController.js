@@ -1,10 +1,13 @@
 
 const mongoose = require('mongoose');
 var userData = require('../models/User.js');
+
 const product_json = require('../seed/product_seed.json');
 const product_category_json = require('../seed/product_category.json');
 const product_attribute_json = require('../seed/product_attribute.json');
 const mens_product_json = require('../seed/mens_product_seed.json');
+const accessory_json = require('../seed/accessory.json');
+
 const Product = require('../models/Product');
 const ProductCategory = require('../models/ProductCategory');
 const ProductAttribute = require('../models/ProductAttribute');
@@ -135,6 +138,36 @@ exports.seedMenFashion = async(req, res)=>{
             tags: ["Men's", "Men's Fashion", "Fashion", "Men's Clothing"],
             description: "Men's trending fashion",
             images: mens_product_json[index].image_url
+        
+          });
+          var result = await product.save();
+
+          if (done == mens_product_json.length) {
+            mongoose.disconnect();
+            res.send("success");
+        }
+        console.log(result);
+    }
+}
+
+exports.seedAccessory = async(req, res)=>{
+    var quantity = [25, 50, 75, 100, 125, 150, 175]
+    var category = ["62e53bec4aed676198fca8d3", "62e53bed4aed676198fca8db"]
+    var attribute = await ProductAttribute.find().select('_id');
+
+    var done = 0;
+    var status = null;
+
+    for (let index = 0; index < accessory_json.length; index++) {
+        var product = new Product({
+            name: accessory_json[index].name,
+            price: accessory_json[index].price,
+            quantity: quantity[Math.floor(Math.random() * quantity.length)],
+            category: category[Math.floor(Math.random() * category.length)],
+            attributes: attribute[Math.floor(Math.random() * attribute.length)],
+            tags: ["Accessories"],
+            description: "Trending accessories right now",
+            images: accessory_json[index].image_url
         
           });
           var result = await product.save();

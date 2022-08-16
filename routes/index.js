@@ -31,6 +31,8 @@ router.get('/seedProduct', SeedController.seedProducts);
 
 router.get('/wipeProductCollection', SeedController.wipeProductCollection);
 
+router.get('/seedAccessory', SeedController.seedAccessory);
+
 router.get('/seedMenFashion', SeedController.seedMenFashion);
 
 

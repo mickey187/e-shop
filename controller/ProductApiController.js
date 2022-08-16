@@ -29,6 +29,8 @@ exports.fetchProductSubCategory = async(req, res)=>{
 
 exports.fetchProducts = async(req, res)=>{
 
+  var filter = await fetchFilter();
+
   const options = {
     page: req.params.page,
     limit: req.params.limit,
@@ -38,9 +40,9 @@ exports.fetchProducts = async(req, res)=>{
     },
   };
 
-  var products = await Product.find({}).populate('category').populate('attributes');
+  // var products = await Product.find({}).populate('category').populate('attributes');
 
-  Product.paginate({}, options, (err, result)=>{
+  Product.paginate({$or: filter, $gt: new Date(Date.now() - 168*60*60 * 1000)}, options, (err, result)=>{
 
     res.send(result);
     
@@ -105,3 +107,34 @@ exports.fetchProductByTags = async(req, res)=>{
     });
   }
 }
+
+async function fetchFilter(){ 
+
+var productTags = await Product.find({}).select('tags').distinct('tags');
+var filterdTagFinal = [];
+  if (productTags != null) {
+    var filterTags = [];
+    while (true) {
+      var tempTag = productTags[Math.floor(Math.random() * productTags.length)];
+      if (!filterTags.includes(tempTag)) {
+        filterTags.push(tempTag);
+      }
+      if (filterTags.length > 3) {
+        break;
+      }      
+    }
+
+    for (let index = 0; index < filterTags.length; index++) {
+      var tempTagObj = {tags: filterTags[index]}
+      filterdTagFinal.push(tempTagObj);
+      
+    }
+    
+  } else {
+    console.log("filters not found");
+  }
+  
+  console.log(filterdTagFinal);
+  return filterdTagFinal;
+
+ }
