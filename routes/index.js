@@ -35,6 +35,8 @@ router.get('/seedAccessory', SeedController.seedAccessory);
 
 router.get('/seedMenFashion', SeedController.seedMenFashion);
 
+router.get('/seedMisc', SeedController.seedMiscProducts);
+
 
 
 router.get('/seed', SeedController.addUser);

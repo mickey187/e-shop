@@ -7,6 +7,7 @@ const product_category_json = require('../seed/product_category.json');
 const product_attribute_json = require('../seed/product_attribute.json');
 const mens_product_json = require('../seed/mens_product_seed.json');
 const accessory_json = require('../seed/accessory.json');
+const misc_json = require('../seed/misc_product.json');
 
 const Product = require('../models/Product');
 const ProductCategory = require('../models/ProductCategory');
@@ -177,6 +178,42 @@ exports.seedAccessory = async(req, res)=>{
             res.send("success");
         }
         console.log(result);
+    }
+}
+
+exports.seedMiscProducts = async(req, res)=>{
+
+    var quantity = [25, 50, 75, 100, 125, 150, 175]
+    var category = ["62e53bec4aed676198fca8d3", "62e53bed4aed676198fca8db"]
+    var attribute = await ProductAttribute.find().select('_id');
+
+    var done = 0;
+    var status = null;
+
+    for (let index = 0; index < misc_json.length; index++) {
+        var category = await ProductCategory.find({subCategory: {'$regex': `${misc_json[index].category}`, '$options': 'i'}}).lean();
+        var status = await Product.exists({name: misc_json[index].title});
+        if (status == null) {
+             var product = new Product({
+            name: misc_json[index].title,
+            price: misc_json[index].price,
+            quantity: misc_json[index].stock,
+            category: category[0]._id,
+            attributes: attribute[Math.floor(Math.random() * attribute.length)],
+            tags: [misc_json[index].brand],
+            description: misc_json[index].description,
+            images: misc_json[index].images
+        
+          });
+          var result = await product.save();
+
+          if (done == mens_product_json.length) {
+            mongoose.disconnect();
+            res.send("success");
+        }
+        console.log(result);
+        }
+       
     }
 }
 exports.wipeProductCollection = async(req, res)=>{
