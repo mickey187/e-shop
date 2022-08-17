@@ -83,7 +83,7 @@
                   <th>ID</th>
                   <th>Category</th>
                   <th>Sub Category</th>
-                  {{!-- <th>Action</th> --}}
+                  <th>Action</th>
                 </tr>
               </thead>
 
@@ -264,7 +264,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"> Product Detail </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button"  class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -272,15 +272,138 @@
 
         <div class="row">
           <div class="col-12" id="view_more_product_info">
-
+            <p id="categoryId"></p>
+            <p id="category"></p>
+            <p id="subCategory"></p>
           </div>
         </div>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <form action="" id="edit_category_form">
+      <div class="modal-body">      
+          <p id="categoryIdEdit_p"></p>
+        <div class="form-group">
+          <label for="">Category</label>
+          <input type="text" class="form-control" name="category_edit_input" id="category_edit_input" aria-describedby="helpId" placeholder="Category" required>
+          
+        </div>
+        <div class="form-group">
+          <label for="">Sub Category</label>
+          <input type="text" class="form-control" name="sub_category_edit_input" id="sub_category_edit_input" aria-describedby="helpId" placeholder="Sub Category" required>
+          
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="edit_category_btn">Edit</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteCategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-danger">Are you sure you want to delete?</p>
+        <p id="category_id_p_del"></p>
+        <p id="category_p_del"></p>
+        <p id="sub_category_p_del"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="delete_category_btn">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{!-- Edit Product Modal --}}
+
+<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+      <div class="modal-body">
+        
+          <div class="form-group">
+            <label for="product_name_edit" class="col-form-label">Product Name:</label>
+            <input type="text" name="product_name_edit" class="form-control" id="product_name_edit">
+          </div>
+          <div class="form-group">
+            <label for="product_price_edit" class="col-form-label">Price:</label>
+            <input type="number" name="product_price_edit" class="form-control" id="product_price_edit">
+          </div>
+          <div class="form-group">
+            <label for="product_quantity_edit">Qauntity:</label>
+            <input type="text" class="form-control" name="product_quantity_edit" id="product_quantity_edit" aria-describedby="helpId" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="product_description_edit">Product Description:</label>
+            <textarea class="form-control" name="product_description_edit" id="product_description_edit" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="product_category_edit">Product Category</label>
+            <select class="form-control" name="product_category_edit" id="product_category_edit">
+              
+            </select>
+          </div>
+          <div class="form-group">
+              <label for="product_attribute_list_edit">Product Attribute</label>
+              <select class="select2" name="product_attribute_list_edit" id="product_attribute_list_edit" multiple="multiple"
+                style="width: 100%" data-placeholder="Select Class" name="select_classes_edit[]">
+              </select>
+            </div>
+          <div class="form-group">
+              <label for="tags_input_edit">Product Tags</label>
+              <input type="text" class="form-control" name="tags_edit" id="tags_input_edit" aria-describedby="helpId"
+                placeholder="Enter product tags">
+              {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+          </div>
+          <div class="form-group">
+              <label for="related_product_list_edit">Product Attribute</label>
+              <select class="select2" name="related_product_list_edit" id="related_product_list_edit" multiple="multiple"
+                style="width: 100%" data-placeholder="Select Class" name="select__related_products_edit[]">
+              </select>
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Send message</button>
       </div>
+      </form>
     </div>
   </div>
 </div>

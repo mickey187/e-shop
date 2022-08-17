@@ -69,6 +69,8 @@ router.get('/products/fetch-product-tags', ProductApiController.fetchProductTags
 
 router.get('/products/fetch-products-by-tags/:tagName', ProductApiController.fetchProductByTags);
 
+router.post('/products/search-products', ProductApiController.searchProducts);
+
 // Orders Api endpoints
 
 router.post('/orders/place-order', OrderApiController.placeOrder);

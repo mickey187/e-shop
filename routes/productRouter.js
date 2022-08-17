@@ -30,8 +30,19 @@ router.post('/add-product',upload.any('product_image_upload'),ProductController.
 // view product
 router.get('/view-product', ProductController.viewProduct);
 
+// fetch product by id
+
+router.get('/fetch-product-by-id/:productId', ProductController.fetchProductById);
+
+
 // add product category (post)
 router.post('/add-product-category',  upload.any('productCategoryImageUpload'), validator.validateProductCatagory, ProductController.addProductCategory);
+
+// edit product category (post)
+router.post('/edit-product-category', ProductController.editProductCategory);
+
+// delete product category
+router.post('/delete-product-category', ProductController.deleteProductCategory);
 
 // view product category
 router.get('/view-product-category', ProductController.viewProductCategory);

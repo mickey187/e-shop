@@ -114,6 +114,40 @@ exports.viewProductCategory = async(req, res) =>{
     // console.log(query);
 }
 
+exports.editProductCategory = async(req, res)=>{
+
+  console.log(req.body);
+  var updateStatus = await ProductCategory.updateOne({_id: req.body.categoryId},
+               {category: req.body.category, subCategory: req.body.subCategory});
+  console.log(updateStatus);
+  if (updateStatus.acknowledged && updateStatus.modifiedCount > 0) {
+    res.json({
+      message: "updated"
+    });
+  }
+  else{
+    res.json({
+      message: "failed"
+    });
+  }
+}
+
+exports.deleteProductCategory = async(req, res)=>{
+
+  var categoryId = req.body.categoryId.toString();
+  var deleteStatus = await ProductCategory.deleteOne({_id: req.body.categoryId});
+  if (deleteStatus.acknowledged && deleteStatus.deletedCount > 0) {
+    res.json({
+      message: "deleted"
+    })
+  }else{
+    res.json({
+      message: "failed"
+    });
+  } 
+  
+}
+
 exports.addProductAttribute = (req, res) =>{
 
 var errors = validationResult(req);
@@ -249,6 +283,25 @@ exports.viewProduct = async(req, res)=>{
   var products = await Product.find({}).populate('category').populate('attributes');
   res.send(products);
 }
+
+exports.fetchProductById = async(req, res)=>{
+
+  var product = await Product.findById(req.params.productId).populate('category').populate('attributes');
+  console.log(product);
+  if (product != null) {
+    res.json({
+      status: true,
+      product: product
+    });
+  }else{
+    res.json({
+      status: false,
+      product: null
+    });
+  }
+}
+
+
 
 exports.seedProduct = (req, res) =>{
     

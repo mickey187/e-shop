@@ -138,3 +138,16 @@ var filterdTagFinal = [];
   return filterdTagFinal;
 
  }
+
+ exports.searchProducts = async(req, res)=>{
+
+  var searchString = req.body.searchString.toString();
+  var searchResult = await Product.find({
+                                         tags: {$regex: searchString, $options: '^i'}}).select('_id').select('name').select('tags').select('images');
+  console.log(searchResult);
+  res.json({
+    message: "found results",
+    searchResult: searchResult,
+    resultFoundInNumber: searchResult.length
+  });
+}

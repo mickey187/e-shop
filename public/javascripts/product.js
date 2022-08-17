@@ -1,4 +1,6 @@
 
+
+
 var imgArray = [];
 var imgArrayProductCategory = [];
 
@@ -129,7 +131,10 @@ $('#addProductCategoryBtn').click(function (e) {
 
 
 
-
+$('.show-category-detail').click(function () { 
+  // e.preventDefault();
+  console.log("hello");
+});
 
 $('#view_product_category_tab_link').click(function () { 
 
@@ -138,18 +143,32 @@ $('#view_product_category_tab_link').click(function () {
         url: "/products/view-product-category",
         // cache: false,
         dataType: "json",
-        success: function (response) {
-            console.log(response);
+        success: function (data) {
+            console.log(data);
+            data.forEach(element=>{
+            //   var jsonStr = JSON.stringify(element);
+             console.log(element._id);
+              Object.assign(element,
+    
+                {action: '<button type="button" id="'+element._id+'" class="btn btn-primary btn-sm btn-success show-category-detail" data-toggle="modal" data-target="#view_product_detail"'+
+                 'data-id="'+element._id+'" data-category="'+element.category+'" data-sub_category="'+element.subCategory+'" data-detail="'+JSON.stringify(element)+'"><i class="fas fa-info-circle"></i></button>'+' '+
+                                       '<button type="button" class="btn btn-primary btn-sm btn-info" data-toggle="modal" data-target="#editCategoryModal" data-category_id_edit="'+element._id+'" data-category_edit="'+element.category+'" data-sub_category_edit="'+element.subCategory+'">'+
+                                       '<i class="fas fa-edit"></i></button>'+' '+
+                                       '<button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteCategoryModal" data-category_id_delete="'+element._id+'" data-category_delete="'+element.category+'" data-sub_category_delete="'+element.subCategory+'">'+
+                                       '<i class="fa fa-trash" aria-hidden="true"></i></button>'
+                                      })
+            });
             $("#view_product_category_table").DataTable({
                 // "processing": true,
                 // "serverSide": true,
                 // "ajax":"/finance/showStudentsRegsiteredForTransport",
                 "destroy":true,
-                "data":response,
+                "data":data,
                 "columns": [
                     { "data": "_id" },
                     { "data": "category" },
                     { "data": "subCategory" },
+                    { "data": "action"}
                    
                     
                    
@@ -420,20 +439,20 @@ $('#view_product_tab_link').click(function (e) {
     // data: "data",
     dataType: "json",
     success: function (data) {
-      console.log(data);
+      
       var row = '';
       
        data.forEach(element => {
        
         for (let index = 0; index < element.attributes.length; index++) {
-         
+        //  console.log(JSON.stringify(element));
           Object.assign(element, {image: '<img src="'+element.images[0]+'" alt="..." class="img-thumbnail" style="width:100px;height: 100px">' });
           Object.assign(element,
-            {action: '<button type="button" class="btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#view_product_detail" data-whatever="@mdo"><i class="fas fa-info-circle"></i></button>'+' '+
-                                   '<button type="button" class="btn btn-primary btn-sm btn-info"><i class="fas fa-edit"></i></button>'+' '+
+            {action: '<button type="button" class="btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#" data-whatever="@mdo"><i class="fas fa-info-circle"></i></button>'+' '+
+                                   '<button type="button" class="btn btn-primary btn-sm btn-info" data-toggle="modal" data-target="#editProductModal" data-product_id_edit="'+element._id+'"><i class="fas fa-edit"></i></button>'+' '+
                                    '<button type="button" class="btn btn-primary btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>'
                                   })
-          console.log(element.attributes[index].attributeName);
+          
           
         }
       
@@ -492,15 +511,7 @@ $('#view_product_tab_link').click(function (e) {
   
 });
 
-$('#view_product_detail').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this)
-  modal.find('.modal-title').text('New message to ' + recipient)
-  modal.find('.modal-body input').val(recipient)
-})
+
 
 
 
@@ -580,5 +591,179 @@ function ImgUploadProductCategory() {
   });
 }
 
+
+
+
+function showCategoryDetail(e){
+  var id = '#'+ e.toString();
+  var categoryDetail = $("#"+e).data('categoryDetail');
+  console.log("detail", categoryDetail);
+  $(id).click(function (e) { 
+    e.preventDefault();
+    console.log("clicked");
+    
+  });
+ 
+}
+
+// $('#view_product_detail').on('show.bs.modal', function (event) {
+//   var button = $(event.relatedTarget).attr('data-categoryDetail') // Button that triggered the modal
+//   // var recipient = button.data('categoryDetail')
+//   console.log(button._id);
+//   $('#categoryId').text(button._id);
+//   $('#subCategory').text(button.subCategory);
+//   $('#category').text(button.category);
+//   // var modal = $(this)
+//   // modal.find('.modal-title').text('New message to ' + recipient)
+//   // modal.find('.modal-body input').val(recipient)
+// })
+
+$('#view_product_detail').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+
+  var categoryId = button.data('id'); 
+  var category = button.data('category');
+  var subCategory = button.data('sub_category');
+  var detail = button.data('detail');
+  console.log(categoryId +' '+category +' '+subCategory);
+  $('#categoryId').text("Category ID: "+categoryId);
+  $('#category').text("Category: "+category);
+  $('#subCategory').text("Sub Category: "+subCategory);
+
+
+  // var modal = $(this)
+  // modal.find('.modal-title').text('New message to ' + recipient)
+  // modal.find('.modal-body input').val(recipient)
+});
+
+$('#editCategoryModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var categoryId = button.data('category_id_edit'); // Extract info from data-* attributes
+  var category = button.data('category_edit');
+  var subCategory = button.data('sub_category_edit');
+  console.log(category +' '+ subCategory );
+  console.log(button);
+  $('#categoryIdEdit_p').val(categoryId);
+  $('#category_edit_input').val(category);
+  $('#sub_category_edit_input').val(subCategory);
+
+  
+});
+
+$('#edit_category_btn').click(function (e) { 
+  e.preventDefault();
+  if ($('#edit_category_form').valid()) {
+    var categoryId = $('#categoryIdEdit_p').val();
+    var category = $('#category_edit_input').val().trim();
+    var subCategory = $('#sub_category_edit_input').val().trim();
+
+    $.ajax({
+      type: "POST",
+      url: "/products/edit-product-category",
+      data: {categoryId: categoryId, category: category, subCategory: subCategory},
+      dataType: "json",
+      success: function (data) {
+        if (data.message == "updated") {
+          console.log("success");
+          $('#view_product_category_tab_link').click()
+          $('#editCategoryModal').modal('hide')
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Updated Successfully!',
+          
+          });
+        } else {
+          
+        }
+      }
+    });
+  }
+  else{
+    console.log($('#edit_category_form').valid());
+  }
+});
+
+$('#deleteCategoryModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var categoryId = button.data('category_id_delete') // Extract info from data-* attributes
+  var category = button.data('category_delete');
+  var subCategory = button.data('sub_category_delete');
+
+  $('#category_id_p_del').val(categoryId);
+  $('#category_p_del').text("Category: "+category);
+  $('#sub_category_p_del').text("Sub Category: "+subCategory);
+
+});
+
+$('#delete_category_btn').click(function (e) { 
+  e.preventDefault();
+  console.log("delete");
+  var categoryId = $('#category_id_p_del').val();
+  $.ajax({
+    type: "POST",
+    url: "/products/delete-product-category",
+    data: {categoryId: categoryId},
+    dataType: "json",
+    success: function (data) {
+     
+      if (data.message == "deleted") {
+
+        $('#view_product_category_tab_link').click();
+          $('#deleteCategoryModal').modal('hide');
+
+        Swal.fire({
+          icon: 'danger',
+          title: 'Delete',
+          text: 'One item deleted!',
+        
+        });
+      } else {
+        Swal.fire({
+          icon: 'danger',
+          title: 'Delete',
+          text: 'Item could not be deleted please try again',
+        
+        });
+      }
+    }
+  });
+  
+});
+
+// edit produc modal
+$('#editProductModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) 
+  var productData = button.data('product_id_edit');
+  console.log(productData);
+  $.ajax({
+    type: "GET",
+    url: "/products/fetch-product-by-id/"+productData,
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+      if (data.status) {
+        $('#product_name_edit').val(data.product.name);
+        $('#product_price_edit').val(data.product.price);
+        $('#product_quantity_edit').val(data.product.quantity);
+        $('#product_description_edit').val(data.product.description);
+
+        $('#product_category_edit').append(`<option value="${data.product._id}" selected>
+                                       ${data.product.category.category} - ${data.product.category.subCategory}
+                                  </option>`);
+
+        // $('#product_category_edit').val(data.product.category.category + "-" +data.product.category.subCategory);
+        $('#product_name_edit').val(data.product.name);
+        $('#product_name_edit').val(data.product.name);
+        $('#product_name_edit').val(data.product.name);
+      } else {
+        
+      }
+      
+    }
+  });
+
+  
+})
 
 
