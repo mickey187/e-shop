@@ -1,8 +1,8 @@
 <div class="row mt-2">
     <div class="col-12">
-        <div class="col-sm-6">
+        {{!-- <div class="col-sm-6">
             <h1 class="m-0">Dashboard</h1>
-          </div>
+          </div> --}}
     </div>
 </div>
 <div class="row mt-3">
@@ -13,7 +13,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Sales</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-number">{{payment}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -26,10 +26,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Products</span>
-                <span class="info-box-number">
-                  10
-                  <small>%</small>
-                </span>
+                <span class="info-box-number">{{product}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -42,7 +39,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">New products</span>
-                <span class="info-box-number">15</span>
+                <span class="info-box-number">{{newProducts}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -61,7 +58,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Out of stock products</span>
-                <span class="info-box-number">20</span>
+                <span class="info-box-number">{{outOfStockProducts}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>

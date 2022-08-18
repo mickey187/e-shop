@@ -1,14 +1,29 @@
 const session = require('express-session');  // session middleware
 const passport = require('passport');
 const User = require('../models/User');
+const Product = require('../models/Product');
 const {check, validationResult} = require('express-validator');
 
 
 
-exports.dashboard = (req, res)=>{
+exports.dashboard = async(req, res)=>{
     console.log(req.user);
     var user = JSON.parse(JSON.stringify(req.user));
-    res.render('admin/system_admin_dashboard',{layout: 'system_admin_layout', user: user});
+    var numberOfEmployee = await User.find({$or: [
+        {role: "sales_manager"},
+        {role: "sales_staff"},
+        {role: "system_admin"}
+    ]}).count();
+    var numberOfCustomers = await User.find({role: "customer"}).count();
+    var newProducts = await Product.find({createdAt: {$gt:new Date(Date.now() - 168*60*60 * 1000)}}).count();
+    var outOfStockProducts = await Product.find({quantity: {$lte: 1}}).count();
+    res.render('admin/system_admin_dashboard',{layout: 'system_admin_layout',
+    user: user,
+    numberOfEmployee: numberOfEmployee,
+    numberOfCustomers: numberOfCustomers,
+    newProducts: newProducts,
+    outOfStockProducts: outOfStockProducts    
+});
 }
 
 exports.manageEmployee = (req, res)=>{

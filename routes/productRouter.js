@@ -19,7 +19,7 @@ router.get('/add-product', async function (req, res, next){
 });
 
 // sales manager dashboard
-router.get('/sales-manager-dashboard', ProductController.salesManagerDashboard);
+router.get('/sales-manager-dashboard/', ProductController.salesManagerDashboard);
 
 //sales manager logout
 router.post('/sales-manager/logout', ProductController.salesManagerLogout);

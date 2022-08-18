@@ -743,18 +743,33 @@ $('#editProductModal').on('show.bs.modal', function (event) {
     success: function (data) {
       console.log(data);
       if (data.status) {
+        console.log(data.product.tags); 
         $('#product_name_edit').val(data.product.name);
-        $('#product_price_edit').val(data.product.price);
+        $('#product_price_edit').val(parseFloat(data.product.price.$numberDecimal));
         $('#product_quantity_edit').val(data.product.quantity);
         $('#product_description_edit').val(data.product.description);
 
         $('#product_category_edit').append(`<option value="${data.product._id}" selected>
                                        ${data.product.category.category} - ${data.product.category.subCategory}
                                   </option>`);
+        
+        data.product.attributes.forEach(element=>{
+          $('#product_attribute_list_edit').append(`<option value="${element._id}" selected>
+                                       ${element.attributeName} - ${element.value}
+                                  </option>`);
+        });
 
-        // $('#product_category_edit').val(data.product.category.category + "-" +data.product.category.subCategory);
-        $('#product_name_edit').val(data.product.name);
-        $('#product_name_edit').val(data.product.name);
+        data.product.productAttibute.forEach(element=>{
+          $('#product_attribute_list_edit').append(`<option value="${element._id}" selected>
+                                       ${element.attributeName} - ${element.value}
+                                  </option>`)
+        });
+        var tags_arr = [];
+        for (let index = 0; index < data.product.tags.length; index++) {
+          var element = {"value": data.product.tags[index]}
+          tags_arr.push(element);
+        }
+        $('#tags_input_edit').val("one");
         $('#product_name_edit').val(data.product.name);
       } else {
         

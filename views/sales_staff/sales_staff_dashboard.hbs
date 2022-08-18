@@ -1,4 +1,4 @@
-    <form id="payment-form">
+    {{!-- <form id="payment-form">
       <div id="payment-element">
         <!--Stripe.js injects the Payment Element-->
       </div>
@@ -7,4 +7,66 @@
         <span id="button-text">Pay now</span>
       </button>
       <div id="payment-message" class="hidden"></div>
-    </form>
+    </form> --}}
+
+    <div class="row mt-3">
+
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-dollar-sign"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Active Orders</span>
+                <span class="info-box-number">{{activeOrderCount}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Delivered Orders</span>
+                <span class="info-box-number">{{deliveredOrderCount}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fa fa-cart-plus" aria-hidden="true"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Delayed Order</span>
+                <span class="info-box-number">{{delayedOrderCount}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+
+          
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Canceled Order</span>
+                <span class="info-box-number">{{canceledOrderCount}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>

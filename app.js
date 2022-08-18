@@ -74,6 +74,13 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(function(req,res,next){
+  // req.locals.currentUser = req.user;
+  console.log("Consoooooooooooooooooole",req.user);
+  res.locals.currentUser= req.user;
+  next()
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productRouter);
@@ -82,9 +89,11 @@ app.use('/system-admin', systemAdminRouter);
 app.use('/sales-staff', salesStaffRouter);
 
 
+
 app.get('/login', function(req, res){
 res.render('auth/login', {layout:'layout'});
 });
+
 
 app.get('/dashboard', connectEnsureLogin.ensureLoggedIn(), function(req, res){
 res.render('layouts/layout');
@@ -97,8 +106,9 @@ app.post('/login', passport.authenticate('local', { /*successReturnToOrRedirect:
     const role = req.user.role;
     switch (role) {
       case 'system_admin':
-        next()
-        res.redirect('/system-admin/system-admin-dashboard')
+        
+        res.redirect('/system-admin/system-admin-dashboard');
+        
         break;
 
       case 'sales_manager':

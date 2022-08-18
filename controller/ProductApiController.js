@@ -140,14 +140,31 @@ var filterdTagFinal = [];
  }
 
  exports.searchProducts = async(req, res)=>{
-
+  
   var searchString = req.body.searchString.toString();
-  var searchResult = await Product.find({
-                                         tags: {$regex: searchString, $options: '^i'}}).select('_id').select('name').select('tags').select('images');
-  console.log(searchResult);
-  res.json({
-    message: "found results",
-    searchResult: searchResult,
-    resultFoundInNumber: searchResult.length
+  const options = {
+    page: 1,
+    limit: 10,
+    select: ['_id', 'name', 'tags', 'images'],
+    // populate: ['category', 'attributes'],
+    collation: {
+      locale: 'en',
+    },
+  };
+
+  Product.paginate({tags: {$regex: searchString, $options: '^i'}}, options, (err, result)=>{
+    console.log(err);
+    res.send(result);
+    
   });
+
+  
+  // var searchResult = await Product.find({
+  //                                        tags: {$regex: searchString, $options: '^i'}}).select('_id').select('name').select('tags').select('images');
+  // console.log(searchResult);
+  // res.json({
+  //   message: "found results",
+  //   searchResult: searchResult,
+  //   resultFoundInNumber: searchResult.length
+  // });
 }

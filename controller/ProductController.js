@@ -4,7 +4,10 @@ var UserData = require('../models/User.js');
 var Product = require('../models/Product');
 var ProductAttribute = require('../models/ProductAttribute');
 var ProductCategory = require('../models/ProductCategory');
-
+const Payment = require('../models/Payment');
+var express = require('express');
+var router = express.Router();
+var session = require('express-session');
 // mongoose.connect('mongodb://localhost:27017/Ecommerce');
 
 // cloud database
@@ -18,9 +21,16 @@ var fs = require('fs');
 const {validationResult} = require('express-validator');
 
 
-exports.salesManagerDashboard = (req, res)=>{
+exports.salesManagerDashboard = async(req, res)=>{
+  // var user = JSON.parse(JSON.stringify(req.user));
+  // console.log();
+  var payment = await Payment.find({}).count();
+  var product = await Product.find({}).count();
+  var newProducts = await Product.find({createdAt: {$gt:new Date(Date.now() - 168*60*60 * 1000)}}).count();
+  var outOfStockProducts = await Product.find({quantity: {$lte: 1}}).count();
 
-  res.render('sales_manager/sales_manager_dashboard', {layout: 'main'});
+  res.render('sales_manager/sales_manager_dashboard', {layout: 'main',
+  payment: payment, product: product, outOfStockProducts: outOfStockProducts, newProducts: newProducts});
 }
 
 exports.salesManagerLogout = (req, res)=>{
@@ -287,11 +297,15 @@ exports.viewProduct = async(req, res)=>{
 exports.fetchProductById = async(req, res)=>{
 
   var product = await Product.findById(req.params.productId).populate('category').populate('attributes');
+  var productCategory = await ProductCategory.find({});
+  var productAttribute = await ProductAttribute.find({});
   console.log(product);
   if (product != null) {
     res.json({
       status: true,
-      product: product
+      product: product,
+      productCategory: productCategory,
+      productAttribute: productAttribute
     });
   }else{
     res.json({
