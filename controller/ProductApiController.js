@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 const ProductCategory = require('../models/ProductCategory');
 const Product = require('../models/Product');
+const ObjectId = require('mongoose').Types.ObjectId;
 // mongoose.connect('mongodb://localhost:27017/Ecommerce');
 mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
   useNewUrlParser: true,
@@ -167,4 +168,29 @@ var filterdTagFinal = [];
   //   searchResult: searchResult,
   //   resultFoundInNumber: searchResult.length
   // });
+}
+
+exports.fetchProductById = async(req, res)=>{
+  var productId = req.params.productId;
+  if (ObjectId.isValid(productId)) {
+     var product = await Product.findById(productId).populate('category').populate('attributes');
+  console.log(product);
+  if (product != null) {
+    res.json({
+      message: "Found product",
+      product: product 
+    });
+  } else {
+    res.json({
+      message: "product not found",
+      product: null
+    });
+  }
+  } else {
+    res.json({
+      message: "Invalid object id provided",
+      product: product
+    })
+  }
+ 
 }

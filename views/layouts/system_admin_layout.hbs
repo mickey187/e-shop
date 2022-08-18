@@ -8,25 +8,25 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
-  <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="../../plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
-  <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
-  <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="/stylesheets/image_uploader.css">
   <link rel="stylesheet" href="/stylesheets/tagify.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"
@@ -365,6 +365,57 @@ $(function() {
 {{!-- <script src="/dist/js/demo.js"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/dist/js/pages/dashboard.js"></script>
+
+<script>
+  $(function () {
+    var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+
+    var areaChartData = {
+      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
+      datasets: [
+        {
+          label               : 'Digital Goods',
+          backgroundColor     : 'rgba(60,141,188,0.9)',
+          borderColor         : 'rgba(60,141,188,0.8)',
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [28, 48, 40, 19, 86, 27, 190, 200]
+        }
+      ]
+    }
+
+    var areaChartOptions = {
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }],
+        yAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }]
+      }
+    }
+
+    // This will get the first returned node in the jQuery collection.
+    new Chart(areaChartCanvas, {
+      type: 'line',
+      data: areaChartData,
+      options: areaChartOptions
+    })
+
+  })
+</script>
 
  <!-- DataTables  & Plugins -->
     <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>

@@ -71,6 +71,7 @@ router.get('/products/fetch-products-by-tags/:tagName', ProductApiController.fet
 
 router.post('/products/search-products', ProductApiController.searchProducts);
 
+router.get('/products/fetch-product-by-id/:productId', ProductApiController.fetchProductById);
 // Orders Api endpoints
 
 router.post('/orders/place-order', OrderApiController.placeOrder);

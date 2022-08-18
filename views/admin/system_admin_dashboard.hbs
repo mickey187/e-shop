@@ -29,10 +29,10 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-people-carry"></i></span>
+              <span class="info-box-icon bg-primary elevation-1"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">New Products</span>
+                <span class="info-box-text">New Users</span>
                 <span class="info-box-number">{{newProducts}}</span>
               </div>
               <!-- /.info-box-content -->
@@ -60,3 +60,33 @@
           </div>
           <!-- /.col -->
         </div>
+
+        <div class="row">
+          <div class="col-12">
+          <!-- Left col -->
+           <!-- AREA CHART -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">User Signup Chart</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart w-100">
+                  <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+   
+        </div>
+        </div>
+        
