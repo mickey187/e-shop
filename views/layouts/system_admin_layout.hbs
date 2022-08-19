@@ -115,13 +115,14 @@
               <img src="/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                   {{#with user}}                   
-                    {{firstName}} {{lastName}}
-                   
+                  Mickey Hailu
+                   {{!-- {{#with user}}                   
+                    {{firstName}} {{lastName}} --}}
+
                   <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                 </h3>
-                <p class="text-sm">{{role}}</p>
-                {{/with}}
+                <p class="text-sm">system_admin</p>
+                {{!-- {{/with}} --}}
               </div>
             </div>
             <!-- Message End -->
@@ -195,7 +196,8 @@
           {{!-- <h1>{{user.firstName}}</h1> --}}
           {{#with user}}
           <a href="#" class="d-block">
-            {{firstName}} {{lastName}}
+            {{!-- {{firstName}} {{lastName}} --}}
+            Mickey Hailu
             </a>
           {{/with}}
         </div>
