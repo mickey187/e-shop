@@ -138,32 +138,33 @@
       </div>
 
       <div class="tab-pane" id="add_product_tab" role="tabpanel">
-        <div class="row">
+        <form action="" id="addProductForm">
+          <div class="row">
           <div class="col-6">
             <div class="form-group">
               <label for="product_name">Product Name</label>
               <input type="text" class="form-control" name="product_name" id="product_name" aria-describedby="helpId"
-                placeholder="Product Name">
+                placeholder="Product Name" required>
               {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
             </div>
 
             <div class="form-group">
-              <label for="">Price</label>
+              <label for="product_price">Price</label>
               <input type="number" class="form-control" name="product_price" id="product_price"
-                aria-describedby="helpId" placeholder="Price">
+                aria-describedby="helpId" placeholder="Price" required>
               {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
             </div>
 
             <div class="form-group">
-              <label for="">Quantity</label>
+              <label for="product_quantity">Quantity</label>
               <input type="number" class="form-control" name="product_quantity" id="product_quantity"
-                aria-describedby="helpId" placeholder="Quantity">
+                aria-describedby="helpId" placeholder="Quantity" required>
               {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
             </div>
 
             <div class="form-group">
-              <label for="product_category">Product Category</label>
-              <select class="form-control" name="product_category_list" id="product_category_list">
+              <label for="product_category_list">Product Category</label>
+              <select class="form-control" name="product_category_list" id="product_category_list" required>
 
               </select>
             </div>
@@ -183,21 +184,21 @@
             <div class="form-group">
               <label for="product_attribute_list">Product Attribute</label>
               <select class="select2" name="product_attribute_list" id="product_attribute_list" multiple="multiple"
-                style="width: 100%" data-placeholder="Select Class" name="select_classes[]">
+                style="width: 100%" data-placeholder="Select Class" name="select_classes[]" required>
 
               </select>
             </div>
 
             <div class="form-group">
-              <label for="">Product Tags</label>
+              <label for="tags_input">Product Tags</label>
               <input type="text" class="form-control" name="tags" id="tags_input" aria-describedby="helpId"
-                placeholder="Enter product tags">
+                placeholder="Enter product tags" required>
               {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
             </div>
 
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Product Description</label>
-              <textarea class="form-control" id="product_description" rows="3"></textarea>
+              <label for="product_description">Product Description</label>
+              <textarea class="form-control" id="product_description" rows="3" required></textarea>
             </div>
           </div>
 
@@ -206,12 +207,13 @@
               <label class="upload__btn">
                 <p>Upload images</p>
                 <input type="file" multiple="" name="product_image_upload" id="product_image_upload"
-                  data-max_length="10" class="upload__inputfile">
+                  data-max_length="10" class="upload__inputfile" required>
               </label>
             </div>
             <div class="upload__img-wrap"></div>
           </div>
         </div>
+        </form>
 
         <div class="row justify-content-center">
           <div class="col-6">
@@ -354,41 +356,41 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form>
+      <form id="">
       <div class="modal-body">
         
           <div class="form-group">
             <label for="product_name_edit" class="col-form-label">Product Name:</label>
-            <input type="text" name="product_name_edit" class="form-control" id="product_name_edit">
+            <input type="text" name="product_name_edit" class="form-control" id="product_name_edit" required>
           </div>
           <div class="form-group">
             <label for="product_price_edit" class="col-form-label">Price:</label>
-            <input type="number" name="product_price_edit" class="form-control" id="product_price_edit">
+            <input type="number" name="product_price_edit" class="form-control" id="product_price_edit" required>
           </div>
           <div class="form-group">
             <label for="product_quantity_edit">Qauntity:</label>
-            <input type="number" class="form-control" name="product_quantity_edit" id="product_quantity_edit" aria-describedby="helpId" placeholder="">
+            <input type="number" class="form-control" name="product_quantity_edit" id="product_quantity_edit" aria-describedby="helpId" placeholder="" required>
           </div>
           <div class="form-group">
             <label for="product_description_edit">Product Description:</label>
-            <textarea class="form-control" name="product_description_edit" id="product_description_edit" rows="3"></textarea>
+            <textarea class="form-control" name="product_description_edit" id="product_description_edit" rows="3" required></textarea>
           </div>
           <div class="form-group">
             <label for="product_category_edit">Product Category</label>
-            <select class="form-control" name="product_category_edit" id="product_category_edit">
+            <select class="form-control" name="product_category_edit" id="product_category_edit" required>
               
             </select>
           </div>
           <div class="form-group">
               <label for="product_attribute_list_edit">Product Attribute</label>
               <select class="select2" name="product_attribute_list_edit" id="product_attribute_list_edit" multiple="multiple"
-                style="width: 100%" data-placeholder="Select Class" name="select_attr_classes_edit[]">
+                style="width: 100%" data-placeholder="Select Class" name="select_attr_classes_edit[]" required>
               </select>
             </div>
           <div class="form-group">
               <label for="tags_input_edit">Product Tags</label>
               <input type="text" class="form-control" name="tags" id="tags_input_edit" aria-describedby="helpId"
-                placeholder="Enter product tags">
+                placeholder="Enter product tags" required>
               {{!-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
           </div>
           <div class="form-group">

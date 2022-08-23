@@ -1,5 +1,6 @@
 $('#addEmployeeBtn').click(function (e) { 
-    e.preventDefault();
+
+if ($('#addEmployeeForm').valid()) {
     var employeeFirstName = $('#employeeFirstName').val().trim();
     var employeeLastName = $('#employeeLastName').val().trim();
     var employeeUsername = $('#employeeUsername').val().trim();
@@ -36,11 +37,12 @@ $('#addEmployeeBtn').click(function (e) {
                 title: "Error",
                 text: error.responseJSON.message
               });
-              
-              
-            
+
         }
     });
+} else {
+    
+}
     
 });
 

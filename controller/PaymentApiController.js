@@ -4,6 +4,7 @@ const endpointSecret = "whsec_No9XV579f1GkjjgDq2VlQLBf82mOyGAb";
 const {OrderApiController, placeOrderStripe} = require('../controller/OrderApiController');
 const { findOne } = require('../models/Order');
 const ShoppingCart = require('../models/ShoppingCart');
+const Payment = require('../models/Payment');
 
 exports.createPaymentIntent = async(req, res)=>{
     
@@ -196,7 +197,7 @@ async function calculateTotalProductPrice(customerId){
   var totalPrice = 0.00;
   cart.products.forEach(element => {
       // console.log("Price of each product",element);
-      totalPrice = totalPrice + (parseFloat(element.productId.price) * element.quantity);
+      totalPrice = totalPrice + (parseFloat(element.productId.price) * element.quantity).toFixed(2);
   });
   console.log("Total price",totalPrice);
   return totalPrice * 100;

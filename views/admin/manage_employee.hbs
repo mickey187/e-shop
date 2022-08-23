@@ -18,32 +18,34 @@
     <div class="card-body">
         <div class="tab-content text-center">
             <div class="tab-pane active" id="add_employee_tab" role="tabpanel">
+                <form action="" id="addEmployeeForm">
                 <div class="row justify-content-left">
                     <div class="col-6">
-                        <form action="">
+                        
                             <div class="form-group">
                                 <label for="employeeFirstName">First Name</label>
                                 <input type="text" class="form-control" name="employeeFirstName" id="employeeFirstName"
-                                    placeholder="First Name">
+                                    placeholder="First Name" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="employeeLastName">Last Name</label>
                                 <input type="text" class="form-control" name="employeeLastName" id="employeeLastName"
-                                    placeholder="Last Name">
+                                    placeholder="Last Name" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="employeeUsername">Username</label>
                                 <input type="text" class="form-control" name="employeeUsername" id="employeeUsername"
-                                    placeholder="Username">
+                                    placeholder="Username" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="">Email</label>
+                                <label for="employeeEmail">Email</label>
                                 <input type="email" class="form-control" name="employeeEmail" id="employeeEmail"
-                                    placeholder="Email">
+                                    placeholder="Email" required>
                             </div>
+                            
                     </div>
 
                     <div class="col-6">
@@ -63,9 +65,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Confirm Password</label>
+                            <label for="epmloyeeConfirmPassword">Confirm Password</label>
                             <input type="password" class="form-control" name="epmloyeeConfirmPassword"
-                                id="epmloyeeConfirmPassword" placeholder="Confirm Password">
+                                id="epmloyeeConfirmPassword" placeholder="Confirm Password" required>
                         </div>
                     </div>
                 </div>
@@ -74,6 +76,7 @@
                             <button type="button" class="btn btn-primary btn-block" id="addEmployeeBtn">Add Employee</button>
                         </div>
                     </div>
+                </form>
             </div>
 
             <div class="tab-pane" id="view_employee_tab" role="tabpanel">
