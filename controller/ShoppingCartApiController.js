@@ -29,10 +29,10 @@ exports.addToCart = async(req, res)=>{
                         }
                     );
 
-                    var subTotal = 0.00;
+                    var subTotal = 0;
                     updatedCart.products.forEach(element => {
 
-                        subTotal = subTotal + (parseFloat(element.productId.price) * element.quantity);
+                        subTotal = subTotal + Math.round((parseInt(element.productId.price) * element.quantity));
                     });
     
                     res.json({
@@ -71,9 +71,9 @@ exports.addToCart = async(req, res)=>{
                         }
                     }
                 );
-                var subTotal = 0.00;
+                var subTotal = 0;
                 cart.products.forEach(element => {
-                    subTotal = subTotal + (parseFloat(element.productId.price) * element.quantity);
+                    subTotal = subTotal + Math.round((parseInt(element.productId.price) * element.quantity));
                 });
                 } else {
                     res.json({
@@ -248,10 +248,10 @@ exports.removeItemFromCart = async(req, res)=>{
 function calculateSubTotal(cart){
 
     console.log(cart);
-    var subTotal = 0.00;
+    var subTotal = 0;
     cart.forEach(element => {
         console.log(element.productId.price);
-        subTotal = subTotal + (parseFloat(element.productId.price) * element.quantity);
+        subTotal = subTotal + Math.round((parseInt(element.productId.price) * element.quantity));
     });
 
     return subTotal;
