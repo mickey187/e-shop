@@ -23,7 +23,7 @@ router.post('/customer/signup', [
     check('password', 'Password is requried')
             .isLength({ min: 8 }).withMessage("password length can not be less than 8 characters")
             .custom((val, { req, loc, path }) => {
-                if (val !== req.body.confirm_password) {
+                if (val !== req.body.confirmPassword) {
                     throw new Error("Passwords don't match");
                 } else {
                     return val;

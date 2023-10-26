@@ -7,6 +7,8 @@ const bodyParser = require('body-parser'); // parser middleware
 const session = require('express-session');  // session middleware
 const passport = require('passport');  // authentication
 const connectEnsureLogin = require('connect-ensure-login'); //authorization
+
+require("./config/database");
 const User = require('./models/User.js');
 
 
@@ -151,6 +153,16 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+process.on('uncaughtException', (error) => {
+  // winstonLogger.error(`Uncaught Exception error occurred: ${error.message}`);
+  // ErrorLogService.logError(error, true, null, null, null);
+});
 
-app.listen(3000, () => console.log("Server started at port 3000"))
+process.on('unhandledRejection', (error) => {
+  // winstonLogger.error(`Unhandled Rejection error occurred: ${error.message}`);
+  // ErrorLogService.logError(error, true, null, null, null);
+});
+
+
+// app.listen(3001, () => console.log("Server started at port 3000"))
 module.exports = app;
