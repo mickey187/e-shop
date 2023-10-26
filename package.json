@@ -3,16 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon app.js",
+    "dev": "nodemon node ./bin/www",
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.3.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "connect-ensure-login": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
+    "dotenv": "^16.3.1",
     "express": "~4.17.0",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
@@ -32,7 +34,7 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^7.1.2",
     "stripe": "^9.16.0",
-    "@faker-js/faker": "^7.3.0"
+    "winston": "^3.11.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

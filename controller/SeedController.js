@@ -14,10 +14,10 @@ const ProductCategory = require('../models/ProductCategory');
 const ProductAttribute = require('../models/ProductAttribute');
 const {faker} = require('@faker-js/faker');
 
-mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
+// mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   });
 
 exports.addUser = (req, res) =>{
     // mongoose.connect('mongodb://localhost:27017/Ecommerce');
