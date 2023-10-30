@@ -1,17 +1,8 @@
 var mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
-// const passportLocalMongoose = require('passport-local-mongoose');
-// mongoose.connect('mongodb://localhost:27017/Ecommerce',{
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// });
 
 const passportLocalMongoose = require('passport-local-mongoose');
-// mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// }).then(() => console.log("MongoDB Connected..."))
-// .catch(err => console.log(err));;
+
 var Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({

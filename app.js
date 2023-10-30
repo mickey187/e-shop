@@ -11,6 +11,10 @@ const connectEnsureLogin = require('connect-ensure-login'); //authorization
 require("./config/database");
 const User = require('./models/User.js');
 
+const winstonLogger = require("./utils/Logger");
+const { extractUserAgent } = require("./utils/ExtractUserAgent");
+const ErrorLogService = require("./services/ErrorLogService");
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -48,15 +52,15 @@ app.use('/storage', express.static('storage'));
 
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// app.use(function(err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+//   // render the error page
+//   res.status(err.status || 500);
+//   res.render('error');
+// });
 
 app.use(session({
   secret: 'r8q,+&1LM3)CD*zAGpx1xm{NeQhc;#',
@@ -154,15 +158,43 @@ app.use(function(req, res, next) {
 });
 
 process.on('uncaughtException', (error) => {
-  // winstonLogger.error(`Uncaught Exception error occurred: ${error.message}`);
-  // ErrorLogService.logError(error, true, null, null, null);
+  winstonLogger.error(`Uncaught Exception error occurred: ${error.message}`);
+  ErrorLogService.logError(error, true, null, null, null);
 });
 
 process.on('unhandledRejection', (error) => {
-  // winstonLogger.error(`Unhandled Rejection error occurred: ${error.message}`);
-  // ErrorLogService.logError(error, true, null, null, null);
+  winstonLogger.error(`Unhandled Rejection error occurred: ${error.message}`);
+  ErrorLogService.logError(error, true, null, null, null);
 });
 
 
-// app.listen(3001, () => console.log("Server started at port 3000"))
+// Error handler
+app.use(function (err, req, res, next) {
+  // Set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
+
+  // Set the response status based on the error status or default to 500
+  res.status(err.status || 500);
+  // Parse the user agent from the request
+
+  const userAgentInfo = extractUserAgent(req);
+  const clientIp = req.ip;
+  const url = req.originalUrl;
+  const isFatal = err.status === 500 ? true : false;
+
+  winstonLogger.error(`An error occurred: ${err.message}`);
+  ErrorLogService.logError(err, isFatal, userAgentInfo, clientIp, url); // Fatal error
+  // Return the error as JSON
+
+  res.json({
+    error: {
+      message: err.message,
+      stack: req.app.get("env") === "development" ? err.stack : undefined,
+    },
+  });
+});
+
+
+
 module.exports = app;

@@ -1,9 +1,5 @@
 var mongoose = require('mongoose');
-// const passportLocalMongoose = require('passport-local-mongoose');
-// mongoose.connect('mongodb://localhost:27017/Ecommerce',{
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// });
+
 const passportLocalMongoose = require('passport-local-mongoose');
 mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
   useNewUrlParser: true,
