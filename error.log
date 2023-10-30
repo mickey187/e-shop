@@ -1,0 +1,11 @@
+2023-10-26T13:53:58.108Z [E-Shop] error: Unhandled Rejection error occurred: querySrv ESERVFAIL _mongodb._tcp.cluster0.w3tho.mongodb.net
+2023-10-26T13:54:08.158Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2023-10-26T13:55:39.257Z [E-Shop] error: An error occurred: Not Found
+2023-10-26T13:57:31.032Z [E-Shop] error: Unhandled Rejection error occurred: queryTxt ESERVFAIL cluster0.w3tho.mongodb.net
+2023-10-26T13:57:41.090Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2023-10-26T13:58:44.962Z [E-Shop] error: An error occurred: Not Found
+2023-10-26T13:58:54.980Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2023-10-26T13:59:25.048Z [E-Shop] error: Unhandled Rejection error occurred: Operation `users.findOne()` buffering timed out after 10000ms
+2023-10-26T13:59:35.061Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2023-10-26T14:09:36.086Z [E-Shop] error: Unhandled Rejection error occurred: User validation failed: role: Path `role` is required.
+2023-10-26T14:11:07.630Z [E-Shop] error: Unhandled Rejection error occurred: A user with the given username is already registered

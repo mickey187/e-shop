@@ -22,6 +22,7 @@
     "generate-unique-id": "^2.0.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
+    "joi": "^17.11.0",
     "jquery-validation": "^1.19.5",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.0",
@@ -34,6 +35,7 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^7.1.2",
     "stripe": "^9.16.0",
+    "useragent": "^2.3.0",
     "winston": "^3.11.0"
   },
   "devDependencies": {

@@ -8,13 +8,7 @@ const Payment = require('../models/Payment');
 var express = require('express');
 var router = express.Router();
 var session = require('express-session');
-// mongoose.connect('mongodb://localhost:27017/Ecommerce');
 
-// cloud database
-// mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// });
 
 var path = require('path');
 var fs = require('fs');
