@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
 
-const passportLocalMongoose = require('passport-local-mongoose');
+// const passportLocalMongoose = require('passport-local-mongoose');
 
 var Schema = mongoose.Schema;
 
