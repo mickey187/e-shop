@@ -1,11 +1,8 @@
 var mongoose = require('mongoose');
 eUnifiedTopology: true
 // });
-const passportLocalMongoose = require('passport-local-mongoose');
-mongoose.connect('mongodb+srv://mickeyhailu:Bdu1011080@cluster0.w3tho.mongodb.net/Ecommerce',{
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+// const passportLocalMongoose = require('passport-local-mongoose');
+
 var Schema = mongoose.Schema;
 
 var ProductAttributeSchema = new Schema({
