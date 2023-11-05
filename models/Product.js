@@ -1,66 +1,85 @@
-var mongoose = require('mongoose');
-const mongoosePaginate = require('mongoose-paginate-v2');
+const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate-v2");
 
 // const passportLocalMongoose = require('passport-local-mongoose');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var ProductSchema = new Schema({
-
+const productSchema = new Schema(
+  {
     name: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
 
     price: {
-        type: mongoose.Types.Decimal128,
-        required: true
+      type: mongoose.Types.Decimal128,
+      required: true,
     },
 
     quantity: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true,
     },
 
     description: {
-        type: String,
-        required: true
-    }, 
-
-    category: {
-        type: Schema.Types.ObjectId,
-        ref: 'ProductCategory'
+      type: String,
+      required: true,
     },
 
-    attributes: [{
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: "ProductCategory",
+    },
+
+    attributes: [
+      {
         type: Schema.Types.ObjectId,
-        ref: 'ProductAttribute'
-    }],
+        ref: "ProductAttribute",
+      },
+    ],
 
     tags: {
-        type: Array,
-        required: false
+      type: Array,
+      required: false,
     },
 
     images: {
-        type: Array,
-        required: false
+      type: Array,
+      required: false,
     },
 
     relatedProducts: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Product'
-        }
-    ]
-},
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Product",
+      },
+    ],
+    isDeleted: { type: Boolean, default: false },
+  },
 
-{timestamps: true}
-
+  { timestamps: true }
 );
 
+productSchema.pre('find', function () {
+  this.where({isDeleted: false});
+});
+
+productSchema.pre('findOne', function () {
+  this.where({isDeleted: false});
+});
+
+productSchema.methods.softDelete = async function () {
+  try {
+    this.isDeleted = true;
+    await this.save();
+    return true; // Soft delete was successful
+  } catch (error) {
+    return false; // Soft delete failed
+  }
+};
+
 // ProductSchema.plugin(passportLocalMongoose);
-ProductSchema.plugin(mongoosePaginate);
-
-module.exports = mongoose.model('Product', ProductSchema);
-
+productSchema.plugin(mongoosePaginate);
+const Product = mongoose.model("Product", productSchema);
+module.exports = Product;

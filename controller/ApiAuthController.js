@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const User = require("../models/User");
 
 const { validationResult } = require("express-validator");
-const { response } = require("express");
 var jwt = require("jsonwebtoken");
 
 exports.customerSignUp = async (req, res) => {
