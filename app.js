@@ -19,9 +19,11 @@ const app = express();
 
 const authRouter = require("./routes/auth");
 const productCategoryRouter = require('./routes/productCategory');
+const productAttibuteRouter = require('./routes/productAttribute.js');
+const productRouter = require('./routes/product.js');
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
-const productRouter = require("./routes/productRouter");
+// const productRouter = require("./routes/productRouter");
 const apiRouter = require("./routes/api");
 const systemAdminRouter = require("./routes/systemAdminRouter");
 const salesStaffRouter = require("./routes/salesStaffRouter");
@@ -50,8 +52,9 @@ app.use(function (req, res, next) {
 app.use("/auth", authRouter);
 // app.use("/", verifyToken, indexRouter);
 app.use("/api/product-category", productCategoryRouter);
+app.use("/api/product-attribute", productAttibuteRouter);
 app.use("/user", userRouter);
-app.use("/products", productRouter);
+app.use("/api/products", productRouter);
 app.use("/api", apiRouter);
 app.use("/system-admin", systemAdminRouter);
 app.use("/sales-staff", salesStaffRouter);

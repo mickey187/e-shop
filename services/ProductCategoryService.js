@@ -46,7 +46,7 @@ const getProductCategoryByIdService = async (productCategoryId) => {
 const updateProductCategoryService = async (productCategory) => {
   try {
     const productCategoryExists = await ProductCategory.findById(
-      productCategory._id
+      productCategory.productCategoryId
     );
     if (productCategoryExists) {
       const isProdutCategoryDuplicate = checkDuplicate(
@@ -55,7 +55,7 @@ const updateProductCategoryService = async (productCategory) => {
       );
       if (!isProdutCategoryDuplicate) {
         const updatedProductCategory = await ProductCategory.findOneAndUpdate(
-          { _id: productCategory._id },
+          { _id: productCategory.productCategoryId },
           { $set: productCategory },
           { new: true }
         );
