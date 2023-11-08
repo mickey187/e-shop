@@ -55,3 +55,27 @@
 2023-11-05T11:14:55.946Z [E-Shop] error: An error occurred: Error deleting product category: Cast to ObjectId failed for value "{ productCategoryId: '65476c30623e490c089a2741' }" (type Object) at path "_id" for model "ProductCategory"
 2023-11-05T11:15:26.365Z [E-Shop] error: An error occurred: Error deleting product category: Cast to ObjectId failed for value "{ _id: { productCategoryId: '65476c30623e490c089a2741' } }" (type Object) at path "_id" for model "ProductCategory"
 2023-11-05T11:18:03.145Z [E-Shop] error: An error occurred: product category with the id 65476c30623e490c089a2741 could not be deleted
+2023-11-05T17:02:35.603Z [E-Shop] error: An error occurred: Not Found
+2023-11-05T17:18:48.470Z [E-Shop] error: An error occurred: Error updating product attribute: ProductCategory is not defined
+2023-11-05T17:27:40.528Z [E-Shop] error: An error occurred: productCategoryId is not defined
+2023-11-05T17:28:13.588Z [E-Shop] error: An error occurred: product attribute with the id undefined could not be deleted
+2023-11-07T08:29:33.855Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2023-11-07T08:29:43.923Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2023-11-07T10:00:54.518Z [E-Shop] error: An error occurred: Not Found
+2023-11-07T10:01:34.520Z [E-Shop] error: An error occurred: Unexpected field
+2023-11-07T10:02:22.969Z [E-Shop] error: An error occurred: Unexpected field
+2023-11-07T10:02:39.734Z [E-Shop] error: An error occurred: Could not create product
+2023-11-07T10:03:57.338Z [E-Shop] error: An error occurred: Could not create product
+2023-11-07T10:05:42.128Z [E-Shop] error: An error occurred: Unexpected field
+2023-11-07T10:08:42.055Z [E-Shop] error: An error occurred: Unexpected field
+2023-11-07T10:09:18.699Z [E-Shop] error: An error occurred: Unexpected field
+2023-11-07T10:09:38.034Z [E-Shop] error: An error occurred: Unexpected field
+2023-11-07T12:06:41.070Z [E-Shop] error: An error occurred: Cannot access 'productImages' before initialization
+2023-11-07T12:10:52.892Z [E-Shop] error: An error occurred: Unexpected field
+2023-11-07T12:14:32.906Z [E-Shop] error: An error occurred: Unexpected field
+2023-11-07T12:14:48.707Z [E-Shop] error: An error occurred: Unexpected field
+2023-11-07T12:15:50.610Z [E-Shop] error: An error occurred: Unexpected field
+2023-11-08T12:12:50.570Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2023-11-08T12:13:00.649Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2023-11-08T12:44:56.160Z [E-Shop] error: An error occurred: product with the id 654a0d13a877ac0da60b7a27 could not be deleted
+2023-11-08T13:44:25.527Z [E-Shop] error: An error occurred: could not update product

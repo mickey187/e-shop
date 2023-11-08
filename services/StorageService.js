@@ -75,6 +75,10 @@ const storeFilesToLocalStorage = async (destinationFolder, fileArray) => {
   const fileStoragePathsArray = []; // Array to store file paths
 
   try {
+    if (!(await fs.access(destinationFolder).catch(() => false))) {
+      // If the directory doesn't exist, create it
+      await fs.mkdir(destinationFolder, { recursive: true });
+    }
     // Use Promise.all to await all file writing operations
     await Promise.all(
       fileArray.map(async (element) => {
@@ -85,7 +89,7 @@ const storeFilesToLocalStorage = async (destinationFolder, fileArray) => {
 
         await fs.writeFile(fileDestinationPath, element.buffer);
 
-        fileStoragePathsArray.push({ wav: fileDestinationPath });
+        fileStoragePathsArray.push(fileDestinationPath);
         console.log(
           `${element.originalname} saved to storage: `,
           element.originalname
