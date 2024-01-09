@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate-v2");
-
-// const passportLocalMongoose = require('passport-local-mongoose');
+const {
+  validateAndReferenceCheck,
+} = require("../utils/ValidateModelReference");
 
 const Schema = mongoose.Schema;
 
@@ -13,7 +14,7 @@ const productSchema = new Schema(
     },
 
     price: {
-      type: mongoose.Types.Decimal128,
+      type: Number,
       required: true,
     },
 
@@ -30,12 +31,14 @@ const productSchema = new Schema(
     category: {
       type: Schema.Types.ObjectId,
       ref: "ProductCategory",
+      required: true,
     },
 
     attributes: [
       {
         type: Schema.Types.ObjectId,
         ref: "ProductAttribute",
+        required: true,
       },
     ],
 
@@ -61,12 +64,42 @@ const productSchema = new Schema(
   { timestamps: true }
 );
 
-productSchema.pre('find', function () {
-  this.where({isDeleted: false});
+productSchema.pre("save", async function (next) {
+  try {
+    // Check references and required fields for each field separately
+
+    await validateAndReferenceCheck(
+      mongoose.model("ProductCategory"),
+      {
+        category: this.category,
+      },
+      ["category"],
+      ["category"]
+    );
+
+    await validateAndReferenceCheck(
+      mongoose.model("ProductAttribute"),
+      {
+        attributes: this.attributes,
+      },
+      ["attributes"],
+      ["attributes"]
+    );
+
+
+    next();
+  } catch (error) {
+    console.error(`Error in product model: ${error}`);
+    return next(error);
+  }
 });
 
-productSchema.pre('findOne', function () {
-  this.where({isDeleted: false});
+productSchema.pre("find", function () {
+  this.where({ isDeleted: false });
+});
+
+productSchema.pre("findOne", function () {
+  this.where({ isDeleted: false });
 });
 
 productSchema.methods.softDelete = async function () {

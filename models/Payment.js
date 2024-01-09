@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-// const passportLocalMongoose = require('passport-local-mongoose');
+const {
+  validateAndReferenceCheck,
+} = require("../utils/ValidateModelReference");
 
 const Schema = mongoose.Schema;
 const paymentSchema = new Schema(
@@ -41,6 +43,38 @@ const paymentSchema = new Schema(
 
   { timestamps: true }
 );
+
+
+paymentSchema.pre("save", async function (next) {
+  try {
+      // Check references and required fields for each field separately
+
+      await validateAndReferenceCheck(
+          mongoose.model("User"),
+          {
+            customerId: this.customerId,
+          },
+          ["customerId"],
+          ["customerId"]
+      );
+
+      await validateAndReferenceCheck(
+        mongoose.model("Order"),
+        {
+            orderId: this.orderId,
+        },
+        ["orderId"],
+        ["orderId"]
+    );
+
+  
+
+      next();
+  } catch (error) {
+      return next(error);
+  }
+});
+
 paymentSchema.pre('find', function () {
   this.where({isDeleted: false});
 });

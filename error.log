@@ -79,3 +79,33 @@
 2023-11-08T12:13:00.649Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
 2023-11-08T12:44:56.160Z [E-Shop] error: An error occurred: product with the id 654a0d13a877ac0da60b7a27 could not be deleted
 2023-11-08T13:44:25.527Z [E-Shop] error: An error occurred: could not update product
+2023-11-09T07:48:16.728Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2023-11-09T08:09:57.985Z [E-Shop] error: 'ProductCategory' field is required.
+2023-11-09T08:09:58.002Z [E-Shop] error: An error occurred: Error creating product: 'ProductCategory' field is required.
+2023-11-09T08:11:52.015Z [E-Shop] error: 'ProductCategory' field is required.
+2023-11-09T08:11:52.021Z [E-Shop] error: An error occurred: Error creating product: 'ProductCategory' field is required.
+2023-11-09T08:13:41.697Z [E-Shop] error: 'ProductCategory' field is required.
+2023-11-09T08:13:41.713Z [E-Shop] error: An error occurred: Error creating product: 'ProductCategory' field is required.
+2023-11-09T08:14:44.087Z [E-Shop] error: 'ProductCategory' field is required.
+2023-11-09T08:14:44.106Z [E-Shop] error: An error occurred: Error creating product: 'ProductCategory' field is required.
+2023-11-09T08:16:24.514Z [E-Shop] error: Invalid references in 'category' field.
+2023-11-09T08:16:24.525Z [E-Shop] error: An error occurred: Error creating product: Invalid references in 'category' field.
+2023-11-09T14:21:58.848Z [E-Shop] error: An error occurred: Error adding to item to shopping cart
+2023-11-09T14:26:50.181Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2023-11-09T14:27:33.296Z [E-Shop] error: An error occurred: items is not defined
+2023-11-09T14:28:44.846Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2023-11-09T14:29:15.059Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2023-11-09T14:37:23.219Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2023-11-09T14:37:45.239Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2023-11-09T14:38:17.003Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2023-11-09T14:38:57.295Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2023-11-09T14:41:49.131Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2023-11-09T14:43:17.663Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2023-11-09T14:45:01.392Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-09T07:47:48.780Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-01-09T07:47:58.831Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-01-09T07:53:55.065Z [E-Shop] error: An error occurred: Error Creating Product Category: E11000 duplicate key error collection: e-shop-local.productcategories index: category_1_subCategory_-1 dup key: { category: "Women's Fashion", subCategory: "Clothing" }
+2024-01-09T07:59:18.877Z [E-Shop] error: Invalid references in 'category' field.
+2024-01-09T07:59:18.888Z [E-Shop] error: An error occurred: Error creating product: Invalid references in 'category' field.
+2024-01-09T17:35:17.667Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-01-09T17:35:27.719Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms

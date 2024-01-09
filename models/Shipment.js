@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-// const passportLocalMongoose = require('passport-local-mongoose');
+const {
+  validateAndReferenceCheck,
+} = require("../utils/ValidateModelReference");
 
 const Schema = mongoose.Schema;
 const shipmentSchema = new Schema(
@@ -7,6 +9,7 @@ const shipmentSchema = new Schema(
     orderId: {
       type: Schema.Types.ObjectId,
       ref: "Order",
+      required: true
     },
 
     fromAddress: {
@@ -27,6 +30,26 @@ const shipmentSchema = new Schema(
   },
   { timestamps: true }
 );
+
+
+shipmentSchema.pre("save", async function (next) {
+  try {
+      // Check references and required fields for each field separately
+
+      await validateAndReferenceCheck(
+          mongoose.model("Order"),
+          {
+            orderId: this.orderId,
+          },
+          ["orderId"],
+          ["orderId"]
+      );
+
+      next();
+  } catch (error) {
+      return next(error);
+  }
+});
 
 shipmentSchema.pre('find', function () {
   this.where({isDeleted: false});

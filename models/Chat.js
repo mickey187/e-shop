@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-// const passportLocalMongoose = require('passport-local-mongoose');
+const {
+  validateAndReferenceCheck,
+} = require("../utils/ValidateModelReference");
 
 const Schema = mongoose.Schema;
 const chatSchema = new Schema(
@@ -7,11 +9,13 @@ const chatSchema = new Schema(
     user1: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: true,
     },
 
     user2: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: true,
     },
 
     messages: [
@@ -19,6 +23,7 @@ const chatSchema = new Schema(
         senderId: {
           type: Schema.Types.ObjectId,
           ref: "User",
+          required: true,
         },
 
         message: {
@@ -45,12 +50,42 @@ const chatSchema = new Schema(
   { timestamps: true }
 );
 
-chatSchema.pre('find', function () {
-  this.where({isDeleted: false});
+chatSchema.pre("save", async function (next) {
+  try {
+      // Check references and required fields for each field separately
+
+      await validateAndReferenceCheck(
+          mongoose.model("User"),
+          {
+              user1: this.user1,
+          },
+          ["user1"],
+          ["user1"]
+      );
+
+      await validateAndReferenceCheck(
+        mongoose.model("User"),
+        {
+            user2: this.user2,
+        },
+        ["user2"],
+        ["user2"]
+    );
+
+  
+
+      next();
+  } catch (error) {
+      return next(error);
+  }
 });
 
-chatSchema.pre('findOne', function () {
-  this.where({isDeleted: false});
+chatSchema.pre("find", function () {
+  this.where({ isDeleted: false });
+});
+
+chatSchema.pre("findOne", function () {
+  this.where({ isDeleted: false });
 });
 
 chatSchema.methods.softDelete = async function () {
@@ -62,7 +97,6 @@ chatSchema.methods.softDelete = async function () {
     return false; // Soft delete failed
   }
 };
-
 
 const Chat = mongoose.model("Chat", chatSchema);
 module.exports = Chat;

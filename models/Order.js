@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-// const passportLocalMongoose = require('passport-local-mongoose');
+const {
+  validateAndReferenceCheck,
+} = require("../utils/ValidateModelReference");
 
 const Schema = mongoose.Schema;
 const orderSchema = new Schema(
@@ -43,12 +45,30 @@ const orderSchema = new Schema(
   { timestamps: true }
 );
 
-orderSchema.pre('find', function () {
-  this.where({isDeleted: false});
+orderSchema.pre("save", async function (next) {
+  try {
+    // Check references and required fields for each field separately
+
+    await validateAndReferenceCheck(
+      mongoose.model("User"),
+      {
+        customerId: this.customerId,
+      },
+      ["customerId"],
+      ["customerId"]
+    );
+    next();
+  } catch (error) {
+    return next(error);
+  }
 });
 
-orderSchema.pre('findOne', function () {
-  this.where({isDeleted: false});
+orderSchema.pre("find", function () {
+  this.where({ isDeleted: false });
+});
+
+orderSchema.pre("findOne", function () {
+  this.where({ isDeleted: false });
 });
 
 orderSchema.methods.softDelete = async function () {
