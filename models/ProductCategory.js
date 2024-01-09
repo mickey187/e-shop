@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-
-// const passportLocalMongoose = require('passport-local-mongoose');
+const {
+  validateAndReferenceCheck,
+} = require("../utils/ValidateModelReference");
 
 const Schema = mongoose.Schema;
 
@@ -33,14 +34,33 @@ const productCategorySchema = new Schema(
   { timestamps: true }
 );
 
-productCategorySchema.index({ category: 1, subCategory: -1 }, { unique: true });
+productCategorySchema.pre("save", async function (next) {
+  try {
+    // Check references and required fields for each field separately
 
-productCategorySchema.pre('find', function () {
-  this.where({isDeleted: false});
+    await validateAndReferenceCheck(
+      mongoose.model("Product"),
+      {
+        user1: this.user1,
+      },
+      ["product"],
+      []
+    );
+
+    next();
+  } catch (error) {
+    return next(error);
+  }
 });
 
-productCategorySchema.pre('findOne', function () {
-  this.where({isDeleted: false});
+productCategorySchema.index({ category: 1, subCategory: -1 }, { unique: true });
+
+productCategorySchema.pre("find", function () {
+  this.where({ isDeleted: false });
+});
+
+productCategorySchema.pre("findOne", function () {
+  this.where({ isDeleted: false });
 });
 
 // In your schema definition
@@ -53,7 +73,6 @@ productCategorySchema.methods.softDelete = async function () {
     return false; // Soft delete failed
   }
 };
-
 
 // ProductCategorySchema.plugin(passportLocalMongoose);
 const ProductCategory = mongoose.model(

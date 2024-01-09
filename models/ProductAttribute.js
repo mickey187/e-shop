@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-eUnifiedTopology: true;
-// });
-// const passportLocalMongoose = require('passport-local-mongoose');
+const {
+  validateAndReferenceCheck,
+} = require("../utils/ValidateModelReference");
 
 const Schema = mongoose.Schema;
 
@@ -17,7 +17,7 @@ const productAttributeSchema = new Schema(
       required: true,
     },
 
-    Product: [
+    product: [
       {
         type: Schema.Types.ObjectId,
         sparse: true,
@@ -29,12 +29,31 @@ const productAttributeSchema = new Schema(
   { timestamps: true }
 );
 
-productAttributeSchema.pre('find', function () {
-  this.where({isDeleted: false});
+productAttributeSchema.pre("save", async function (next) {
+  try {
+    // Check references and required fields for each field separately
+
+    await validateAndReferenceCheck(
+      mongoose.model("Product"),
+      {
+        product: this.product,
+      },
+      ["product"],
+      []
+    );
+
+    next();
+  } catch (error) {
+    return next(error);
+  }
 });
 
-productAttributeSchema.pre('findOne', function () {
-  this.where({isDeleted: false});
+productAttributeSchema.pre("find", function () {
+  this.where({ isDeleted: false });
+});
+
+productAttributeSchema.pre("findOne", function () {
+  this.where({ isDeleted: false });
 });
 
 productAttributeSchema.methods.softDelete = async function () {

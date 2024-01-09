@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-// const passportLocalMongoose = require('passport-local-mongoose');
+const {
+  validateAndReferenceCheck,
+} = require("../utils/ValidateModelReference");
 
 const Schema = mongoose.Schema;
 
@@ -8,14 +10,17 @@ const productReviewSchema = new Schema(
     productId: {
       type: Schema.Types.ObjectId,
       ref: "Product",
+      required: true
     },
     customerId: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: true
     },
     rating: {
       type: Number,
       enum: [1, 2, 3, 4, 5],
+      required: true
     },
     comment: {
       type: String,
@@ -27,6 +32,36 @@ const productReviewSchema = new Schema(
     timestamps: true,
   }
 );
+
+productReviewSchema.pre("save", async function (next) {
+  try {
+      // Check references and required fields for each field separately
+
+      await validateAndReferenceCheck(
+          mongoose.model("Product"),
+          {
+            productId: this.productId,
+          },
+          ["productId"],
+          []
+      );
+
+      await validateAndReferenceCheck(
+        mongoose.model("User"),
+        {
+          customerId: this.customerId,
+        },
+        ["customerId"],
+        ["customerId"]
+    );
+
+  
+
+      next();
+  } catch (error) {
+      return next(error);
+  }
+});
 
 productReviewSchema.pre('find', function () {
   this.where({isDeleted: false});

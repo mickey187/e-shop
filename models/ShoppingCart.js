@@ -1,52 +1,122 @@
 const mongoose = require("mongoose");
-// const passportLocalMongoose = require('passport-local-mongoose');
+const {
+  validateAndReferenceCheck,
+} = require("../utils/ValidateModelReference");
 
 const Schema = mongoose.Schema;
-const shoppingCartSchema = new Schema(
-  {
-    customerId: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      unique: true,
-    },
-    products: [
-      {
-        _id: false,
-        productId: {
-          type: Schema.Types.ObjectId,
-          ref: "Product",
-          required: true,
-        },
-        quantity: {
-          type: Number,
-          required: true,
-        },
 
-        isDeleted: { type: Boolean, default: false },
-      },
-    ],
+const cartItemSchema = new Schema({
+  product: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product',
+    required: true,
   },
-  { timestamps: true }
-);
-
-
-shoppingCartSchema.pre('find', function () {
-  this.where({isDeleted: false});
+  quantity: {
+    type: Number,
+    default: 1,
+    min: 1,
+  },
 });
 
-shoppingCartSchema.pre('findOne', function () {
-  this.where({isDeleted: false});
+const shoppingCartSchema = new Schema({
+  customerId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    unique: true,
+    required: true,
+  },
+  items: [cartItemSchema],
+  
 });
 
-shoppingCartSchema.methods.softDelete = async function () {
+
+// const shoppingCartSchema = new Schema(
+//   {
+//     customerId: {
+//       type: Schema.Types.ObjectId,
+//       ref: "User",
+//       unique: true,
+//       required: true,
+//     },
+//     products: [
+//       {
+//         _id: false,
+//         productId: {
+//           type: Schema.Types.ObjectId,
+//           ref: "Product",
+//           min: 1,
+//           required: true,
+//         },
+//         quantity: {
+//           type: Number,
+//           required: true,
+//         },
+
+//         isDeleted: { type: Boolean, default: false },
+//       },
+//     ],
+//   },
+//   { timestamps: true }
+// );
+
+
+
+shoppingCartSchema.pre("save", async function (next) {
   try {
-    this.isDeleted = true;
-    await this.save();
-    return true; // Soft delete was successful
+    // Check references and required fields for each field separately
+
+    await validateAndReferenceCheck(
+      mongoose.model("User"),
+      {
+        customerId: this.customerId,
+      },
+      ["customerId"],
+      ["customerId"]
+
+    );
+    next();
   } catch (error) {
-    return false; // Soft delete failed
+    return next(error);
   }
-};
+});
+
+cartItemSchema.pre("save", async function (next) {
+  try {
+    // Check references and required fields for each field separately
+
+    await validateAndReferenceCheck(
+      mongoose.model("Product"),
+      {
+        product: this.product,
+      },
+      ["product"],
+      ["product"]
+    );
+    next();
+  } catch (error) {
+    return next(error);
+  }
+});
+
+
+
+// shoppingCartSchema.pre("find", function () {
+//   this.where({ isDeleted: false });
+// });
+
+// shoppingCartSchema.pre("findOne", function () {
+//   this.where({ isDeleted: false });
+// });
+
+// shoppingCartSchema.methods.softDelete = async function () {
+//   try {
+//     this.isDeleted = true;
+//     await this.save();
+//     return true; // Soft delete was successful
+//   } catch (error) {
+//     return false; // Soft delete failed
+//   }
+// };
 
 // ShoppingCartSchema.plugin(passportLocalMongoose);
 const ShoppingCart = mongoose.model("ShoppingCart", shoppingCartSchema);
