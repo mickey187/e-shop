@@ -6,6 +6,7 @@ const paymentChannelSchema = new Schema({
   channelName: {
     type: String,
     required: true,
+    unique:true
   },
 
   description: {

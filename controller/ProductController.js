@@ -15,6 +15,7 @@ const {
   createProductService,
   getAllProductsService,
   getProductByIdService,
+  getProductsByCategoryService,
   updateProductService,
   deleteProductService,
 } = require("../services/ProductService.js");
@@ -473,6 +474,32 @@ const updateProductDetail = async (req, res) => {
   }
 };
 
+const getProductsByCategory = async(req, res) => {
+  const userAgentInfo = extractUserAgent(req) || null;
+  const clientIp = req.ip || null;
+  const url = req.originalUrl || null;
+  try {
+    const productCategoryId = req.params.productCategoryId;
+    console.log(productCategoryId);
+    const products = await getProductsByCategoryService(productCategoryId);
+    return res.status(200).json({
+      status: "success",
+      statusCode: 200,
+      data: products,
+    });
+
+  } catch (error) {
+    console.log(`An error occurred: ${error}`);
+    winstonLogger.error(`An error occurred: ${error.message}`);
+    await ErrorLogService.logError(error, true, userAgentInfo, clientIp, url);
+    return res.status(500).json({
+      status: "error",
+      statusCode: 500,
+      message: error.message,
+    });
+  }
+}
+
 const deleteProduct = async (req, res) => {
   const userAgentInfo = extractUserAgent(req) || null;
   const clientIp = req.ip || null;
@@ -503,6 +530,7 @@ module.exports = {
   addProduct,
   getAllProducts,
   getProductById,
+  getProductsByCategory,
   updateProductDetail,
   deleteProduct,
 };

@@ -109,3 +109,575 @@
 2024-01-09T07:59:18.888Z [E-Shop] error: An error occurred: Error creating product: Invalid references in 'category' field.
 2024-01-09T17:35:17.667Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
 2024-01-09T17:35:27.719Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-01-15T07:35:02.198Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-01-15T07:35:12.243Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-01-15T07:36:16.911Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:36:44.221Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:43:02.893Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:46:13.933Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:47:24.511Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:47:41.320Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:49:26.092Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:50:31.877Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:51:06.386Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:53:26.987Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:54:21.129Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:55:56.520Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T07:57:48.385Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T08:00:55.568Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T08:02:36.986Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T08:03:37.478Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T08:10:07.556Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T08:16:12.276Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T08:21:56.171Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-01-15T11:55:10.614Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-01-15T11:55:10.617Z [E-Shop] error: Unhandled Rejection error occurred: userAgentInfo is not defined
+2024-01-15T11:55:31.204Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-01-15T11:55:31.207Z [E-Shop] error: Unhandled Rejection error occurred: userAgentInfo is not defined
+2024-01-15T11:58:54.482Z [E-Shop] error: An error occurred: Not Found
+2024-01-15T11:59:13.815Z [E-Shop] error: An error occurred: Not Found
+2024-01-15T12:03:29.174Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-01-15T12:03:29.177Z [E-Shop] error: Unhandled Rejection error occurred: userAgentInfo is not defined
+2024-01-15T12:04:17.962Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-01-15T12:04:17.965Z [E-Shop] error: Unhandled Rejection error occurred: userAgentInfo is not defined
+2024-02-01T11:48:55.720Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-01T11:49:05.761Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-02-01T12:10:41.430Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-13T16:36:41.173Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-13T16:42:43.350Z [E-Shop] error: An error occurred: Not Found
+2024-02-13T16:42:43.733Z [E-Shop] error: An error occurred: Not Found
+2024-02-13T16:47:21.359Z [E-Shop] error: An error occurred: Not Found
+2024-02-14T11:28:50.393Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-14T11:29:00.428Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-02-15T17:26:29.114Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-16T05:30:01.278Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-16T05:30:11.307Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-02-16T06:30:25.704Z [E-Shop] error: An error occurred: Not Found
+2024-02-16T06:32:07.634Z [E-Shop] error: An error occurred: Not Found
+2024-02-16T06:35:17.611Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-16T06:35:27.653Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-02-16T06:36:16.464Z [E-Shop] error: An error occurred: Error getting producs: Operation `products.findOne()` buffering timed out after 10000ms
+2024-02-16T06:40:52.271Z [E-Shop] error: An error occurred: getProductsByCategoryService is not a function
+2024-02-16T07:12:30.893Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:12:42.575Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:13:01.793Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:13:02.765Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:13:04.716Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:13:18.690Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:13:20.721Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:15:39.139Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:16:29.349Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:16:29.494Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:18:23.766Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:18:23.780Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:19:37.678Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:19:37.730Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:20:40.679Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:20:44.385Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:21:01.711Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:21:01.722Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:21:06.691Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:21:39.794Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:21:40.711Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:22:08.682Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:22:08.693Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:22:49.722Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:23:15.716Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:24:43.759Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:24:49.653Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:25:17.683Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:25:17.887Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:27:29.512Z [E-Shop] error: An error occurred: Cast to ObjectId failed for value "null" (type string) at path "category" for model "Product"
+2024-02-16T07:27:40.887Z [E-Shop] error: An error occurred: Cast to ObjectId failed for value "null" (type string) at path "category" for model "Product"
+2024-02-16T07:27:51.157Z [E-Shop] error: An error occurred: Cast to ObjectId failed for value "null" (type string) at path "category" for model "Product"
+2024-02-16T07:29:16.697Z [E-Shop] error: An error occurred: Cast to ObjectId failed for value "null" (type string) at path "category" for model "Product"
+2024-02-16T07:29:45.695Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:29:58.157Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:30:28.243Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:44:44.043Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:44:44.130Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:45:33.812Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:45:33.852Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:47:29.234Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:47:29.514Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:47:47.816Z [E-Shop] error: An error occurred: Class constructor ObjectId cannot be invoked without 'new'
+2024-02-16T07:48:50.155Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:48:59.378Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:49:26.192Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:50:02.758Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:51:34.448Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:53:07.389Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:53:23.295Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:53:45.709Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:54:59.215Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:55:43.108Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T07:56:09.691Z [E-Shop] error: An error occurred: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+2024-02-16T07:56:10.680Z [E-Shop] error: An error occurred: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+2024-02-16T07:56:19.422Z [E-Shop] error: An error occurred: Error getting producs: Cast to ObjectId failed for value "product-category" (type string) at path "_id" for model "Product"
+2024-02-16T18:29:14.205Z [E-Shop] error: An error occurred: Not Found
+2024-02-16T18:29:14.539Z [E-Shop] error: An error occurred: Not Found
+2024-02-16T18:40:46.159Z [E-Shop] error: An error occurred: Not Found
+2024-02-16T18:41:03.115Z [E-Shop] error: An error occurred: Not Found
+2024-02-16T18:41:16.142Z [E-Shop] error: An error occurred: Not Found
+2024-02-16T18:41:45.766Z [E-Shop] error: An error occurred: Not Found
+2024-02-16T18:44:20.995Z [E-Shop] error: An error occurred: Not Found
+2024-02-16T18:44:44.992Z [E-Shop] error: An error occurred: Not Found
+2024-02-16T18:53:06.232Z [E-Shop] error: An error occurred: Not Found
+2024-02-17T11:08:07.401Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-17T11:08:17.435Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-02-17T12:35:16.359Z [E-Shop] error: An error occurred: Not Found
+2024-02-17T12:35:18.338Z [E-Shop] error: An error occurred: Not Found
+2024-02-17T12:35:21.524Z [E-Shop] error: An error occurred: Not Found
+2024-02-17T12:35:23.492Z [E-Shop] error: An error occurred: Not Found
+2024-02-17T12:51:56.530Z [E-Shop] error: An error occurred: Not Found
+2024-02-17T13:05:07.482Z [E-Shop] error: An error occurred: Not Found
+2024-02-18T07:50:08.755Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-18T07:50:18.791Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-02-18T09:24:01.244Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T09:24:34.002Z [E-Shop] error: Invalid references in 'product' field.
+2024-02-18T09:24:34.014Z [E-Shop] error: Invalid references in 'product' field.
+2024-02-18T09:24:34.019Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T09:24:50.567Z [E-Shop] error: Invalid references in 'product' field.
+2024-02-18T09:24:50.571Z [E-Shop] error: Invalid references in 'product' field.
+2024-02-18T09:24:50.575Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T09:25:40.117Z [E-Shop] error: Invalid references in 'product' field.
+2024-02-18T09:25:40.129Z [E-Shop] error: Invalid references in 'product' field.
+2024-02-18T09:25:40.138Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T09:26:33.115Z [E-Shop] error: Invalid references in 'product' field.
+2024-02-18T09:26:33.121Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T09:26:46.536Z [E-Shop] error: Invalid references in 'product' field.
+2024-02-18T09:26:46.547Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T09:28:37.971Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T09:31:27.066Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e8"),\n' +
+  "  name: 'Flower Print High Heels',\n" +
+  '  price: 12500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_2.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T09:31:27.101Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T09:31:35.296Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e8"),\n' +
+  "  name: 'Flower Print High Heels',\n" +
+  '  price: 12500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_2.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T09:31:35.307Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T10:28:40.296Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T10:29:39.757Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T10:30:44.736Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T10:31:23.116Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T10:32:19.897Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e8"),\n' +
+  "  name: 'Flower Print High Heels',\n" +
+  '  price: 12500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_2.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T10:32:19.964Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T10:33:55.461Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e8"),\n' +
+  "  name: 'Flower Print High Heels',\n" +
+  '  price: 12500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_2.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T10:33:55.490Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T10:37:58.539Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T10:38:42.548Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e8"),\n' +
+  "  name: 'Flower Print High Heels',\n" +
+  '  price: 12500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_2.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T10:38:42.592Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T10:40:12.148Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e8"),\n' +
+  "  name: 'Flower Print High Heels',\n" +
+  '  price: 12500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_2.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T10:40:12.298Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T10:43:59.385Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e8"),\n' +
+  "  name: 'Flower Print High Heels',\n" +
+  '  price: 12500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_2.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T10:43:59.445Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T17:37:56.977Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e7"),\n' +
+  "  name: 'High Heels',\n" +
+  '  price: 11500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_3.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T17:37:57.041Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T17:41:40.999Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e7"),\n' +
+  "  name: 'High Heels',\n" +
+  '  price: 11500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_3.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T17:41:41.088Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T17:43:46.827Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e7"),\n' +
+  "  name: 'High Heels',\n" +
+  '  price: 11500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_3.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T17:43:46.854Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T17:58:49.155Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e7"),\n' +
+  "  name: 'High Heels',\n" +
+  '  price: 11500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_3.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T17:58:49.229Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T17:59:48.117Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e7"),\n' +
+  "  name: 'High Heels',\n" +
+  '  price: 11500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_3.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T17:59:48.159Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T18:00:52.806Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e7"),\n' +
+  "  name: 'High Heels',\n" +
+  '  price: 11500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_3.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T18:00:52.856Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T18:02:39.765Z [E-Shop] error: Cast to ObjectId failed for value "{\n' +
+  '  _id: new ObjectId("65d0fd35ff74fd2d05c6d0e7"),\n' +
+  "  name: 'High Heels',\n" +
+  '  price: 11500,\n' +
+  '  quantity: 20,\n' +
+  "  description: 'comfortable shoes',\n" +
+  '  category: new ObjectId("65d0c238ff74fd2d05c6d0ca"),\n' +
+  '  attributes: [ new ObjectId("65d0f6e1ff74fd2d05c6d0de") ],\n' +
+  "  tags: [ 'shoes' ],\n" +
+  '  images: [\n' +
+  "    'https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_3.jpg'\n" +
+  '  ],\n' +
+  '  relatedProducts: [],\n' +
+  '  isDeleted: false\n' +
+  '}" (type string) at path "_id" for model "Product"
+2024-02-18T18:02:39.862Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T18:16:18.285Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T18:17:23.985Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T18:18:25.024Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-02-18T20:07:29.339Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-18T20:07:39.395Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-02-18T20:15:26.916Z [E-Shop] error: An error occurred: Not Found
+2024-02-18T20:17:05.536Z [E-Shop] error: An error occurred: Not Found
+2024-02-18T20:19:40.845Z [E-Shop] error: An error occurred: Not Found
+2024-02-18T20:20:43.108Z [E-Shop] error: An error occurred: Not Found
+2024-02-18T20:23:13.744Z [E-Shop] error: An error occurred: Not Found
+2024-02-18T20:23:26.037Z [E-Shop] error: An error occurred: Not Found
+2024-02-21T10:37:46.896Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-24T09:13:03.964Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-02-24T09:13:13.994Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-03-03T17:33:33.187Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-03-03T18:34:38.585Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-03-03T18:35:25.949Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-03-03T19:15:07.608Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-03-03T19:15:36.339Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-03-03T19:20:16.556Z [E-Shop] error: Invalid references in 'product' field.
+2024-03-03T19:20:16.563Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T08:27:40.010Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-08T08:27:50.051Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-08T08:28:14.190Z [E-Shop] error: An error occurred: Not Found
+2024-06-08T08:28:24.199Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-08T08:28:24.563Z [E-Shop] error: An error occurred: Error getting all product category: Operation `productcategories.find()` buffering timed out after 10000ms
+2024-06-08T08:28:34.577Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-08T08:53:38.871Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-08T08:54:02.425Z [E-Shop] error: An error occurred: Not Found
+2024-06-08T08:59:24.169Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T09:01:09.092Z [E-Shop] error: An error occurred: Not Found
+2024-06-08T09:01:31.159Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T09:01:33.667Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T09:01:37.916Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T09:01:46.782Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:07:31.005Z [E-Shop] error: An error occurred: Not Found
+2024-06-08T17:07:48.349Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:10:11.093Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:10:24.372Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:12:28.109Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:15:36.184Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:15:43.336Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:15:48.494Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:15:54.934Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:17:22.665Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:18:16.803Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:24:45.707Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:34:22.913Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:35:40.709Z [E-Shop] error: An error occurred: Not Found
+2024-06-08T17:35:57.583Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:36:04.392Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:37:39.860Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:41:57.929Z [E-Shop] error: An error occurred: Not Found
+2024-06-08T17:42:08.163Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:42:43.740Z [E-Shop] error: An error occurred: Not Found
+2024-06-08T17:43:02.735Z [E-Shop] error: An error occurred: Not Found
+2024-06-08T17:43:06.237Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:43:34.437Z [E-Shop] error: An error occurred: Not Found
+2024-06-08T17:43:44.914Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-08T17:44:29.652Z [E-Shop] error: An error occurred: Not Found
+2024-06-08T17:45:55.201Z [E-Shop] error: An error occurred: Not Found
+2024-06-09T07:25:00.599Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-09T07:25:10.681Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-09T14:02:39.545Z [E-Shop] error: Invalid references in 'product' field.
+2024-06-09T14:02:39.567Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-09T14:06:29.060Z [E-Shop] error: Invalid references in 'product' field.
+2024-06-09T14:06:29.073Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-09T14:09:35.573Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T14:14:07.240Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T14:15:25.274Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T14:16:26.020Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T14:18:09.143Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T14:58:16.375Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T15:04:43.401Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T15:06:08.650Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T15:07:59.081Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T15:10:57.326Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T15:12:45.862Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T15:13:47.166Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T15:14:47.195Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T15:15:54.877Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T15:17:12.744Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T15:18:10.518Z [E-Shop] error: An error occurred: Error editing item quantity in shopping cart
+2024-06-09T17:09:21.325Z [E-Shop] error: An error occurred: Not Found
+2024-06-09T17:41:07.418Z [E-Shop] error: An error occurred: Not Found
+2024-06-09T17:43:36.662Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T06:40:33.892Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-10T13:43:24.355Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.203Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.223Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.228Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.234Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.236Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.239Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.243Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.393Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.403Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.458Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.464Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.526Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.530Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.571Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.576Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.647Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.651Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.655Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.772Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.783Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.823Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.826Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:07.931Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:08.080Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:24.673Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T13:46:25.204Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:14:34.796Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.237Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.255Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.267Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.280Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.284Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.289Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.437Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.482Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.487Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.490Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.496Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.629Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.649Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.653Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.703Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.706Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.722Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.727Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.732Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.953Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.957Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.963Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.968Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:16.972Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:17.128Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:32.326Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T14:17:33.349Z [E-Shop] error: An error occurred: Not Found
+2024-06-10T16:00:58.736Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-10T16:01:08.834Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-10T16:05:30.036Z [E-Shop] error: An error occurred: Error getting all product category: Operation `productcategories.find()` buffering timed out after 10000ms
+2024-06-10T16:05:40.079Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-11T12:09:41.499Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-11T13:30:47.473Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-11T13:30:57.513Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-12T13:47:38.415Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-12T13:47:48.455Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-12T16:26:45.457Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-12T16:26:55.492Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-13T16:27:51.744Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-13T16:28:01.811Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-14T17:04:05.374Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-14T17:04:15.427Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-14T19:06:43.192Z [E-Shop] error: An error occurred: Not Found
+2024-06-14T19:06:52.940Z [E-Shop] error: An error occurred: Not Found
+2024-06-14T19:07:26.565Z [E-Shop] error: An error occurred: Not Found
+2024-06-14T19:07:42.820Z [E-Shop] error: An error occurred: Not Found
+2024-06-14T19:07:56.803Z [E-Shop] error: An error occurred: Not Found
+2024-06-14T19:08:19.174Z [E-Shop] error: An error occurred: Not Found
+2024-06-14T19:08:26.540Z [E-Shop] error: An error occurred: Not Found
+2024-06-16T09:25:03.799Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-16T09:25:13.846Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-16T11:17:52.731Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-16T11:18:02.780Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-16T18:11:09.091Z [E-Shop] error: An error occurred: err is not defined
+2024-06-16T18:11:18.126Z [E-Shop] error: An error occurred: err is not defined
+2024-06-16T18:11:18.163Z [E-Shop] error: An error occurred: err is not defined
+2024-06-16T18:11:18.267Z [E-Shop] error: An error occurred: err is not defined
+2024-06-16T18:11:22.897Z [E-Shop] error: An error occurred: err is not defined
+2024-06-17T06:51:38.410Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-17T06:51:48.447Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-17T16:04:46.047Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-17T16:04:56.086Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-17T20:11:35.382Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-17T20:11:45.412Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-19T07:34:17.528Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-19T07:34:27.571Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-19T07:52:53.808Z [E-Shop] error: An error occurred: Not Found
+2024-06-19T07:52:53.836Z [E-Shop] error: An error occurred: Not Found
+2024-06-19T07:52:53.891Z [E-Shop] error: An error occurred: Not Found
+2024-06-19T07:52:58.812Z [E-Shop] error: An error occurred: Not Found
+2024-06-19T07:54:38.584Z [E-Shop] error: An error occurred: Not Found
+2024-06-19T07:54:39.069Z [E-Shop] error: An error occurred: Not Found
+2024-06-19T07:55:00.971Z [E-Shop] error: An error occurred: Not Found
+2024-06-19T07:55:01.006Z [E-Shop] error: An error occurred: Not Found
+2024-06-19T07:55:01.118Z [E-Shop] error: An error occurred: Not Found
+2024-06-19T07:55:03.264Z [E-Shop] error: An error occurred: Not Found
+2024-06-19T08:38:15.956Z [E-Shop] error: An error occurred: extractUserAgent is not defined
+2024-06-19T08:38:15.960Z [E-Shop] error: Unhandled Rejection error occurred: ErrorLogService is not defined
+2024-06-19T08:41:50.595Z [E-Shop] error: An error occurred: extractUserAgent is not defined
+2024-06-19T08:41:50.600Z [E-Shop] error: Unhandled Rejection error occurred: userAgentInfo is not defined
+2024-06-19T08:46:55.317Z [E-Shop] error: An error occurred: extractUserAgent is not defined
+2024-06-19T08:46:55.321Z [E-Shop] error: Unhandled Rejection error occurred: userAgentInfo is not defined
+2024-06-19T09:10:04.894Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-19T12:35:09.379Z [E-Shop] error: An error occurred: E11000 duplicate key error collection: e-shop-local.paymentchannels index: channelName_1 dup key: { channelName: "Stripe" }
+2024-06-19T12:36:03.953Z [E-Shop] error: Invalid references in 'customerId' field.
+2024-06-20T15:26:09.792Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-20T15:26:19.835Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-21T16:58:25.365Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-21T16:58:35.410Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms

@@ -1,3 +1,4 @@
+const { mongoose } = require("mongoose");
 const Product = require("../models/Product");
 
 const createProductService = async (productData) => {
@@ -29,6 +30,16 @@ const getProductByIdService = async (productId) => {
     throw new Error(`Error getting producs: ${error.message}`);
   }
 };
+
+const getProductsByCategoryService = async(productCategoryId) => {
+  try {
+    const id = new mongoose.Types.ObjectId(productCategoryId.toString())
+    const products = await Product.find({category: id}).populate("category attributes");
+    return products;
+  } catch (error) {
+    throw error;
+  }
+}
 
 const updateProductService = async (product) => {
   try {
@@ -62,10 +73,13 @@ const deleteProductService = async (productId) => {
   }
 };
 
+
+
 module.exports = {
   createProductService,
   getAllProductsService,
   getProductByIdService,
+  getProductsByCategoryService,
   updateProductService,
   deleteProductService,
 };

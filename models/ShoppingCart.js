@@ -30,34 +30,6 @@ const shoppingCartSchema = new Schema({
 });
 
 
-// const shoppingCartSchema = new Schema(
-//   {
-//     customerId: {
-//       type: Schema.Types.ObjectId,
-//       ref: "User",
-//       unique: true,
-//       required: true,
-//     },
-//     products: [
-//       {
-//         _id: false,
-//         productId: {
-//           type: Schema.Types.ObjectId,
-//           ref: "Product",
-//           min: 1,
-//           required: true,
-//         },
-//         quantity: {
-//           type: Number,
-//           required: true,
-//         },
-
-//         isDeleted: { type: Boolean, default: false },
-//       },
-//     ],
-//   },
-//   { timestamps: true }
-// );
 
 
 

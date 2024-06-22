@@ -1,0 +1,68 @@
+[
+    {
+        "name": "High Heels",
+        "price": 11500,
+        "quantity": 20,
+        "description": "comfortable shoes",
+        "category": {
+            "$oid": "65d0c238ff74fd2d05c6d0ca"
+        },
+        "attributes": [
+            {
+                "$oid": "65d0f6e1ff74fd2d05c6d0de"
+            }
+        ],
+        "tags": [
+            "shoes"
+        ],
+        "images": [
+            "https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_3.jpg"
+        ],
+        "relatedProducts": [],
+        "isDeleted": false
+    },
+    {
+        "name": "Flower Print High Heels",
+        "price": 12500,
+        "quantity": 20,
+        "description": "comfortable shoes",
+        "category":  {
+            "$oid": "65d0c238ff74fd2d05c6d0ca"
+        },
+        "attributes": [
+            {
+                "$oid": "65d0f6e1ff74fd2d05c6d0de"
+            }
+        ],
+        "tags": [
+            "shoes"
+        ],
+        "images": [
+            "https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/4f46f51e-794a-41ae-9b73-a3e31f46e395/Default_generate_a_Womens_Fashion_sub_Category_shoes_image_for_2.jpg"
+        ],
+        "relatedProducts": [],
+        "isDeleted": false
+    },
+    {
+        "name": "Gucci High Heels",
+        "price": 13500,
+        "quantity": 20,
+        "description": "comfortable shoes",
+        "category":  {
+            "$oid": "65d0c238ff74fd2d05c6d0ca"
+        },
+        "attributes": [
+            {
+                "$oid": "65d0f6e1ff74fd2d05c6d0de"
+            }
+        ],
+        "tags": [
+            "shoes"
+        ],
+        "images": [
+            "https://cdn.leonardo.ai/users/fc392881-33e7-4c53-ad14-b4cf11a123e4/generations/7a894230-af6b-4806-a95a-71a63d0b549f/Default_generate_a_set_ofWomens_gucci_high_heels_shoes_image_f_0.jpg"
+        ],
+        "relatedProducts": [],
+        "isDeleted": false
+    }
+]

@@ -12,14 +12,15 @@ const paymentSchema = new Schema(
       required: true,
     },
 
-    orderId: {
-      type: Schema.Types.ObjectId,
-      ref: "Order",
-      required: true,
-    },
+    // orderId: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "Order",
+    //   required: true,
+    // },
 
     paymentChannel: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: "PaymentChannel",
       required: true,
     },
 
@@ -30,7 +31,7 @@ const paymentSchema = new Schema(
     },
 
     totalAmountPaid: {
-      type: mongoose.Types.Decimal128,
+      type: Number,
       required: true,
     },
 
@@ -58,14 +59,14 @@ paymentSchema.pre("save", async function (next) {
           ["customerId"]
       );
 
-      await validateAndReferenceCheck(
-        mongoose.model("Order"),
-        {
-            orderId: this.orderId,
-        },
-        ["orderId"],
-        ["orderId"]
-    );
+    //   await validateAndReferenceCheck(
+    //     mongoose.model("Order"),
+    //     {
+    //         orderId: this.orderId,
+    //     },
+    //     ["orderId"],
+    //     ["orderId"]
+    // );
 
   
 

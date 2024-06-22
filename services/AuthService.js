@@ -51,7 +51,7 @@ const authenticateUser = async (email, password) => {
     const token = generateToken(user);
 
     // Return the token to the client
-    return token;
+    return {token:token, user: user};
   } catch (error) {
     console.error("Error logging in:", error)
     throw new Error(`Error logging in :${error.message}`);
