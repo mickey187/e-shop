@@ -9,7 +9,7 @@ const {
 
 const register = async (req, res) => {
   try {
-    console.log("reached", req.body);
+    // console.log("reached", req.body);
     const userData = req.body;
     const newUser = await createUser(userData);
     if (newUser) {
@@ -37,7 +37,7 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const token = await authenticateUser(email, password);
+    const {token, user} = await authenticateUser(email, password);
     if (!token) {
       return res.status(401).json({
         statusCode: 401,
@@ -49,7 +49,10 @@ const login = async (req, res) => {
         statusCode: 200,
         status: "success",
         message: "Login Successful",
-        token: token,
+        data:{
+          token: token,
+          user: user
+        }
       });
     }
   } catch (error) {

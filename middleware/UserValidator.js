@@ -18,6 +18,7 @@ const validateUserRegistration = (req, res, next) => {
 
   const { error } = userSchema.validate(req.body);
   if (error) {
+    console.log(req.body ,error.message);
     return res.status(400).json({
       status: "error",
       statusCode: 400,

@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const {
   validateAndReferenceCheck,
 } = require("../utils/ValidateModelReference");
+const { v4: uuidv4 } = require('uuid');
 
 const Schema = mongoose.Schema;
 const orderSchema = new Schema(
@@ -13,27 +14,30 @@ const orderSchema = new Schema(
     },
     products: [
       {
-        productId: {
-          type: Schema.Types.ObjectId,
+        product: {
+          type: Schema.Types.Mixed,
           ref: "Product",
           required: true,
+          
         },
         quantity: {
           type: Number,
           required: true,
+          min: [1, 'Quantity must be at least 1']
         },
       },
     ],
     trackingNumber: {
       type: String,
+      default: uuidv4,
       required: true,
       unique: true,
     },
 
     paymentReference: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: "Payment",
       required: true,
-      unique: true,
     },
     orderStatus: {
       type: String,
@@ -44,6 +48,12 @@ const orderSchema = new Schema(
   },
   { timestamps: true }
 );
+
+// Custom validation to ensure products array is not empty
+orderSchema.path('products').validate(function (products) {
+  return products.length > 0;
+}, 'Order must contain at least one product.');
+
 
 orderSchema.pre("save", async function (next) {
   try {
@@ -57,6 +67,8 @@ orderSchema.pre("save", async function (next) {
       ["customerId"],
       ["customerId"]
     );
+
+    
     next();
   } catch (error) {
     return next(error);

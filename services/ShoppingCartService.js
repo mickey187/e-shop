@@ -1,3 +1,4 @@
+const { mongoose } = require("mongoose");
 const User = require("../models/User");
 const ShoppingCart = require("../models/ShoppingCart");
 
@@ -10,7 +11,7 @@ const viewCart = async (customerId) => {
     if (!(await shoppingCartExists(customerId))) {
       throw new Error(`Cart Not Found`);
     }
-    const shoppingCart = await ShoppingCart.findOne({ customerId: customerId });
+    const shoppingCart = await ShoppingCart.findOne({ customerId: customerId }).populate('items.product');
     return shoppingCart;
   } catch (error) {
     console.error(`Error fetching shopping cart: ${error}`);
@@ -19,6 +20,75 @@ const viewCart = async (customerId) => {
 };
 const addToCartService = async (customerId, items) => {
   try {
+    console.log(
+      "....................",
+      new mongoose.Types.ObjectId(items[0].product)
+    );
+    const customer = await customerExists(new mongoose.Types.ObjectId(customerId));
+    console.log("customer", customer);
+
+    if (customer === false) {
+      throw new Error(`User Not Found`);
+    }
+
+    let shoppingCartExists = await ShoppingCart.findOne({
+      customerId: new mongoose.Types.ObjectId(customerId),
+    }).populate("items.product");
+
+    if (!shoppingCartExists) {
+      // If no shopping cart exists, create a new one
+      const newShoppingCart = new ShoppingCart({
+        customerId: new mongoose.Types.ObjectId(customerId),
+        items: items.map((item) => ({
+          product: new mongoose.Types.ObjectId(item.product),
+          quantity: item.quantity,
+        })),
+      });
+
+    await newShoppingCart.save();
+     
+      return newShoppingCart.populate("items.product");
+    } else {
+      const existingShoppingCart = await ShoppingCart.findOne({
+        customerId: new mongoose.Types.ObjectId(customerId),
+      });
+      items.forEach((item) => {
+        const existingItem = existingShoppingCart.items.find(
+          (cartItem) => cartItem.product.toString() === item.product
+        );
+
+        if (existingItem) {
+          existingItem.quantity = item.quantity;
+          
+        } else {
+          existingShoppingCart.items.push({
+            product: new mongoose.Types.ObjectId(item.product),
+            quantity: item.quantity,
+          });
+        }
+      });
+
+      await existingShoppingCart.save();
+      return existingShoppingCart.populate("items.product");
+    }
+  } catch (error) {
+    // console.error(`Error adding item to shopping cart: ${error}`);
+    console.log(error);
+    throw new Error(`Error adding item to shopping cart`);
+  }
+};
+
+const editCartItemQuantityService = async (
+  customerId,
+  productId,
+  newQuantity
+) => {
+  try {
+    console.log("productId", productId);
+    if (newQuantity < 1) {
+      throw new Error(`Quantity must be greater than or equal to 1`);
+    }
+
     const customer = await customerExists(customerId);
     if (customer === false) {
       throw new Error(`User Not Found`);
@@ -26,42 +96,35 @@ const addToCartService = async (customerId, items) => {
 
     let shoppingCart = await ShoppingCart.findOne({ customerId: customerId });
 
+    console.log("shopping cart:---------", shoppingCart.items);
+    console.log("productId ----------------------------", productId);
+
     if (!shoppingCart) {
-      // If no shopping cart exists, create a new one
-      const newShoppingCart = new ShoppingCart({
-        customerId: customerId,
-        items: items.map((item) => ({
-          product: item.product,
-          quantity: item.quantity,
-        })),
-      });
-
-      shoppingCart = await newShoppingCart.save();
-      return shoppingCart;
-    } else {
-      // If a shopping cart exists, update it
-      items.forEach((item) => {
-        const existingItem = shoppingCart.products.find(
-          (cartItem) => cartItem.productId.toString() === item.product
-        );
-        if (existingItem) {
-          existingItem.quantity += item.quantity;
-        } else {
-          shoppingCart.products.push({
-            productId: item.product,
-            quantity: item.quantity,
-          });
-        }
-      });
-
-      shoppingCart = await shoppingCart.save();
-      return shoppingCart;
+      throw new Error(`Shopping Cart Not Found`);
     }
+
+    const existingItem = shoppingCart.items.find(
+     
+      (cartItem) => cartItem.product.toString() === productId.toString()
+    );
+
+    if (!existingItem) {
+      throw new Error(`Item not found in the shopping cart`);
+    }
+
+    // Update the quantity of the existing item
+    existingItem.quantity = newQuantity;
+
+    // Save the updated shopping cart
+    shoppingCart = await shoppingCart.save();
+
+    return shoppingCart.populate("items.product");
   } catch (error) {
-    console.error(`Error adding item to shopping cart: ${error}`);
-    throw new Error(`Error adding item to shopping cart`);
+    console.error(`Error editing item quantity in shopping cart: ${error}`);
+    throw new Error(`Error editing item quantity in shopping cart`);
   }
 };
+
 // const addToCartService = async (customerId, productId, quantity) => {
 //   try {
 //     if (!(await customerExists(customerId))) {
@@ -98,27 +161,28 @@ const removeItemFromCartService = async (customerId, productId) => {
     }
 
     // Find the user's shopping cart
-    const shoppingCart = await ShoppingCart.findOne({ customerId: customerId });
+    const shoppingCart = await ShoppingCart.findOne({ customerId: new mongoose.Types.ObjectId(customerId) });
 
     if (!shoppingCart) {
       console.log("No shopping cart found for the user.");
       return;
     }
+    console.log("shopping cart", shoppingCart);
 
     // Find the index of the item in the cart
-    const itemIndex = shoppingCart.products.findIndex(
-      (item) => item.productId.toString() === productId
+    const itemIndex = shoppingCart.items.findIndex(
+      (item) => item.product.toString() === productId
     );
 
     if (itemIndex !== -1) {
       // Remove the item from the array
-      shoppingCart.products.splice(itemIndex, 1);
+      shoppingCart.items.splice(itemIndex, 1);
 
       // Save the updated shopping cart
       await shoppingCart.save();
 
       console.log("Item removed from the shopping cart successfully.");
-      return shoppingCart;
+      return shoppingCart.populate("items.product");
     } else {
       console.log("Item not found in the shopping cart.");
       throw new Error(`Item not found in the shopping cart.`);
@@ -128,6 +192,8 @@ const removeItemFromCartService = async (customerId, productId) => {
     throw new Error(`Error removing to item to shopping cart`);
   }
 };
+
+
 
 const updateCartItemQuantityService = async (
   customerId,
@@ -172,6 +238,8 @@ const updateCartItemQuantityService = async (
   }
 };
 
+
+
 const calculateCartTotalCostService = async (customerId) => {
   try {
     // Find the user by ID
@@ -207,9 +275,22 @@ const calculateCartTotalCostService = async (customerId) => {
   }
 };
 
+const removeCustomerShoppingCart = async(customerId) => {
+  try {
+    const deleteCart = await ShoppingCart.deleteOne({customerId: customerId});
+    if (deleteCart.deletedCount === 1) {
+      return true;
+    }
+  } catch (error) {
+    throw new Error(`could not remove customer shopping cart: ${customerId}`);
+  }
+}
+
 const customerExists = async (customerId) => {
   try {
     const status = await User.findById(customerId);
+    // console.log("customerId", customerId);
+    // console.log("status", status);
     if (status) {
       return true;
     } else {
@@ -221,7 +302,6 @@ const customerExists = async (customerId) => {
 };
 
 const shoppingCartExists = async (customerId) => {
-  
   try {
     const status = await ShoppingCart.findOne({ customerId: customerId });
     if (status) {
@@ -235,10 +315,12 @@ const shoppingCartExists = async (customerId) => {
 
 module.exports = {
   addToCartService,
+  editCartItemQuantityService,
   removeItemFromCartService,
   updateCartItemQuantityService,
   calculateCartTotalCostService,
   customerExists,
   shoppingCartExists,
-  viewCart
+  viewCart,
+  removeCustomerShoppingCart
 };

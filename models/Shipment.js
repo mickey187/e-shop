@@ -4,23 +4,27 @@ const {
 } = require("../utils/ValidateModelReference");
 
 const Schema = mongoose.Schema;
+
+const addressSchema = new Schema({
+  city: String,
+  country: String,
+  line1: String,
+  line2: String,
+  postalCode: String,
+  state: String,
+  phone: String,
+  name: String,
+});
+
 const shipmentSchema = new Schema(
   {
     orderId: {
       type: Schema.Types.ObjectId,
       ref: "Order",
-      required: true
-    },
-
-    fromAddress: {
-      type: String,
       required: true,
     },
 
-    toAddress: {
-      type: String,
-      required: true,
-    },
+    address: [addressSchema],
 
     shippingMethod: {
       type: String,
@@ -31,32 +35,31 @@ const shipmentSchema = new Schema(
   { timestamps: true }
 );
 
-
 shipmentSchema.pre("save", async function (next) {
   try {
-      // Check references and required fields for each field separately
+    // Check references and required fields for each field separately
 
-      await validateAndReferenceCheck(
-          mongoose.model("Order"),
-          {
-            orderId: this.orderId,
-          },
-          ["orderId"],
-          ["orderId"]
-      );
+    await validateAndReferenceCheck(
+      mongoose.model("Order"),
+      {
+        orderId: this.orderId,
+      },
+      ["orderId"],
+      ["orderId"]
+    );
 
-      next();
+    next();
   } catch (error) {
-      return next(error);
+    return next(error);
   }
 });
 
-shipmentSchema.pre('find', function () {
-  this.where({isDeleted: false});
+shipmentSchema.pre("find", function () {
+  this.where({ isDeleted: false });
 });
 
-shipmentSchema.pre('findOne', function () {
-  this.where({isDeleted: false});
+shipmentSchema.pre("findOne", function () {
+  this.where({ isDeleted: false });
 });
 
 shipmentSchema.methods.softDelete = async function () {
