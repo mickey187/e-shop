@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 const {
   validateAndReferenceCheck,
 } = require("../utils/ValidateModelReference");
@@ -27,12 +28,12 @@ const orderSchema = new Schema(
         },
       },
     ],
-    trackingNumber: {
-      type: String,
-      default: uuidv4,
-      required: true,
-      unique: true,
-    },
+    // trackingNumber: {
+    //   type: String,
+    //   default: uuidv4,
+    //   required: true,
+    //   unique: true,
+    // },
 
     paymentReference: {
       type: Schema.Types.ObjectId,
@@ -92,6 +93,8 @@ orderSchema.methods.softDelete = async function () {
     return false; // Soft delete failed
   }
 };
+
+orderSchema.plugin(AutoIncrement, { inc_field: 'trackingNumber', start_seq: 1000000000 });
 
 const Order = mongoose.model("Order", orderSchema);
 module.exports = Order;

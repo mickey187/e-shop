@@ -1,8 +1,10 @@
-const stripe = require("stripe")(
-  "sk_test_51LQdcMIBU3FsdwlicaqPCz4n3W3gxTbi7PojiQvaG1rAAY9LG5W9f7dmS3nxcvu2uGJpapBNedwel8gK7E1vycrK00R8PeQ7AL"
-);
+// const stripe = require("stripe")(
+//   "sk_test_51LQdcMIBU3FsdwlicaqPCz4n3W3gxTbi7PojiQvaG1rAAY9LG5W9f7dmS3nxcvu2uGJpapBNedwel8gK7E1vycrK00R8PeQ7AL"
+// );
+const stripe = require("stripe")(process.env.STRIPE_API_KEY);
 
-const endpointSecret = "whsec_8333b7d1983014deff8d5a47e1a39b9c19c9425ec050afdd7924709a334c0b37";
+// const endpointSecret = "whsec_8333b7d1983014deff8d5a47e1a39b9c19c9425ec050afdd7924709a334c0b37";
+const endpointSecret = process.env.STRIPE_ENDPOINT_SECRET;
 const { mongoose } = require("mongoose");
 const ShoppingCart = require("../models/ShoppingCart");
 const { findCustomerByIdService } = require("../services/UserService");
@@ -66,6 +68,7 @@ const createPaymentIntent = async (req, res) => {
       },
     });
     res.send({
+      paymentIntent: paymentIntent,
       clientSecret: paymentIntent.client_secret,
     });
   } catch (error) {
