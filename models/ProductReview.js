@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const {
   validateAndReferenceCheck,
 } = require("../utils/ValidateModelReference");
+const { required } = require("joi");
 
 const Schema = mongoose.Schema;
 
@@ -10,17 +11,21 @@ const productReviewSchema = new Schema(
     productId: {
       type: Schema.Types.ObjectId,
       ref: "Product",
-      required: true
+      required: true,
     },
     customerId: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true
+      required: true,
     },
     rating: {
       type: Number,
-      enum: [1, 2, 3, 4, 5],
-      required: true
+      enum: [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5],
+      required: true,
+    },
+    title: {
+      type: String,
+      required: false,
     },
     comment: {
       type: String,
@@ -35,40 +40,38 @@ const productReviewSchema = new Schema(
 
 productReviewSchema.pre("save", async function (next) {
   try {
-      // Check references and required fields for each field separately
+    // Check references and required fields for each field separately
 
-      await validateAndReferenceCheck(
-          mongoose.model("Product"),
-          {
-            productId: this.productId,
-          },
-          ["productId"],
-          []
-      );
-
-      await validateAndReferenceCheck(
-        mongoose.model("User"),
-        {
-          customerId: this.customerId,
-        },
-        ["customerId"],
-        ["customerId"]
+    await validateAndReferenceCheck(
+      mongoose.model("Product"),
+      {
+        productId: this.productId,
+      },
+      ["productId"],
+      []
     );
 
-  
+    await validateAndReferenceCheck(
+      mongoose.model("User"),
+      {
+        customerId: this.customerId,
+      },
+      ["customerId"],
+      ["customerId"]
+    );
 
-      next();
+    next();
   } catch (error) {
-      return next(error);
+    return next(error);
   }
 });
 
-productReviewSchema.pre('find', function () {
-  this.where({isDeleted: false});
+productReviewSchema.pre("find", function () {
+  this.where({ isDeleted: false });
 });
 
-productReviewSchema.pre('findOne', function () {
-  this.where({isDeleted: false});
+productReviewSchema.pre("findOne", function () {
+  this.where({ isDeleted: false });
 });
 
 productReviewSchema.methods.softDelete = async function () {

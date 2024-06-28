@@ -24,6 +24,7 @@ const productAttibuteRouter = require('./routes/productAttribute.js');
 const productRouter = require('./routes/product.js');
 const shoppingCartRouter = require('./routes/cart.js');
 const checkoutRouter = require('./routes/checkout.js');
+const orderRouter = require('./routes/order.js');
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
 // const productRouter = require("./routes/productRouter");
@@ -32,6 +33,7 @@ const systemAdminRouter = require("./routes/systemAdminRouter");
 const salesStaffRouter = require("./routes/salesStaffRouter");
 
 const paymentChannelRouter = require('./routes/paymentChannel.js');
+const productReviewRouter = require('./routes/productReview.js');
 
 const { engine } = require("express-handlebars");
 app.engine("hbs", engine({ extname: ".hbs" }));
@@ -60,7 +62,10 @@ app.use("/auth", authRouter);
 // app.use("/", verifyToken, indexRouter);
 app.use("/api/product-category", productCategoryRouter);
 app.use("/api/product-attribute", productAttibuteRouter);
+app.use("/api/product-review", productReviewRouter);
 app.use("/api/payment-channel", paymentChannelRouter);
+app.use("/api/orders", orderRouter);
+
 app.use("/user", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/shopping-cart", shoppingCartRouter);

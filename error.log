@@ -681,3 +681,72 @@
 2024-06-20T15:26:19.835Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
 2024-06-21T16:58:25.365Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
 2024-06-21T16:58:35.410Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-22T16:24:43.514Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-22T16:57:51.486Z [E-Shop] error: An error occurred: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+2024-06-22T16:58:08.276Z [E-Shop] error: An error occurred: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+2024-06-24T08:26:27.416Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-24T08:26:37.453Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-24T09:35:16.868Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-24T09:35:46.029Z [E-Shop] error: An error occurred: ProductReview validation failed: productId: Path `productId` is required.
+2024-06-24T09:38:10.039Z [E-Shop] error: An error occurred: productId is not defined
+2024-06-24T09:38:29.523Z [E-Shop] error: An error occurred: productId is not defined
+2024-06-24T09:39:36.135Z [E-Shop] error: An error occurred: productId is not defined
+2024-06-24T09:40:45.325Z [E-Shop] error: An error occurred: error creating a review: Cannot read properties of undefined (reading 'ObjectId')
+2024-06-25T08:10:16.358Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-25T08:10:26.383Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-25T12:05:45.398Z [E-Shop] error: An error occurred: ProductReview validation failed: rating: `3.5` is not a valid enum value for path `rating`.
+2024-06-25T12:09:41.596Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-25T12:09:51.638Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-26T07:50:31.982Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-26T07:50:42.027Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-26T08:26:38.486Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:26:38.706Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:26:42.804Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:26:57.915Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:26:58.446Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:27:15.599Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:27:42.992Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:28:21.972Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:28:45.641Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:29:07.935Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:29:20.232Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:29:55.072Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:31:18.891Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:31:22.304Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:33:16.048Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:33:17.503Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:34:01.207Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:34:27.080Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:34:41.307Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:34:43.035Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:34:50.203Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:34:58.140Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:35:55.899Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:35:56.292Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:36:38.428Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:37:38.094Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:37:39.578Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:37:59.758Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:38:46.785Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:38:50.490Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:39:19.816Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:39:20.459Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:39:36.136Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:39:44.881Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:40:00.379Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:40:10.761Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:40:17.579Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-06-26T08:40:40.511Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T08:41:54.143Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T09:52:16.444Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T09:52:17.856Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T09:52:17.859Z [E-Shop] error: An error occurred: Not Found
+2024-06-26T16:16:23.876Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-26T16:16:33.906Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-26T21:02:53.318Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-26T21:03:03.359Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-27T14:02:38.210Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-27T14:02:48.260Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-06-27T15:08:53.747Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-06-27T20:46:08.654Z [E-Shop] error: An error occurred: Not Found
+2024-06-28T16:15:33.021Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
