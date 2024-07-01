@@ -1,14 +1,52 @@
 const jwt = require("jsonwebtoken");
 const { formatToken } = require("../services/AuthService");
-const whitelist = ["/login", "/register", "/public"];
+const { pathToRegexp } = require("path-to-regexp");
+const whitelist = [
+  "/login",
+  "/register",
+  "/public",
+  "/api/product-category",
+  "/api/product-attribute",
+  "/api/products",
+  "/api/products/product-category/:id",
+"/api/product-review/:productId"
+];
+
+const whitelistPatterns = whitelist.map((pattern) => pathToRegexp(pattern));
 
 const secretKey = process.env.JWT_SECRET_KEY;
+
+function getParentRoute(route) {
+  const parts = route.split("/");
+  parts.pop();
+  return parts.join("/");
+}
 
 const verifyToken = (req, res, next) => {
   console.log('req.headers["authorization"]', req.headers["authorization"]);
   const token = req.headers["authorization"];
+  const requestedRoute = req.path;
 
-  if (!token || whitelist.includes(req.path)) {
+  const whitelistedRoutes = [
+    "/api/product-category",
+    "/api/product-attribute",
+    "/api/products",
+    "/api/products/product-category",
+  ];
+
+  console.log("req.path", req.path);
+  // Check if the requested route matches any whitelisted route pattern
+  // Check if the requested route matches any whitelisted route pattern
+  const isWhitelisted = whitelistPatterns.some((pattern) =>
+    pattern.test(requestedRoute)
+  );
+
+  if (isWhitelisted) {
+    console.log("Route is whitelisted. Proceeding.");
+    return next();
+  }
+
+  if (!token) {
     return res
       .status(403)
       .send({ auth: false, message: "A token is required for authentication" });

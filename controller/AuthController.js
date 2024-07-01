@@ -37,7 +37,7 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const {token, user} = await authenticateUser(email, password);
+    const { token, user } = await authenticateUser(email, password);
     if (!token) {
       return res.status(401).json({
         statusCode: 401,
@@ -49,10 +49,10 @@ const login = async (req, res) => {
         statusCode: 200,
         status: "success",
         message: "Login Successful",
-        data:{
+        data: {
           token: token,
-          user: user
-        }
+          user: user,
+        },
       });
     }
   } catch (error) {
@@ -66,8 +66,9 @@ const login = async (req, res) => {
 
 const logout = async (req, res) => {
   try {
+    console.log("req.headers", req.headers["authorization"]);
     const token = req.headers["authorization"];
-
+    console.log("token", token);
     if (!token) {
       return res.status(400).json({
         statusCode: 400,
@@ -76,16 +77,16 @@ const logout = async (req, res) => {
       });
     }
     const statusCode = await invalidateUser(token);
-    if (statusCode === 401) {
-      return res.status(401).json({
-        statusCode: 401,
+    if (statusCode === 200) {
+      return res.status(200).json({
+        statusCode: 200,
         status: "error",
         message: "Token is already invalidated (logged out)",
       });
     } else if (statusCode === 200) {
       return res.json({
         statusCode: 200,
-        status: "error",
+        status: "success",
         message: "Logout successful",
       });
     }

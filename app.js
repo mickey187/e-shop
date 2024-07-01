@@ -59,7 +59,7 @@ app.use(function (req, res, next) {
 
 // link routers to their router
 app.use("/auth", authRouter);
-// app.use("/", verifyToken, indexRouter);
+app.use("/", verifyToken, indexRouter);
 app.use("/api/product-category", productCategoryRouter);
 app.use("/api/product-attribute", productAttibuteRouter);
 app.use("/api/product-review", productReviewRouter);
@@ -70,7 +70,7 @@ app.use("/user", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/shopping-cart", shoppingCartRouter);
 app.use("/api/checkout/", checkoutRouter);
-app.use("/api", apiRouter);
+// app.use("/api", apiRouter);
 app.use("/system-admin", systemAdminRouter);
 app.use("/sales-staff", salesStaffRouter);
 
