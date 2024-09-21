@@ -805,3 +805,11 @@
 2024-06-30T08:19:09.307Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
 2024-07-01T15:19:59.389Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
 2024-07-01T15:20:09.441Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-09-19T08:47:45.936Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-09-19T08:47:55.959Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-09-19T09:19:03.835Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-09-19T09:19:15.967Z [E-Shop] error: An error occurred: Error adding item to shopping cart
+2024-09-21T06:27:17.552Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-09-21T06:27:27.592Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-09-21T06:33:12.712Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-09-21T06:33:22.760Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
