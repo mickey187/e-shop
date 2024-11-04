@@ -813,3 +813,52 @@
 2024-09-21T06:27:27.592Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
 2024-09-21T06:33:12.712Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
 2024-09-21T06:33:22.760Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-02T08:23:21.021Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-11-02T08:23:31.074Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-02T08:27:24.916Z [E-Shop] error: An error occurred: Error getting all product category: Operation `productcategories.find()` buffering timed out after 10000ms
+2024-11-02T08:27:24.964Z [E-Shop] error: An error occurred: Operation `products.find()` buffering timed out after 10000ms
+2024-11-02T08:27:34.932Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-02T08:27:34.997Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-02T08:27:49.926Z [E-Shop] error: An error occurred: Error getting all product category: Operation `productcategories.find()` buffering timed out after 10000ms
+2024-11-02T08:27:49.986Z [E-Shop] error: An error occurred: Operation `products.find()` buffering timed out after 10000ms
+2024-11-02T08:27:59.944Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-02T08:27:59.991Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-03T08:35:37.146Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-11-03T08:35:47.222Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-03T09:17:36.013Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-11-03T09:17:46.050Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-03T09:21:29.699Z [E-Shop] error: An error occurred: Not Found
+2024-11-03T09:22:00.563Z [E-Shop] error: An error occurred: Not Found
+2024-11-03T09:22:22.507Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:24:07.743Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:24:58.491Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:25:14.472Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:26:09.229Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:26:23.498Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:27:25.296Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:28:44.373Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:34:03.129Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:34:34.395Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:35:09.218Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:36:44.866Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:37:41.963Z [E-Shop] error: Unhandled Rejection error occurred: Cannot read properties of undefined (reading 'toString')
+2024-11-03T09:39:01.387Z [E-Shop] error: Unhandled Rejection error occurred: consol is not defined
+2024-11-03T12:10:07.910Z [E-Shop] error: An error occurred: Cannot read properties of undefined (reading 'success')
+2024-11-03T12:12:44.803Z [E-Shop] error: An error occurred: Cannot read properties of undefined (reading 'success')
+2024-11-03T13:54:38.295Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-11-03T13:54:48.450Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-03T14:07:28.154Z [E-Shop] error: An error occurred: Error getting all product category: Operation `productcategories.find()` buffering timed out after 10000ms
+2024-11-03T14:07:28.214Z [E-Shop] error: An error occurred: Operation `products.find()` buffering timed out after 10000ms
+2024-11-03T14:07:38.191Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-03T14:07:38.227Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-03T14:16:29.613Z [E-Shop] error: Operation `productcategories.findOne()` buffering timed out after 10000ms
+2024-11-03T17:39:26.131Z [E-Shop] error: Invalid references in 'product' field.
+2024-11-03T17:39:26.142Z [E-Shop] error: Invalid references in 'product' field.
+2024-11-04T06:53:11.737Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
+2024-11-04T06:53:21.771Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-04T06:53:49.443Z [E-Shop] error: An error occurred: Error getting all product category: Operation `productcategories.find()` buffering timed out after 10000ms
+2024-11-04T06:53:49.687Z [E-Shop] error: An error occurred: Operation `products.find()` buffering timed out after 10000ms
+2024-11-04T06:53:59.464Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-04T06:53:59.722Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
+2024-11-04T06:54:31.878Z [E-Shop] error: An error occurred: Error getting all product category: Operation `productcategories.find()` buffering timed out after 10000ms
+2024-11-04T06:54:31.906Z [E-Shop] error: An error occurred: Operation `products.find()` buffering timed out after 10000ms

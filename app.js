@@ -22,6 +22,7 @@ const authRouter = require("./routes/auth");
 const productCategoryRouter = require('./routes/productCategory');
 const productAttibuteRouter = require('./routes/productAttribute.js');
 const productRouter = require('./routes/product.js');
+const searchRouter = require('./routes/search.js');
 const shoppingCartRouter = require('./routes/cart.js');
 const checkoutRouter = require('./routes/checkout.js');
 const orderRouter = require('./routes/order.js');
@@ -68,6 +69,7 @@ app.use("/api/orders", orderRouter);
 
 app.use("/user", userRouter);
 app.use("/api/products", productRouter);
+app.use("/api/search", searchRouter);
 app.use("/api/shopping-cart", shoppingCartRouter);
 app.use("/api/checkout/", checkoutRouter);
 // app.use("/api", apiRouter);
@@ -86,6 +88,7 @@ process.on("uncaughtException", (error) => {
 });
 
 process.on("unhandledRejection", (error) => {
+  console.log("Unhandled Rejection error occurred:", error);
   winstonLogger.error(`Unhandled Rejection error occurred: ${error.message}`);
   ErrorLogService.logError(error, true, null, null, null);
 });

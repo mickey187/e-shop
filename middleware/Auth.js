@@ -10,6 +10,7 @@ const whitelist = [
   "/api/products",
   "/api/products/product-category/:id",
 "/api/product-review/:productId",
+"/api/search/products",
 // "/api/checkout/stripe/webhook"
 ];
 
@@ -33,6 +34,7 @@ const verifyToken = (req, res, next) => {
     "/api/product-attribute",
     "/api/products",
     "/api/products/product-category",
+   
   ];
 
   console.log("req.path", req.path);
