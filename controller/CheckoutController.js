@@ -106,7 +106,7 @@ const stripeWebhookListener = async(req, res) => {
     return res.send();
 
   } catch (error) {
-    console.error("webhook error: ", error.message);
+    console.error("webhook error: ", error);
     return res.status(500).send(`Webhook Error: ${error.message}`);
     
   }
