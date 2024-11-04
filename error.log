@@ -862,3 +862,4 @@
 2024-11-04T06:53:59.722Z [E-Shop] error: An error occurred: Operation `errorlogs.insertOne()` buffering timed out after 10000ms
 2024-11-04T06:54:31.878Z [E-Shop] error: An error occurred: Error getting all product category: Operation `productcategories.find()` buffering timed out after 10000ms
 2024-11-04T06:54:31.906Z [E-Shop] error: An error occurred: Operation `products.find()` buffering timed out after 10000ms
+2024-11-04T16:17:08.047Z [E-Shop] error: Unhandled Rejection error occurred: connection timed out
