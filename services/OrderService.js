@@ -35,8 +35,8 @@ const createOrderService = async (stripePaymentObj, paymentReferenceId) => {
 const fetchOrderByIdService = async(orderId)=>{
 try {
   const orderIdMongo = new mongoose.Types.ObjectId(orderId);
-  const order = await Order.findById(orderIdMongo).populate("products paymentReference");
-  console.log(order);
+  const order = await Order.findById(orderIdMongo).populate("products.product paymentReference");
+
   return order;
   return
 } catch (error) {
@@ -48,7 +48,7 @@ try {
 const fetchOrdersService = async(customerId)=>{
   try {
     const customerIdMongo = new mongoose.Types.ObjectId(customerId);
-    const orders = await Order.find({customerId: customerIdMongo}).populate("products paymentReference");
+    const orders = await Order.find({customerId: customerIdMongo}).populate("products.product paymentReference");
     return orders;
     
   } catch (error) {
@@ -62,7 +62,7 @@ const fetchOrdersService = async(customerId)=>{
       const payment = await Payment.find({paymentReference: paymentIntentId});
       console.log("payment", payment);
       if(payment){
-        const order = await Order.find({paymentReference:payment[0]._id}).populate("products paymentReference");
+        const order = await Order.find({paymentReference:payment[0]._id}).populate("products.product paymentReference");
         console.log("order", order);
         return order[0]._id;
       }

@@ -11,7 +11,7 @@ const whitelist = [
   "/api/products/product-category/:id",
 "/api/product-review/:productId",
 "/api/search/products",
-// "/api/checkout/stripe/webhook"
+"/api/checkout/stripe/webhook"
 ];
 
 const whitelistPatterns = whitelist.map((pattern) => pathToRegexp(pattern));
